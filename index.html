@@ -1,0 +1,181 @@
+<!DOCTYPE HTML>
+
+
+<?php
+$ParticipantId = $_GET['PROLIFIC_PID'] ;
+$SessionId =  $_GET['SESSION_ID'];
+?>
+
+    <html>
+    <head>
+        <title>Exploitation-Exploration in RTS Scenario QMUL</title>
+        <meta charset="UTF-8" />
+        <meta name="keywords" content="html5,game,rts html5,experiment online,rts web" />
+
+        <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="css/mapStyle.css" />
+        <link rel="stylesheet" href="css/buttonStyle.css" />
+        <link rel="stylesheet" href="css/portraitStyle.css" />
+
+        <link rel="stylesheet" href="Survey/Survey.css" />
+        <link rel="shortcut icon" href="favicon.ico" />
+    </head>
+
+    <body>
+        <div id="GameLoading" class="GameLayer">
+            <div class="LoadingDiv">
+                <div class="LoadingMsg">Loading...</div>
+                <div class="LoadingBlock">
+                    <div class="LoadedBlock"></div>
+                </div>
+            </div>
+        </div>
+        <div id="GameStart" class="GameLayer">
+
+
+            <div class="levelSelectionBg">
+            </div>
+
+        </div>
+
+        <div id="GamePlay" class="GameLayer" race="Terran">
+            <canvas id="backCanvas"></canvas>
+            <canvas id="middleCanvas"></canvas>
+            <canvas id="frontCanvas"></canvas>
+            <canvas id="fogCanvas"></canvas>
+            <div class="panel_Map">
+                <canvas name="mini_map" width="130" height="130"></canvas>
+            </div>
+            <div class="panel_Info">
+                <div class="infoLeft">
+                    <div name="portrait"></div>
+                    <div id="HP_SP">
+                        <span class="_Shield">
+                            <span class="shield"></span>/
+                            <span class="SP"></span>
+                        </span>
+                        <span class="_Health">
+                            <span class="life"></span>/
+                            <span class="HP"></span>
+                        </span>
+                    </div>
+                    <div id="MP">
+                        <span class="_Magic">
+                            <span class="magic"></span>/
+                            <span class="MP"></span>
+                        </span>
+                    </div>
+                </div>
+                <div class="infoRight">
+                    <div class="upgraded">
+                        Upgraded:
+                        <div name="icon"></div>
+                        <div name="icon"></div>
+                        <div name="icon"></div>
+                    </div>
+                </div>
+                <div class="override">
+                    <div class="multiSelection">
+                        <div name="portrait" class="Lurker"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel_Control"></div>
+            <div class="warning_Box"></div>
+            <div class="resource_Box">
+                <div class="mine"></div>
+                <span class="mineNum"></span>
+                <div class="man"></div>
+                <span class="manNum">
+                    <span></span>/
+                    <span></span>
+                </span>
+            </div>
+        </div>
+        </div>
+        </div>
+        <div id="GameWin" class="GameLayer"></div>
+        <div id="GameLose" class="GameLayer"></div>
+
+        <div id="Farewell" class="GameLayer">
+            <div id='textoBye'>
+
+                Dear participant, thank you very much for your participation in this online study If after completion of this study you have
+                any questions or concerns regarding this experiment,
+                <br/> you might contact at all times the test leader by email to:
+                <br/>
+                <br/>
+                <br/>d.o.verdugapalencia@qmul.ac.uk
+                <br/>
+                <button type="button" onclick="Game.finish()">
+                    Click here to complete your participation!</button>
+                <br/> ;
+
+            </div>
+        </div>
+
+
+
+
+
+        <div id="IntroSurvey">
+            <div id="surveyElement"></div>
+            <div id="surveyResult"></div>
+        </div>
+
+        <script src="Utils/jquery.min.js"></script>
+        <script src="https://surveyjs.azureedge.net/1.0.10/survey.jquery.min.js"></script>
+        <script src="Utils/gFrame.js"></script>
+        <script src="Utils/sourceLoader.js"></script>
+        <script src="Characters/Gobj.js"></script>
+        <script src="Characters/Burst.js"></script>
+        <script src="Characters/Animation.js"></script>
+        <script src="Characters/Units.js"></script>
+        <script src="Characters/Building.js"></script>
+        <script src="Characters/Zerg.js"></script>
+        <script src="Characters/Terran.js"></script>
+        <script src="Characters/Protoss.js"></script>
+        <script src="Characters/Neutral.js"></script>
+        <script src="Characters/Bullets.js"></script>
+        <script src="Characters/Button.js"></script>
+        <script src="Characters/Map.js"></script>
+        <script src="GameRule/Multiplayer.js"></script>
+        <script src="GameRule/Mineral.js"></script>
+        <script src="GameRule/Resource.js"></script>
+        <script src="GameRule/Referee.js"></script>
+        <script src="GameRule/Game.js"></script>
+        <script src="GameRule/Levels.js"></script>
+        <script src="GameRule/Cheat.js"></script>
+        <script src="Controller/mouseController.js"></script>
+        <script src="Controller/keyController.js"></script>
+        <script src="GameRule/HeatMap.js"></script>
+
+
+        <script src="Survey/Survey.js"></script>
+
+        <script>
+
+            function getParameterByName(name, url) {
+                if (!url) url = window.location.href;
+                name = name.replace(/[\[\]]/g, "\\$&");
+                var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                    results = regex.exec(url);
+                if (!results) return null;
+                if (!results[2]) return '';
+                return decodeURIComponent(results[2].replace(/\+/g, " "));
+            }
+
+            Game.prolificID = getParameterByName("PROLIFIC_PID");
+            Game.sessionID =getParameterByName("SESSION_ID") ;
+            console.log("PROLIFIC_PID: " + Game.prolificID);
+
+            console.log("SESSION_ID: " +Game.sessionID);
+            
+  
+
+        </script>
+
+
+    </body>
+
+    </html>
