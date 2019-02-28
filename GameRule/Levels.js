@@ -9,7 +9,6 @@ var Levels = [
 			Map.setCurrentMap('Grass');
 			Map.offsetX = 120;
 			Map.offsetY = 50;
-
 			Unit.allUnits = [];
 
 			//Choose side and apply race style
