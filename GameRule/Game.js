@@ -1394,6 +1394,7 @@ var Game = {
 
 												type: "html",
 												name: "finishTutorial",
+												html: " <h3>You finished the tutorial!!!</h3>After the previous practice session, now you are ready to take part in the main session.<br/><br>The main task will last 5 minutes</br>. The game controls are identical to the previous controls in the practice session."
 											}
 										]
 								}
