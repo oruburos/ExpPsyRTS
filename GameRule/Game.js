@@ -18,8 +18,8 @@ var Game = {
 	sessionDuration: 300000,
 	*/
 
-	trainingDuration:  5000,
-	sessionDuration: 24000,
+	trainingDuration:  300000,
+	sessionDuration: 300000,
 
 
 	leaveEarly: false,
@@ -86,12 +86,11 @@ var Game = {
 				minutes = minutes < 10 ? "0" + minutes : minutes;
 				seconds = seconds < 10 ? "0" + seconds : seconds;
 
-				//console.log(" "+ minutes + " :  " + seconds)
 				$('div.warning_Box').html(minutes + ":" + seconds);
 
 				if (--timer < 0) {
-					console.log("me voy a negativos");
-					//timer = 5 * 60;
+					console.log(" Negative timer " + timer);
+
 				//	$('div.warning_Box').hide();
 				}
 			}, 1000);
@@ -166,7 +165,7 @@ var Game = {
 
 		Game.getCondition();
 
-
+		console.log("condition obtained " + Game.conditionExperiment )
 		//Prevent full select
 		$('div.GameLayer').on("selectstart", function (event) {
 			//console.log("select start")
@@ -1363,14 +1362,9 @@ var Game = {
 					survey: Game.surveyData
 				},
 				success: function (data) {
-					//alert("grabado");
 					console.log(" Success. saveReplayIntoDB grabado termno tutorial" + data);
 
-
-					$('#textoBye').innerHTML = 'Dear participant, thank you very much for your participation in this online study If after completion of this study you have any questions or concerns regarding this experiment,<br/>	you might contact at all times the test leader by email to:<br/><br/><br/>d.o.verdugapalencia@qmul.ac.uk<br/><button type="button" onclick="Game.finish()">	Click here to complete your participation!</button><br/>';
-
-
-					//	console.log(" termino tutorial con datos "  )
+				$('#textoBye').innerHTML = 'Dear participant, thank you very much for your participation in this online study If after completion of this study you have any questions or concerns regarding this experiment,<br/>	you might contact at all times the test leader by email to:<br/><br/><br/>d.o.verdugapalencia@qmul.ac.uk<br/><button type="button" onclick="Game.finish()">	Click here to complete your participation!</button><br/>';
 					Game.layerSwitchTo("GameStart");
 
 
@@ -1515,7 +1509,7 @@ var Game = {
 					var survey = new Survey.Model(json);
 
 					survey.onComplete.add(function (result) {
-						console.log("initSdsfsdfreal");
+						console.log("OnCompleteSegundo survey");
 						$('.sv_body.sv_completed_page').hide();
 						//   document.querySelector('#surveyResult').innerHTML = "result: " + JSON.stringify(result.data);
 						$(function () {
@@ -1576,23 +1570,29 @@ var Game = {
 	,
 	getCondition: function () {
 
+		/*
 		$.ajax({
 			type: "POST",
 			url: 'php/getcondition.php',
 			success: function (data) {
 
-				//console.log(data);
+				console.log(data);
 				var obj = jQuery.parseJSON(data);
 
 				//Game.conditionExperiment = (parseInt(obj) % 4) + 1;
-				Game.conditionExperiment = 5; //
+				Game.conditionExperiment = 2; //
 				console.log( "Condition" + Game.conditionExperiment )//hay 5 condiciones
 				//console.log("grabado");
 				Game.createParticipant();
 			}
 		});
 
+		*/
 
+			Game.conditionExperiment = 1; //
+			console.log( "Condition" + Game.conditionExperiment )//hay 5 condiciones
+			Game.createParticipant();
+			//}
 	},
 
 
@@ -1631,10 +1631,10 @@ var Game = {
 
 	finish: function () {
 
-		console.log("Entrando a finish")
+		console.log("Entrando a finish, llamnado ajax ph experimentCompleted")
 		$.ajax({
 			type: "POST",
-			url: 'php/experimentcompleted.php',
+			url: 'php/experimentCompleted.php',
 			data: { id_participant: Game.idParticipant, conditionexp: Game.conditionExperiment },
 			success: function (data2) {
 				//alert("algodon" + data2)
@@ -1643,7 +1643,8 @@ var Game = {
 				console.log("returning to prolific " + Game.idParticipant + " " + Game.conditionExperiment)
 				//alert("aqui mando a completar el estudio, sello la bd y ya" + Game.idParticipant + " " + Game.conditionExperiment );
 				alert("Experiment completed. Going back to prolific")
-				window.location.href ='https://www.prolific.ac/submissions/complete?cc=M252Q4LG';
+				window.location.href ='https://app.prolific.ac/submissions/complete?cc=5XT0ZE8O';//experimento 2
+
 
 
 			},

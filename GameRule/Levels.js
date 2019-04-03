@@ -19,7 +19,7 @@ var Levels = [
 			Map.offsetX = startPoint[Game.team].x;
 			Map.offsetY = startPoint[Game.team].y;
 
-			Map.fogFlag = true;//niebla total
+			Map.fogFlag = false;//niebla total
 
 			Game.showMessage('Gather resources.');
 
@@ -77,6 +77,7 @@ var Levels = [
 			//pellet 7
 			min = new Terran.Mineral({ x: 1000, y: 1000 });
 			randomValue = Math.floor((Math.random() * 10) + 1);
+
 			min.resources = randomValue;
 			min.HP = randomValue;
 			Game.totalResources = Game.totalResources + min.resources;
@@ -156,6 +157,7 @@ var Levels = [
 			//pellet 1
 			min = new Terran.Mineral({ x: 400, y: 150 });
 			randomValue = Math.floor((Math.random() * 10) + 1);
+
 			min.resources = randomValue;
 			min.HP = randomValue;
 			Game.totalResources = min.resources;
@@ -192,6 +194,7 @@ var Levels = [
 			min = new Terran.Mineral({ x: 1700, y: 1000 });
 			randomValue = Math.floor((Math.random() * 10) + 1);
 			min.resources = randomValue;
+			
 			min.HP = randomValue;
 			Game.totalResources = Game.totalResources + min.resources;
 
