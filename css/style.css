@@ -113,18 +113,10 @@ div.GameLayer[status="button"]{
 
 .levelItem p {
     text-align:left;
-    font: bold 24px  Arial;*/
+    font: bold 24px  Arial;
     color: navy;padding-top: 30px;
 }
-/*
-.levelItem input[type="button"] {
-    cursor: pointer;
-    font: bold 18px Verdana, Georgia, Arial;
-    color: navy;
 
-    text-align:center;
-    
-}*/
 
 div#GamePlay div {
     position:absolute;
@@ -134,15 +126,14 @@ div#GamePlay div.panel_Map {
     left:0;
     bottom:0;
     width:145px;
-    height:165px;
+    height:145px;
     background-image: url('../img/Menu/ControlPanel.png');
 }
 div#GamePlay div.panel_Info {
     left:145px;
     bottom:0;
-    height:110px;
+    height:123px;
     background:black none;
-    background-clip:content-box;
 }
 div#GamePlay div.panel_Info div.infoLeft {
     left:10%;
@@ -286,36 +277,27 @@ div#GameLose
 div#GamePlay div.panel_Control {
     right:0;
     bottom:0;
-    width:150px;
-    height:155px;
+    width:185px;
+    height:140px;
     background-image: url('../img/Menu/ControlPanel.png');
 }
 div#GamePlay div.panel_Info {
     border-width:22px 0 0 0;
     border-style:solid;
 }
-div#GamePlay[race="Zerg"] div.panel_Map {
-    background-position: 0 bottom;
-}
+
 div#GamePlay[race="Zerg"] div.panel_Info {
     -webkit-border-image: url('../img/Menu/ControlPanel.png') 22 1265 0 163 repeat;
     -o-border-image: url('../img/Menu/ControlPanel.png') 22 1265 0 163 repeat;
     border-image: url('../img/Menu/ControlPanel.png') 22 1265 0 163 repeat;
 }
-div#GamePlay[race="Zerg"] div.panel_Control {
-    background-position: -400px bottom;
-}
-div#GamePlay[race="Protoss"] div.panel_Map {
-    background-position: -555px bottom;
-}
+
 div#GamePlay[race="Protoss"] div.panel_Info {
     -webkit-border-image: url('../img/Menu/ControlPanel.png') 22 743 0 745 repeat;
     -o-border-image: url('../img/Menu/ControlPanel.png') 22 743 0 745 repeat;
     border-image: url('../img/Menu/ControlPanel.png') 22 743 0 745 repeat;
 }
-div#GamePlay[race="Protoss"] div.panel_Control {
-    background-position: -958px bottom;
-}
+
 div#GamePlay[race="Terran"] div.panel_Map {
     background-position: -1110px bottom;
 }
@@ -409,8 +391,8 @@ div#GamePlay div.resource_Box {
 }
 div#GamePlay div.resource_Box div, div#GamePlay div.tooltip_Box div.cost div{
     position:relative;
-    width:14px;
-    height:14px;
+    width:38px;
+    height:38px;
     background-image:url('../img/Menu/Thingy.png');
    display:inline-block;
 }
@@ -430,7 +412,7 @@ div#GamePlay[race="Zerg"] div.man{
     background-position:-56px 0;
 }
 div#GamePlay[race="Terran"] div.man{
-    background-position:-70px 0;
+    background-position:-42px 0;
 }
 div#GamePlay[race="Protoss"] div.man{
     background-position:-84px 0;

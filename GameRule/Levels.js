@@ -527,7 +527,7 @@ var Levels = [
 			Map.offsetX = startPoint[Game.team].x;
 			Map.offsetY = startPoint[Game.team].y;
 
-			Map.fogFlag = true;//visibilidad partial
+			Map.fogFlag = false;//visibilidad partial
 
 			Game.showMessage('Gather resources.');
 

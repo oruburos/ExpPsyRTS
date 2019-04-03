@@ -757,6 +757,4 @@ Bullets.DevilBall=Bullets.extends({
 });
 
 
-Building.ZergBuilding.SporeColony.prototype.Bullet=Bullets.Spore;
-Building.TerranBuilding.MissileTurret.prototype.Bullet=Bullets.SingleMissile;
-Building.ProtossBuilding.PhotonCannon.prototype.Bullet=Bullets.DragoonBall;
+

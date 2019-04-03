@@ -709,7 +709,6 @@ Protoss.Shuttle=Unit.extends({
         dieEffect:Burst.MiddleBlueExplode,
         isFlying:true,
         unitType:Unit.BIG,
-        recover:Building.ProtossBuilding.prototype.recover,
         cost:{
             mine:200,
             man:2,

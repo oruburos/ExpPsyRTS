@@ -125,7 +125,6 @@ Zerg.Drone=AttackableUnit.extends({
         attackLimit:"ground",
         unitType:Unit.SMALL,
         attackType:AttackableUnit.NORMAL_ATTACK,
-        recover:Building.ZergBuilding.prototype.recover,
         cost:{
             mine:50,
             man:1,

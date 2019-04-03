@@ -191,20 +191,17 @@ var Game = {
 
 		//Building
 		sourceLoader.load("img", Game.CDN + "img/Charas/TerranBuilding.png", "TerranBuilding");
+		sourceLoader.load("img", Game.CDN + "img/Charas/ControlBase.png", "ControlBase");
 		sourceLoader.load("img", Game.CDN + "img/Charas/ProtossBuilding.png", "ProtossBuilding");
-		sourceLoader.load("audio", "bgm/PointError.wav", "PointError");
+
 		//Map
 
 		sourceLoader.load("img", Game.CDN + "img/Maps/Map_Grass.jpg", "Map_Grass");
-		sourceLoader.load("img", Game.CDN + "img/Charas/Mud.png", "Mud");
 		//Extra
-		sourceLoader.load("img", Game.CDN + "img/Charas/Burst.png", "Burst");
 		sourceLoader.load("img", Game.CDN + "img/Charas/BuildingBurst.png", "BuildingBurst");
 		sourceLoader.load("img", Game.CDN + "img/Charas/Portrait.png", "Portrait");
 		sourceLoader.load("img", Game.CDN + "img/Menu/ControlPanel.png", "ControlPanel");
-		//sourceLoader.load("img",Game.CDN+"img/qmul/qmulBackground.png","GameStart");
-		//sourceLoader.load("img",Game.CDN+"img/Bg/GameWin.jpg","GameWin");
-		//sourceLoader.load("img",Game.CDN+"img/Bg/GameLose.jpg","GameLose");
+
 
 		sourceLoader.load("img", Game.CDN + "img/Bg/qmul-logo.png", "GameWin");
 		sourceLoader.load("img", Game.CDN + "img/Bg/qmul-logo.png", "GameLose");
@@ -307,7 +304,7 @@ var Game = {
 	//Do we need this because we only support Zerg vs Terran vs Protoss?
 	expandUnitProps: function () {
 		//Post-operation for all unit types, prepare basic properties for different team numbers, init in level.js
-		_$.traverse([Zerg, Terran, Protoss, Neutral], function (unitType) {
+		_$.traverse([Zerg, Terran, Protoss], function (unitType) {
 			['HP', 'SP', 'MP', 'damage', 'armor', 'speed', 'attackRange', 'attackInterval', 'plasma', 'sight'].forEach(function (prop) {
 				//Prop array, first one for us, second for enemy
 				if (unitType.prototype[prop] != undefined) {
@@ -340,8 +337,6 @@ var Game = {
 				}
 			};
 		});
-		Protoss.Carrier.prototype.interceptorCapacity = Game.getPropArray(Protoss.Carrier.prototype.interceptorCapacity);
-		Protoss.Reaver.prototype.scarabCapacity = Game.getPropArray(Protoss.Reaver.prototype.scarabCapacity);
 		Referee.underArbiterUnits = Game.getPropArray([]);
 		Referee.detectedUnits = Game.getPropArray([]);
 		for (var N = 0; N < Game.playerNum; N++) {
@@ -1589,7 +1584,7 @@ var Game = {
 
 		*/
 
-			Game.conditionExperiment = 1; //
+			Game.conditionExperiment = 5; //
 			console.log( "Condition" + Game.conditionExperiment )//hay 5 condiciones
 			Game.createParticipant();
 			//}
