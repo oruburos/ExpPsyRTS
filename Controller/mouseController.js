@@ -62,12 +62,11 @@ var mouseController = {
             if (selectedOne.isEnemy() || (Game.selectedUnit.isEnemy && Game.selectedUnit.isEnemy()))
                 Game.unselectAll();
             //Only selected one to show portrait
-            Game.changeSelectedTo(selectedOne);
+              Game.changeSelectedTo(selectedOne);
+             selectedOne.sound.selected.play();
             //Add into allSelected if not included
             Game.addIntoAllSelected(selectedOne);
-            /*	if (selectedOne instanceof Human.Civilian){
-                    console.log("terran cv " + selectedOne.id );
-                }*/
+
         }
         else {
             //Click null
@@ -128,7 +127,7 @@ rightClick: function (event, unlock, btn) {
     //console.log("burst en posicion " +pos.x + " - " + pos.y + " chara " + chara.id )
     var charas = Game.allSelected.filter(function (chara) {
         //Can only control our alive unit
-        //	console.log("rightClick2");
+        	console.log("rightClick2");
         return chara.team == Game.team && chara.status != "dead";
     });
     //Handle user right click
@@ -185,10 +184,10 @@ rightClickHandler: function (charas, pos, unlock, btn) {
     /* fin logica para seleccionar minerales*/
     charas.forEach(function (chara) {
         //Sound effect
-       // if (!chara.isEnemy() && chara.sound.moving) {
-            //chara.sound.moving.play();
+        if (!chara.isEnemy() && chara.sound.moving) {
+            chara.sound.moving.play();
 
-      //  }//Interrupt old destination routing
+       }//Interrupt old destination routing
         if (selectedOne.isMineral) {
             //console.log("right click ssasobre mineral")
         }
@@ -228,7 +227,7 @@ rightClickHandler: function (charas, pos, unlock, btn) {
         else {
 
 
-            //console.log("move mode")
+            console.log("move mode")
 
 
             if (selectedOne.isMineral && !chara.cannotMove()) {
@@ -272,16 +271,6 @@ rightClickHandler: function (charas, pos, unlock, btn) {
 
 
             //Record destination
-            if (btn == 'attack') {
-                chara.destination = { x: pos.x, y: pos.y };
-                //console.log("atacar");
-            }
-            if (btn == 'patrol') {
-                //Patrol dead lock
-                // console.log("patrullar");
-                chara.destination = { x: pos.x, y: pos.y };
-                chara.destination.next = { x: chara.posX(), y: chara.posY(), next: chara.destination };
-            }
         }
     });
 },

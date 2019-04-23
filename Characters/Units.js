@@ -638,7 +638,7 @@
 				}
 				//Don't attack same target again unless miss target or tracing target
 				if (this.target==enemy) {
-					console.log("Enemy " + enemy.name);
+					//console.log("Enemy " + enemy.name);
 					if (this.cannotReachTarget()) {
 						if (this.status=='moving') return;//tracing
 					}
@@ -1060,7 +1060,7 @@
 								}else{
 									
 									myself.resources = mineral.resources;
-									console.log("sonido de depletar")
+								//	console.log("sonido de depletar")
 									mineral.die();
 									mineral = {};
 									

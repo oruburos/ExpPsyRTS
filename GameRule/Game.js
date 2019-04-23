@@ -528,55 +528,25 @@ var Game = {
 						Game.selectedUnit.attack ? Game.selectedUnit.inherited.inherited.name : Game.selectedUnit.inherited.name;
 
 			}
-			//Show selected unit HP,SP and MP
-
-			if (!chara.isMineral) {
 
 
+				if (chara.name == "Civilian") {
+                  //  console.log(chara.name)
 
-				//	console.log(" chara id " + chara.id + "life/hp "+chara.life+ "/" + chara.get('HP')  )
+                    //	console.log(" chara id " + chara.id + "life/hp "+chara.life+ "/" + chara.get('HP')  )
 
-				$('div.infoLeft span._Health')[0].style.color = "" + Game.selectedUnit.id + Game.selectedUnit.lifeStatus();
-				$('div.infoLeft span.life')[0].innerHTML = Game.selectedUnit.life >> 0;
-				$('div.infoLeft span.HP')[0].innerHTML = Game.selectedUnit.get('HP');
+                    $('div.infoLeft span._Health')[0].style.color = "" + Game.selectedUnit.id + Game.selectedUnit.lifeStatus();
+                    $('div.infoLeft span.life')[0].innerHTML = Game.selectedUnit.life >> 0;
+                    $('div.infoLeft span.HP')[0].innerHTML = "/ " +Game.selectedUnit.get('HP');
 
 
-				/* if (Game.selectedUnit.attack){
-					
-					$('div.infoCenter p.kill').show();
-					$('div.infoCenter p.damage').show();
+                }else{
+					  //$('div.infoLeft span._Health')[0].style.color =  yellow ;
+
+                    $('div.infoLeft span.life')[0].innerHTML = "";
+                    $('div.infoLeft span.HP')[0].innerHTML = "";
+
 				}
-				else {
-					//Hide kill and damage
-					$('div.infoCenter p.kill').hide();
-					$('div.infoCenter p.damage').hide();
-				}
-				*/
-
-				/*  if (Game.selectedUnit.attack){
-					
-					//Show kill and damage
-					$('div.infoCenter p.kill').show();
-					$('div.infoCenter p.damage').show();
-				}
-				else {
-					//Hide kill and damage
-					$('div.infoCenter p.kill').hide();
-					$('div.infoCenter p.damage').hide();
-				}*/
-			}
-			else {
-				$('div.infoLeft span._Health')[0].style.color = 'yellow';
-				$('div.infoLeft span.life')[0].innerHTML = Game.selectedUnit.resources;
-				$('div.infoLeft span.HP')[0].innerHTML = Game.selectedUnit.get('HP');
-
-
-
-
-			}
-
-
-
 		}
 		else {
 			//Hide info
@@ -588,6 +558,8 @@ var Game = {
 	},
 	changeSelectedTo: function (chara) {
 		Game.selectedUnit = chara;
+
+		//console.log( chara.name )
 		Button.equipButtonsFor(chara);
 		if (chara instanceof Gobj) {
 			chara.selected = true;
@@ -726,36 +698,13 @@ var Game = {
 					cxt.fillRect(chara.x - Map.offsetX, chara.y - Map.offsetY + offsetY, chara.width * lifeRatio, 5);
 					cxt.strokeRect(chara.x - Map.offsetX, chara.y - Map.offsetY + offsetY, chara.width, 5);
 				}
-			} else {
+			}/* else {
 				var lifeRatio = chara.resources / chara.HP;
 				cxt.fillStyle = (lifeRatio > 0.7) ? "blue" : (lifeRatio > 0.3) ? "cyan" : "white";//Distinguish life
 				cxt.fillRect(chara.x - Map.offsetX, chara.y - Map.offsetY + offsetY, chara.width * lifeRatio, 5);
 				cxt.strokeRect(chara.x - Map.offsetX, chara.y - Map.offsetY + offsetY, chara.width, 5);
-			}
-
-
-			/* aqui se llenaban las barritas
-			if (chara.SP) {
-				//Draw HP and SP
-				cxt.fillStyle="blue";
-				cxt.fillRect(chara.x-Map.offsetX,chara.y-Map.offsetY+offsetY,chara.width*chara.shield/chara.get('SP'),5);
-				cxt.strokeRect(chara.x-Map.offsetX,chara.y-Map.offsetY+offsetY,chara.width,5);
-				cxt.fillStyle=(lifeRatio>0.7)?"green":(lifeRatio>0.3)?"yellow":"red";//Distinguish life
-				cxt.fillRect(chara.x-Map.offsetX,chara.y-Map.offsetY+offsetY+5,chara.width*lifeRatio,5);
-				cxt.strokeRect(chara.x-Map.offsetX,chara.y-Map.offsetY+offsetY+5,chara.width,5);
-			}
-			else {
-				//Only draw HP
-				cxt.fillStyle=(lifeRatio>0.7)?"green":(lifeRatio>0.3)?"yellow":"red";//Distinguish life
-				cxt.fillRect(chara.x-Map.offsetX,chara.y-Map.offsetY+offsetY,chara.width*lifeRatio,5);
-				cxt.strokeRect(chara.x-Map.offsetX,chara.y-Map.offsetY+offsetY,chara.width,5);
-			}
-			if (chara.MP) {
-				//Draw MP
-				cxt.fillStyle="darkviolet";
-				cxt.fillRect(chara.x-Map.offsetX,chara.y-Map.offsetY+offsetY+(chara.SP?10:5),chara.width*chara.magic/chara.get('MP'),5);
-				cxt.strokeRect(chara.x-Map.offsetX,chara.y-Map.offsetY+offsetY+(chara.SP?10:5),chara.width,5);
 			}*/
+
 		}
 	},
 	drawEffect: function (chara) {
