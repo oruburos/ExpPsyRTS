@@ -3,6 +3,10 @@ Terran.Mineral=AttackableUnit.extends({
         //Same action mapping
         this.imgPos.dock=this.imgPos.moving;
         this.frame.dock=this.frame.moving;
+        this.sound={
+            normal:new Audio(Game.CDN+'bgm/sonido1.wav'),
+        };
+        this.sound.selected=this.sound.normal;
     },
     prototypePlus: {
         //Add basic unit info
@@ -51,8 +55,7 @@ Terran.Mineral=AttackableUnit.extends({
         sight:0,
         meleeAttack: false,
         attackInterval: 222200,
-        //dieEffect:Burst.FireSparkSound,
-        dieEffect:Burst.MineralSound,
+        dieEffect:Burst.FireSparkSound,
         isFlying:false,
 		isForaging:false,
         attackLimit:"ground",

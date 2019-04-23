@@ -2,8 +2,7 @@
 var Zerg={};
 Zerg.Drone=AttackableUnit.extends({
     constructorPlus:function(props){
-        this.sound.burrow=new Audio(Game.CDN+'bgm/Zerg.burrow.wav');
-        this.sound.unburrow=new Audio(Game.CDN+'bgm/Zerg.unburrow.wav');
+
         this.direction=7;
     },
     prototypePlus: {
@@ -139,79 +138,6 @@ Zerg.Drone=AttackableUnit.extends({
                 return Magic.Burrow.enabled
             }}
         },
-        buildZergBuilding:function(location){
-            //Has location callback info or nothing
-            if (location){
-                //Move toward target to fire Ensnare
-                this.targetLock=true;
-                var myself=this;
-                this.moveTo(location.x,location.y,20,function(){
-                    if (Resource.payCreditBill.call(myself)){
-                        var target=Building.ZergBuilding[myself.buildName];
-                        //Adjust location
-                        myself.x=(location.x-myself.width/2)>>0;
-                        myself.y=(location.y-myself.height/2)>>0;
-                        var mutation=myself.evolveTo({
-                            type:eval('Building.'+target.prototype.evolves[0].step),
-                            chain:true
-                        });
-                        mutation.buildName=myself.buildName;
-                        //Calculate duration
-                        var duration=Resource.getCost(myself.buildName).time;
-                        //Cheat: Operation cwal
-                        if (Cheat.cwal) duration=40;
-                        //Processing flag on transfer
-                        mutation.processing={
-                            name:mutation.buildName,
-                            startTime:Game.mainTick,//new Date().getTime()
-                            time:duration
-                        };
-                        //Evolve chain
-                        for (var N=1;N<target.prototype.evolves.length;N++){
-                            (function(n){
-                                var evolveInfo=target.prototype.evolves[n];
-                                Game.commandTimeout(function(){
-                                    if (mutation.status!='dead'){
-                                        //Evolve
-                                        var evolveTarget=(eval('Building.'+evolveInfo.step));
-                                        //Step is constructor function
-                                        if (evolveTarget){
-                                            var old=mutation;
-                                            mutation=mutation.evolveTo({
-                                                type:evolveTarget,
-                                                chain:true
-                                            });
-                                            mutation.processing=old.processing;
-                                            mutation.buildName=old.buildName;
-                                        }
-                                        //Step is status string
-                                        else {
-                                            mutation.status=evolveInfo.step;
-                                        }
-                                    }
-                                },duration*100*evolveInfo.percent);
-                            })(N);
-                        }
-                        //Final evolve
-                        Game.commandTimeout(function(){
-                            if (mutation.status!='dead'){
-                                //Evolve
-                                mutation.evolveTo({
-                                    type:Building.ZergBuilding[mutation.buildName],
-                                    burstArr:mutation.evolveEffect
-                                });
-                            }
-                        },duration*100);
-                    }
-                });
-            }
-            //If missing location info, mark Button.callback, mouseController will call back with location
-            else {
-                Button.callback=arguments.callee;
-                Button.callback.farmer=this;
-                Button.callback.buildType='ZergBuilding';
-                $('div.GameLayer').attr('status','button');
-            }
-        }
+
     }
 });

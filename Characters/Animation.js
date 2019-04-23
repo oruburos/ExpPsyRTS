@@ -34,49 +34,6 @@ Animation.RightClickCursor=Animation.extends({
         }
     }
 });
-Animation.PsionicStorm=Animation.extends({
-    constructorPlus:function(props){
-        //Nothing
-    },
-    prototypePlus:{
-        //Add basic unit info
-        name:"Magic",
-        imgPos:{
-            burst:{
-                left:[0, 188, 376, 564, 0, 188, 376, 564, 0, 188, 376, 564, 0, 188],
-                top:[0, 0, 0, 0, 153, 153, 153, 153, 306, 306, 306, 306, 459, 459]
-            }
-        },
-        width:188,
-        height:153,
-        scale:1.2,
-        duration:7000,
-        frame:{
-            burst:14
-        }
-    }
-});
-Animation.Hallucination=Animation.extends({
-    constructorPlus:function(props){
-        //Nothing
-    },
-    prototypePlus:{
-        //Add basic unit info
-        name:"Magic",
-        imgPos:{
-            burst:{
-                left:[752, 815, 878, 941, 1004, 1067, 1130, 1193, 1256, 752, 815, 878, 941, 1004, 1067, 1130, 1193, 1256],
-                top:[0, 0, 0, 0, 0, 0, 0, 0, 0, 63, 63, 63, 63, 63, 63, 63, 63, 63]
-            }
-        },
-        width:63,
-        height:63,
-        above:true,
-        frame:{
-            burst:18
-        }
-    }
-});
 Animation.Consume=Animation.extends({
     constructorPlus:function(props){
         //Nothing
@@ -96,30 +53,6 @@ Animation.Consume=Animation.extends({
         autoSize:true,
         frame:{
             burst:18
-        }
-    }
-});
-Animation.StasisField=Animation.extends({
-    constructorPlus:function(props){
-        //Nothing
-    },
-    prototypePlus:{
-        //Add basic unit info
-        name:"Magic",
-        imgPos:{
-            burst:{
-                left:376,
-                top:459
-            }
-        },
-        width:130,
-        height:110,
-        above:true,
-        autoSize:'MAX',
-        scale:1.25,
-        duration:30000,
-        frame:{
-            burst:1
         }
     }
 });
@@ -143,49 +76,6 @@ Animation.Lockdown=Animation.extends({
         duration:60000,
         frame:{
             burst:6
-        }
-    }
-});
-Animation.DarkSwarm=Animation.extends({
-    constructorPlus:function(props){
-        //Nothing
-    },
-    prototypePlus:{
-        //Add basic unit info
-        name:"Magic",
-        imgPos:{
-            burst:{
-                left:[1260, 752, 1006, 1260, 752, 0, 752, 1006, 1260, 752, 1006],
-                top:[456, 645, 645, 645, 834, 0, 267, 267, 267, 456, 456]
-            }
-        },
-        width:254,
-        height:189,
-        scale:1.2,
-        duration:60000,
-        frame:{
-            burst:5
-        }
-    }
-});
-Animation.Plague=Animation.extends({
-    constructorPlus:function(props){
-        //Nothing
-    },
-    prototypePlus:{
-        //Add basic unit info
-        name:"Magic",
-        imgPos:{
-            burst:{
-                left:[1144, 1274, 1404, 754, 884, 1014, 1144, 1274, 1404, 754, 884, 1014, 1144, 1274],
-                top:[892, 892, 892, 1022, 1022, 1022, 1022, 1022, 1022, 1152, 1152, 1152, 1152, 1152]
-            }
-        },
-        width:130,
-        height:130,
-        scale:1.2,
-        frame:{
-            burst:14
         }
     }
 });
@@ -258,50 +148,6 @@ Animation.GreenEffect=Animation.extends({
         }
     }
 });
-Animation.Ensnare=Animation.extends({
-    constructorPlus:function(props){
-        //Nothing
-    },
-    prototypePlus:{
-        //Add basic unit info
-        name:"Magic",
-        imgPos:{
-            burst:{
-                left:[0, 131, 262, 393, 524, 0, 131, 262, 393, 524, 0, 131, 262, 393, 524],
-                top:[1056, 1056, 1056, 1056, 1056, 1181, 1181, 1181, 1181, 1181, 1306, 1306, 1306, 1306, 1306]
-            }
-        },
-        width:131,
-        height:125,
-        scale:1.2,
-        frame:{
-            burst:15
-        }
-    }
-});
-Animation.ScannerSweep=Animation.extends({
-    constructorPlus:function(props){
-        //Nothing
-    },
-    prototypePlus:{
-        //Add basic unit info
-        name:"Magic",
-        imgPos:{
-            burst:{
-                left:[1012, 1012, 1167, 1167, 1322, 1322, 1012, 1012, 1167, 1167, 1322, 1322],
-                top:[2220, 2220, 2220, 2220, 2220, 2220, 2335, 2335, 2335, 2335, 2335, 2335]
-            }
-        },
-        width:155,
-        height:115,
-        scale:1.5,
-        duration:15600,
-        sight:350,
-        frame:{
-            burst:12
-        }
-    }
-});
 Animation.Feedback=Animation.extends({
     constructorPlus:function(props){
         //Nothing
@@ -365,119 +211,6 @@ Animation.MindControl=Animation.extends({
         autoSize:true,
         frame:{
             burst:12
-        }
-    }
-});
-Animation.RechargeShields=Animation.extends({
-    constructorPlus:function(props){
-        //Nothing
-    },
-    prototypePlus:{
-        //Add basic unit info
-        name:"Magic",
-        imgPos:{
-            burst:{
-                left:[0, 64, 128, 192, 256, 320, 384, 448, 0, 64, 128, 192, 256, 320, 384, 448],
-                top:[1432, 1432, 1432, 1432, 1432, 1432, 1432, 1432, 1496, 1496, 1496, 1496, 1496, 1496, 1496, 1496]
-            }
-        },
-        width:64,
-        height:64,
-        above:true,
-        autoSize:true,
-        frame:{
-            burst:16
-        }
-    }
-});
-Animation.DisruptionWeb=Animation.extends({
-    constructorPlus:function(props){
-        //Nothing
-    },
-    prototypePlus:{
-        //Add basic unit info
-        name:"Magic",
-        imgPos:{
-            burst:{
-                left:[1396,1396,1396,1396,1088,1088,1242,1242,1392,1392,1392,1392],
-                top:[1194,1194,1322,1322,1432,1432,1432,1432,1432,1432,1538,1538]
-            }
-        },
-        width:154,
-        height:112,
-        scale:1.2,
-        duration:25000,
-        frame:{
-            burst:12
-        }
-    }
-});
-Animation.DefensiveMatrix=Animation.extends({
-    constructorPlus:function(props){
-        //Nothing
-    },
-    prototypePlus:{
-        //Add basic unit info
-        name:"Magic",
-        imgPos:{
-            burst:{
-                left:[1327, 1427, 1327, 1427, 1327],
-                top:[1664, 1664, 1751, 1751, 1838]
-            }
-        },
-        width:90,
-        height:84,
-        above:true,
-        autoSize:true,
-        duration:60000,
-        frame:{
-            burst:5
-        }
-    }
-});
-Animation.BlueShield=Animation.extends({
-    constructorPlus:function(props){
-        //Nothing
-    },
-    prototypePlus:{
-        //Add basic unit info
-        name:"Magic",
-        imgPos:{
-            burst:{
-                left:[0, 130, 260, 390, 520, 0, 130, 260, 390, 520],
-                top:[1560, 1560, 1560, 1560, 1560, 1690, 1690, 1690, 1690, 1690]
-            }
-        },
-        width:130,
-        height:130,
-        above:true,
-        autoSize:true,
-        duration:60000,
-        frame:{
-            burst:10
-        }
-    }
-});
-Animation.MaelStorm=Animation.extends({
-    constructorPlus:function(props){
-        //Nothing
-    },
-    prototypePlus:{
-        //Add basic unit info
-        name:"Magic",
-        imgPos:{
-            burst:{
-                left:[2, 70, 130, 195, 252, 312, 372, 430, 492, 554],
-                top:[2870, 2870, 2870, 2870, 2870, 2870, 2870, 2870, 2870, 2870]
-            }
-        },
-        width:60,
-        height:60,
-        above:true,
-        autoSize:true,
-        duration:18000,//Normal 12 sec
-        frame:{
-            burst:10
         }
     }
 });

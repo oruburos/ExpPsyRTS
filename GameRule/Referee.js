@@ -61,7 +61,7 @@ var Referee={
         //Every 0.4 sec
         if (Game.mainTick%4==0){
             //Special skill: make nearby units invisible
-            var arbiterBuffer=Protoss.Arbiter.prototype.bufferObj;
+          //  var arbiterBuffer=Protoss.Arbiter.prototype.bufferObj;
             var allArbiters=Game.getPropArray([]);
             Unit.allUnits.forEach(function(chara){
                 if (chara.name=='Arbiter') allArbiters[chara.team].push(chara);

@@ -98,143 +98,6 @@ var Burst=Gobj.extends({
 //All burst effects here for show
 Burst.allEffects=[];
 //Define different bursts
-Burst.GreenFog=Burst.extends({
-    constructorPlus:function(props){
-        //Has burst sound effect
-        if (this.insideScreen()) new Audio(Game.CDN+'bgm/GreenFog.burst.wav').play();
-    },
-    prototypePlus:{
-        //Add basic unit info
-        name:"Mutalisk",//Source img inside Mutalisk.png
-        imgPos:{
-            burst:{
-                left:[8,68,134,198,263,8,68,134,198,263],
-                top:[468,468,468,468,468,532,532,532,532,532]
-            }
-        },
-        width:52,
-        height:57,
-        frame:{
-            burst:10
-        }
-    }
-});
-Burst.Parasite=Burst.extends({
-    constructorPlus:function(props){
-        //Has burst sound effect
-        if (this.insideScreen()) new Audio(Game.CDN+'bgm/Magic.Parasite.wav').play();
-    },
-    prototypePlus:{
-        //Add basic unit info
-        name:"Mutalisk",
-        imgPos:{
-            burst:{
-                left:[8,68,134,198,263,8,68,134,198,263],
-                top:[468,468,468,468,468,532,532,532,532,532]
-            }
-        },
-        width:52,
-        height:57,
-        frame:{
-            burst:10
-        }
-    }
-});
-Burst.Spore=Burst.extends({
-    constructorPlus:function(props){
-        //No sound
-    },
-    prototypePlus:{
-        //Add basic unit info
-        name:"Mutalisk",
-        imgPos:{
-            burst:{
-                left:[8,68,134,198,263,8,68,134,198,263],
-                top:[468,468,468,468,468,532,532,532,532,532]
-            }
-        },
-        width:52,
-        height:57,
-        frame:{
-            burst:10
-        }
-    }
-});
-Burst.GreenBallBroken=Burst.extends({
-    constructorPlus:function(props){
-        //Has burst sound effect
-        if (this.insideScreen()) new Audio(Game.CDN+'bgm/Greenball.burst.wav').play();
-    },
-    prototypePlus:{
-        //Add basic unit info
-        name:"Guardian",
-        imgPos:{
-            burst:{
-                left:[0,56,119,182,252,322,396,470],
-                top:[556,556,556,556,556,556,556,556]
-            }
-        },
-        width:60,
-        height:60,
-        frame:{
-            burst:8
-        }
-    }
-});
-Burst.PurpleCloudSpread=Burst.extends({
-    constructorPlus:function(props){
-        //Has burst sound effect
-        if (this.insideScreen()) new Audio(Game.CDN+'bgm/PurpleCloud.burst.wav').play();
-    },
-    prototypePlus:{
-        //Add basic unit info
-        name:"Devourer",
-        imgPos:{
-            burst:{
-                left:[17,70,122,174,230,280,335,390,452],
-                top:[1022,1022,1022,1022,1022,1022,1022,1022,1022]
-            }
-        },
-        width:50,
-        height:60,
-        callback:function(){
-            var chara=this.target;
-            //Fix all spored issue
-            if (chara.status=='dead' || chara.status==null) return;
-            //Effect:PurpleBuffer when cloud spread on target chara
-            //Buffer flag, can add up
-            if (chara.buffer.PurpleCloud==9) return;//9 at max
-            if (chara.buffer.PurpleCloud>0) chara.buffer.PurpleCloud++;
-            else chara.buffer.PurpleCloud=1;
-            //Decrease defense and slow down attack rate
-            var bufferObj={
-                armor:chara.get('armor')-1
-            };
-            if (chara.plasma!=null) bufferObj.plasma=chara.get('plasma')-1;
-            if (chara.attackInterval) bufferObj.attackInterval=Math.round(chara.get('attackInterval')*1.1);
-            //Apply buffer
-            chara.addBuffer(bufferObj);
-            if (!chara.purpleBuffer) chara.purpleBuffer=[];
-            chara.purpleBuffer.push(bufferObj);
-            //Purple effect
-            new Animation.PurpleEffect({team:this.team,target:chara,callback:function(){
-                //Restore in 30 seconds, Last In First Out
-                if (chara.purpleBuffer && chara.removeBuffer(chara.purpleBuffer.pop())) {
-                    chara.buffer.PurpleCloud--;
-                }
-                //Full restore
-                if (chara.buffer.PurpleCloud==0) {
-                    delete chara.buffer.PurpleCloud;
-                    delete chara.purpleBuffer;
-                }
-            }});
-        },
-        frame:{
-            burst:9
-        }
-    }
-});
-
 
 
 Burst.SmallFireSpark=Burst.extends({
@@ -293,39 +156,17 @@ Burst.MineralSound=Burst.FireSpark.extends({
 });
 
 
+
 Burst.FireSparkSound=Burst.FireSpark.extends({
     constructorPlus:function(props){
         //Has burst sound effect
-        if (this.insideScreen()) new Audio(Game.CDN+'bgm/FireSpark.burst.wav').play();
+        if (this.insideScreen()) new Audio(Game.CDN+'bgm/sonido4.wav').play();
     },
     prototypePlus:{
         //Nothing
     }
 });
 
-
-
-Burst.PurpleFog=Burst.extends({
-    constructorPlus:function(props){
-        //Has burst sound effect
-        if (this.insideScreen()) new Audio(Game.CDN+'bgm/ReaverBomb.burst.wav').play();
-    },
-    prototypePlus:{
-        //Add basic unit info
-        name:"Mutalisk",
-        imgPos:{
-            burst:{
-                left:[338,398,464,528,593,338,398,464,528,593],
-                top:[468,468,468,468,468,532,532,532,532,532]
-            }
-        },
-        width:52,
-        height:57,
-        frame:{
-            burst:10
-        }
-    }
-});
 
 Burst.SmallExplode=Burst.extends({
     constructorPlus:function(props){
@@ -404,109 +245,6 @@ Burst.SmallBlueExplode=Burst.extends({
         height:60,
         frame:{
             burst:4
-        }
-    }
-});
-Burst.MiddleBlueExplode=Burst.extends({
-    constructorPlus:function(props){
-        //Nothing
-    },
-    prototypePlus:{
-        //Add basic unit info
-        name:"BuildingBurst",
-        imgPos:{
-            burst:{
-                left:[36,184,338,494],
-                top:[1484,1484,1484,1484]
-            }
-        },
-        width:120,
-        height:90,
-        frame:{
-            burst:4
-        }
-    }
-});
-Burst.BigBlueExplode=Burst.extends({
-    constructorPlus:function(props){
-        //Nothing
-    },
-    prototypePlus:{
-        //Add basic unit info
-        name:"BuildingBurst",
-        imgPos:{
-            burst:{
-                left:[22,222,420,632],
-                top:[1566,1566,1566,1566]
-            }
-        },
-        width:160,
-        height:120,
-        frame:{
-            burst:4
-        }
-    }
-});
-Burst.ZergBuildingBurst=Burst.extends({
-    constructorPlus:function(props){
-        //Need clear mud when ZergBuildingBurst finished
-        this.callback=function(){
-            Map.needRefresh="MAP";
-        };
-    },
-    prototypePlus:{
-        //Add basic unit info
-        name:"BuildingBurst",
-        imgPos:{
-            burst:{
-                left:[0,200,400,600,800,0,200,400,600,800,0,200,400,400,600,600,800,800],
-                top:[0,0,0,0,0,200,200,200,200,200,400,400,400,400,400,400,400,400]
-            }
-        },
-        width:200,
-        height:200,
-        frame:{
-            burst:18
-        }
-    }
-});
-Burst.TerranBuildingBurst=Burst.extends({
-    constructorPlus:function(props){
-        //Nothing
-    },
-    prototypePlus:{
-        //Add basic unit info
-        name:"BuildingBurst",
-        imgPos:{
-            burst:{
-                left:[0,0,200,200,400,400,600,600,800,800,0,0,200,200,400,400,600,600],
-                top:[600,600,600,600,600,600,600,600,600,600,800,800,800,800,800,800,800,800]
-            }
-        },
-        width:200,
-        height:200,
-        frame:{
-            burst:18
-        }
-    }
-});
-Burst.ProtossBuildingBurst=Burst.extends({
-    constructorPlus:function(props){
-        //Nothing
-    },
-    prototypePlus:{
-        //Add basic unit info
-        name:"BuildingBurst",
-        imgPos:{
-            burst:{
-                left:[0,0,200,200,400,400,600,600,800,800,0,0,200,200,400,400,600,600],
-                top:[1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1200,1200,1200,1200,1200,1200,1200,1200]
-            }
-        },
-        width:200,
-        height:200,
-        frame:{
-            burst:18
         }
     }
 });

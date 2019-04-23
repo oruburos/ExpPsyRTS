@@ -11,13 +11,14 @@
 			this.selected=false;
 			//Each unit instance has its own sound
 			this.sound={
-				selected:new Audio(Game.CDN+'bgm/'+this.name+'.selected.wav'),
-				moving:new Audio(Game.CDN+'bgm/'+this.name+'.moving.wav'),
-				death:new Audio(Game.CDN+'bgm/'+this.name+'.death.wav')
+				selected:new Audio(Game.CDN+'bgm/sonido1.wav'),
+				moving:new Audio(Game.CDN+'bgm/sonido1.wav'),
+				death:new Audio(Game.CDN+'bgm/sonido1.wav')
 			};
-			this.sound.selected.volume = Game.volumenGlobal;
+		/*	this.sound.selected.volume = Game.volumenGlobal;
 			this.sound.moving.volume = Game.volumenGlobal;
 			this.sound.death.volume = Game.volumenGlobal;
+*/
 			
 			//Execute below after inherited class fully constructed, postpone
 			var myself=this;
@@ -130,9 +131,9 @@
 						return n/_$.hypot(vector);
 					});
 					//Only unit on ground will collide with others
-					const FORCE=0.4;
+					 FORCE=0.4;
 					if (!this.isFlying){
-						const myself=this;
+						myself=this;
 						//Soft collision
 						var softCollisions=Unit.allUnits.concat(Building.allBuildings).filter(function(chara){
 							if (chara==myself) return false;
@@ -266,10 +267,7 @@
 
 				//console.log("matando algo")
 				delete this.allFrames['routing'];
-				//If has sound effect
-				if (this.sound.death && this.insideScreen()) {
-					this.sound.death.play();
-				}
+
 			},
 			//AI when attacked by enemy
 			reactionWhenAttackedBy:function(enemy,onlyDamage){
@@ -609,8 +607,7 @@
 			this.coolDown=true;
 			//Init attack range
 			if (this.meleeAttack) this.attackRange=Math.max(this.radius(),35);
-			//Add attack sound for AttackableUnit
-			this.sound.attack=new Audio(Game.CDN+'bgm/'+this.name+'.attack.wav');
+
 		},
 		prototypePlus:{
 			//Add basic unit info
@@ -667,7 +664,7 @@
 						this.attackEffect=(enemy.isFlying)?this.attackMode.flying.attackEffect:this.attackMode.ground.attackEffect;
 						this.attackInterval=(enemy.isFlying)?this.get('attackMode.flying.attackInterval'):this.get('attackMode.ground.attackInterval');
 						//Change attack bgm
-						this.sound.attack=(enemy.isFlying)?this.sound.attackF:this.sound.attackG;
+
 						this.damage=(enemy.isFlying)?this.get('attackMode.flying.damage'):this.get('attackMode.ground.damage');
 						this.attackType=(enemy.isFlying)?this.attackMode.flying.attackType:this.attackMode.ground.attackType;
 						this.attackMode.status=enemy.isFlying;
@@ -844,8 +841,7 @@
 										new myself.attackEffect({x:enemy.posX(),y:enemy.posY()});
 									}
 								}
-								//Sound effect, missile attack unit will play sound when bullet fire
-								if (!myself.Bullet && myself.insideScreen()) myself.sound.attack.play();
+
 							}
 						}
 					};
@@ -1028,8 +1024,7 @@
 						this.attackRange=(mineral.isFlying)?this.get('attackMode.flying.attackRange'):this.get('attackMode.ground.attackRange');
 						this.attackEffect=(mineral.isFlying)?this.attackMode.flying.attackEffect:this.attackMode.ground.attackEffect;
 						this.attackInterval=(mineral.isFlying)?this.get('attackMode.flying.attackInterval'):this.get('attackMode.ground.attackInterval');
-						//Change attack bgm
-						this.sound.attack=(mineral.isFlying)?this.sound.attackF:this.sound.attackG;
+
 						this.damage=(mineral.isFlying)?this.get('attackMode.flying.damage'):this.get('attackMode.ground.damage');
 						this.attackType=(mineral.isFlying)?this.attackMode.flying.attackType:this.attackMode.ground.attackType;
 						this.attackMode.status=mineral.isFlying;
@@ -1056,13 +1051,6 @@
 							if ( myself.isInAttackRange(mineral) && myself.status=="dock") {
 								//Load bullet
 								myself.coolDown=false;
-								//Cool down after attack interval
-								 //console.log("cargando minerales")
-								/*mineral.resources--;
-								if ( mineral.resources < 1 ){
-									
-									 mineral.die();
-								}*/
 
 
 
@@ -1072,6 +1060,7 @@
 								}else{
 									
 									myself.resources = mineral.resources;
+									console.log("sonido de depletar")
 									mineral.die();
 									mineral = {};
 									
@@ -1127,9 +1116,7 @@
 								}
 							   
 							   
-							
-								//Sound effect, missile attack unit will play sound when bullet fire
-								if (!myself.Bullet && myself.insideScreen()) myself.sound.attack.play();
+
 							}
 							else{
 								

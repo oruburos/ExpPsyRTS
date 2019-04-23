@@ -186,7 +186,7 @@ var Game = {
 		//Zerg
 		sourceLoader.load("img", Game.CDN + "img/Charas/Drone.png", "Drone");
 		sourceLoader.load("img", Game.CDN + "img/Charas/SCV.png", "SCV");
-		sourceLoader.load("img", Game.CDN + "img/Charas/Civilian.png", "Civilian");
+		sourceLoader.load("img", Game.CDN + "img/Charas/CivilianGrey.png", "Civilian");
 		sourceLoader.load("img", Game.CDN + "img/Charas/Templar.png", "Templar");
 
 		//Building
@@ -344,8 +344,8 @@ var Game = {
 			var buffer = {};
 			buffer['isInvisible' + N] = false;
 			Gobj.detectorBuffer.push(buffer);
-			//Initial arbiter buffer
-			Protoss.Arbiter.prototype.bufferObj['isInvisible' + N] = true;
+
+
 		}
 
 	},

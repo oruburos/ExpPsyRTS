@@ -1,6 +1,8 @@
 var mouseController = {
     down: false,
     drag: false,
+    clickmap:new Audio(Game.CDN+'bgm/sonido4.wav')
+        ,
     startPoint: { x: 0, y: 0 },
     endPoint: { x: 0, y: 0 },
     isMultiSelect: function () {
@@ -71,6 +73,8 @@ var mouseController = {
             //Click null
 
             /**/
+
+                this.clickmap.play();
             var pos = { x: (clickX + Map.offsetX), y: (clickY + Map.offsetY) };
 
             //Handle user right click
@@ -119,6 +123,7 @@ rightClick: function (event, unlock, btn) {
 
     //fin extra
 
+                this.clickmap.play();
     new Burst.RightClickCursor(pos);
     //console.log("burst en posicion " +pos.x + " - " + pos.y + " chara " + chara.id )
     var charas = Game.allSelected.filter(function (chara) {

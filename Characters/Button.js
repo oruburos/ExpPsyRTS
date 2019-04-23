@@ -39,6 +39,9 @@ var Button={
             $('button.attack').on('click',Button.attackHandler);
         }*/
         //Add items
+
+
+        /*Borrar*
         if (chara.items){
             for (var N in chara.items){
                 if (chara.items[N]!=null) {
@@ -46,6 +49,8 @@ var Button={
                     if (chara.items[N].condition && !(chara.items[N].condition()))
                         $('button[num="'+N+'"]').attr('disabled',true);
                     else $('button[num="'+N+'"]').removeAttr('disabled');
+                    console.log(chara.items[N].name)
+
                     //Exceptions: need mark numbers on button
                     switch (chara.items[N].name){
                         case 'SpiderMines':
@@ -68,68 +73,8 @@ var Button={
                 //Reset menu
                 Button.refreshButtons();
             });
-      /*      $('button.SelectLarva').on('click',function(){
-                var larvas=Game.selectedUnit.larvas;
-                if (larvas){
-                    larvas=larvas.filter(function(chara){
-                        return chara.status!='dead';
-                    });
-                    //If found alive larva
-                    if (larvas.length){
-                        Game.unselectAll();
-                        Game.addIntoAllSelected(larvas,true);
-                        if (larvas[0] instanceof Gobj){
-                            Game.changeSelectedTo(larvas[0]);
-                            //Sound effect
-                            larvas[0].sound.selected.play();
-                        }
-                    }
-                }
-            });
-            $('button.BasicMutation').on('click',function(){
-                Button.equipButtonsFor(Button.basicZergMutations);
-            });
-            $('button.AdvancedMutation').on('click',function(){
-                Button.equipButtonsFor(Button.advancedZergMutations);
-            });
-            $('button.BasicBuilding').on('click',function(){
-                Button.equipButtonsFor(Button.basicTerranBuildings);
-            });
-            $('button.AdvancedBuilding').on('click',function(){
-                Button.equipButtonsFor(Button.advancedTerranBuildings);
-            });
-            $('button.BasicStructure').on('click',function(){
-                Button.equipButtonsFor(Button.basicProtossStructures);
-            });
-            $('button.AdvancedStructure').on('click',function(){
-                Button.equipButtonsFor(Button.advancedProtossStructures);
-            });
-      */
-          
-            //Unit callbacks:
-            //For Zerg units
-          /*  var unitTypes=[];
-            for (var unitType in Zerg){
-                unitTypes.push(unitType);
-            }
-            var exceptions=['Guardian','Devourer'];
-            unitTypes.forEach(function(unitType){
-                $('button.'+unitType).on('click',function(){
-                    //Calculate duration
-                    var duration=Resource.getCost(unitType).time;
-                    Unit.allUnits.filter(function(chara){
-                        return (chara.team==Game.team && chara.selected && chara.name==Game.selectedUnit.name);
-                    }).forEach(function(chara){
-                        Multiplayer.cmds.push(JSON.stringify({
-                            uids:[chara.id],
-                            type:'unit',
-                            name:unitType,
-                            duration:duration,
-                            evolve:'zerg'
-                        }));
-                    });
-                });
-            });*/
+
+
             //For Terran and Protoss units, add InfestedTerran
             [Terran,Protoss,{InfestedTerran:Zerg.InfestedTerran}].forEach(function(Race){
                 var unitTypes=[];
@@ -214,6 +159,9 @@ var Button={
                 });
             });
         }
+
+        *Borrar*/
+
         //Bind tooltip callbacks
         $('div.panel_Control button').on('mouseover',function(event){
             var _name=this.className;
@@ -261,222 +209,6 @@ var Button={
         });
     },
 
-    /***************Buttons***************/
-    basicZergMutations:{
-        items:{
-            '1':{name:'Hatchery'},
-            '2':{name:'CreepColony',condition:function(){
-                return Building.allBuildings.some(function(chara){
-                    return chara.team==Game.team && (chara.name=='Hatchery' || chara.name=='Lair' || chara.name=='Hive');
-                })
-            }},
-            '3':{name:'Extractor',condition:function(){
-                return Building.allBuildings.some(function(chara){
-                    return chara.team==Game.team && (chara.name=='Hatchery' || chara.name=='Lair' || chara.name=='Hive');
-                })
-            }},
-            '4':{name:'SpawningPool',condition:function(){
-                return Building.allBuildings.some(function(chara){
-                    return chara.team==Game.team && (chara.name=='Hatchery' || chara.name=='Lair' || chara.name=='Hive');
-                })
-            }},
-            '5':{name:'EvolutionChamber',condition:function(){
-                return Building.allBuildings.some(function(chara){
-                    return chara.team==Game.team && (chara.name=='Hatchery' || chara.name=='Lair' || chara.name=='Hive');
-                })
-            }},
-            '7':{name:'HydraliskDen',condition:function(){
-                return Building.allBuildings.some(function(chara){
-                    return chara.team==Game.team && chara.name=='SpawningPool';
-                })
-            }},
-            '9':{name:'Cancel'}
-        }
-    },
-    advancedZergMutations:{
-        items:{
-            '1':{name:'Spire',condition:function(){
-                return Building.allBuildings.some(function(chara){
-                    return chara.team==Game.team && (chara.name=='Lair' || chara.name=='Hive');
-                })
-            }},
-            '2':{name:'QueenNest',condition:function(){
-                return Building.allBuildings.some(function(chara){
-                    return chara.team==Game.team && (chara.name=='Lair' || chara.name=='Hive');
-                })
-            }},
-            '3':{name:'NydusCanal',condition:function(){
-                return Building.allBuildings.some(function(chara){
-                    return chara.team==Game.team && (chara.name=='Hive');
-                })
-            }},
-            '4':{name:'UltraliskCavern',condition:function(){
-                return Building.allBuildings.some(function(chara){
-                    return chara.team==Game.team && chara.name=='Hive';
-                })
-            }},
-            '5':{name:'DefilerMound',condition:function(){
-                return Building.allBuildings.some(function(chara){
-                    return chara.team==Game.team && chara.name=='Hive';
-                })
-            }},
-            '9':{name:'Cancel'}
-        }
-    },
-    basicTerranBuildings:{
-        items:{
-            '1':{name:'CommandCenter'},
-            '2':{name:'SupplyDepot',condition:function(){
-                return Building.allBuildings.some(function(chara){
-                    return chara.team==Game.team && chara.name=='CommandCenter';
-                })
-            }},
-            '3':{name:'Refinery',condition:function(){
-                return Building.allBuildings.some(function(chara){
-                    return chara.team==Game.team && chara.name=='CommandCenter';
-                })
-            }},
-            '4':{name:'Barracks',condition:function(){
-                return Building.allBuildings.some(function(chara){
-                    return chara.team==Game.team && chara.name=='CommandCenter';
-                })
-            }},
-            '5':{name:'EngineeringBay',condition:function(){
-                return Building.allBuildings.some(function(chara){
-                    return chara.team==Game.team && chara.name=='CommandCenter';
-                })
-            }},
-            '6':{name:'MissileTurret',condition:function(){
-                return Building.allBuildings.some(function(chara){
-                    return chara.team==Game.team && chara.name=='EngineeringBay';
-                })
-            }},
-            '7':{name:'Academy',condition:function(){
-                return Building.allBuildings.some(function(chara){
-                    return chara.team==Game.team && chara.name=='Barracks';
-                })
-            }},
-            '8':{name:'Bunker',condition:function(){
-                return Building.allBuildings.some(function(chara){
-                    return chara.team==Game.team && chara.name=='Barracks';
-                })
-            }},
-            '9':{name:'Cancel'}
-        }
-    },
-    advancedTerranBuildings:{
-        items:{
-            '1':{name:'Factory',condition:function(){
-                return Building.allBuildings.some(function(chara){
-                    return chara.team==Game.team && chara.name=='Barracks';
-                })
-            }},
-            '2':{name:'Starport',condition:function(){
-                return Building.allBuildings.some(function(chara){
-                    return chara.team==Game.team && chara.name=='Factory';
-                })
-            }},
-            '3':{name:'ScienceFacility',condition:function(){
-                return Building.allBuildings.some(function(chara){
-                    return chara.team==Game.team && chara.name=='Starport';
-                })
-            }},
-            '4':{name:'Armory',condition:function(){
-                return Building.allBuildings.some(function(chara){
-                    return chara.team==Game.team && chara.name=='Factory';
-                })
-            }},
-            '9':{name:'Cancel'}
-        }
-    },
-    basicProtossStructures:{
-        items:{
-            '1':{name:'Nexus'},
-            '2':{name:'Pylon',condition:function(){
-                return Building.allBuildings.some(function(chara){
-                    return chara.team==Game.team && chara.name=='Nexus';
-                })
-            }},
-            '3':{name:'Assimilator',condition:function(){
-                return Building.allBuildings.some(function(chara){
-                    return chara.team==Game.team && chara.name=='Nexus';
-                })
-            }},
-            '4':{name:'Gateway',condition:function(){
-                return Building.allBuildings.some(function(chara){
-                    return chara.team==Game.team && chara.name=='Nexus';
-                })
-            }},
-            '5':{name:'Forge',condition:function(){
-                return Building.allBuildings.some(function(chara){
-                    return chara.team==Game.team && chara.name=='Nexus';
-                })
-            }},
-            '6':{name:'PhotonCannon',condition:function(){
-                return Building.allBuildings.some(function(chara){
-                    return chara.team==Game.team && chara.name=='Forge';
-                })
-            }},
-            '7':{name:'CyberneticsCore',condition:function(){
-                return Building.allBuildings.some(function(chara){
-                    return chara.team==Game.team && chara.name=='Gateway';
-                })
-            }},
-            '8':{name:'ShieldBattery',condition:function(){
-                return Building.allBuildings.some(function(chara){
-                    return chara.team==Game.team && chara.name=='Gateway';
-                })
-            }},
-            '9':{name:'Cancel'}
-        }
-    },
-    advancedProtossStructures:{
-        items:{
-            '1':{name:'RoboticsFacility',condition:function(){
-                return Building.allBuildings.some(function(chara){
-                    return chara.team==Game.team && chara.name=='CyberneticsCore';
-                })
-            }},
-            '2':{name:'StarGate',condition:function(){
-                return Building.allBuildings.some(function(chara){
-                    return chara.team==Game.team && chara.name=='CyberneticsCore';
-                })
-            }},
-            '3':{name:'CitadelOfAdun',condition:function(){
-                return Building.allBuildings.some(function(chara){
-                    return chara.team==Game.team && chara.name=='CyberneticsCore';
-                })
-            }},
-            '4':{name:'RoboticsSupportBay',condition:function(){
-                return Building.allBuildings.some(function(chara){
-                    return chara.team==Game.team && chara.name=='RoboticsFacility';
-                })
-            }},
-            '5':{name:'FleetBeacon',condition:function(){
-                return Building.allBuildings.some(function(chara){
-                    return chara.team==Game.team && chara.name=='StarGate';
-                })
-            }},
-            '6':{name:'TemplarArchives',condition:function(){
-                return Building.allBuildings.some(function(chara){
-                    return chara.team==Game.team && chara.name=='CitadelOfAdun';
-                })
-            }},
-            '7':{name:'Observatory',condition:function(){
-                return Building.allBuildings.some(function(chara){
-                    return chara.team==Game.team && chara.name=='RoboticsFacility';
-                })
-            }},
-            '8':{name:'ArbiterTribunal',condition:function(){
-                return Building.allBuildings.some(function(chara){
-                    return chara.team==Game.team && chara.name=='StarGate';
-                }) && Building.allBuildings.some(function(chara){
-                    return chara.team==Game.team && chara.name=='TemplarArchives';
-                })
-            }},
-            '9':{name:'Cancel'}
-        }
-    },
 
     /***************Handlers***************/
     //Move button

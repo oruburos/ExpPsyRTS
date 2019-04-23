@@ -6,6 +6,14 @@ Terran.Civilian=Unit.extends({
     constructorPlus:function(props){
         //Same action mapping
         this.imgPos.dock=this.imgPos.moving;
+
+
+         this.sound={
+            normal:new Audio(Game.CDN+'bgm/sonido3.wav'),
+             death:new Audio(Game.CDN+'bgm/sonido4.wav'),
+        };
+        this.sound.selected=this.sound.normal;
+        this.sound.death = this.sound.death;
     },
     prototypePlus: {
         //Add basic unit info

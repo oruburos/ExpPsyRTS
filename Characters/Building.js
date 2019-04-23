@@ -124,7 +124,7 @@ Building.enemyBuildings=function(){
 Building.TerranBuilding=Building.extends({
     constructorPlus:function(props){
         this.sound={
-            normal:new Audio(Game.CDN+'bgm/TerranBuilding.selected.wav'),
+            normal:new Audio(Game.CDN+'bgm/sonido1.wav'),
         };
         this.sound.selected=this.sound.normal;
     },
@@ -143,9 +143,7 @@ Building.TerranBuilding=Building.extends({
 Building.ProtossBuilding=Building.extends({
     constructorPlus:function(props){
         this.sound={
-            normal:new Audio(Game.CDN+'bgm/ProtossBuilding.selected.wav'),
-            onfire:new Audio(Game.CDN+'bgm/Building.onfire.wav'),
-            death:new Audio(Game.CDN+'bgm/ProtossBuilding.death.wav')
+            normal:new Audio(Game.CDN+'bgm/sonido1.wav'),
         };
         this.sound.selected=this.sound.normal;
     },
