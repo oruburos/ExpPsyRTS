@@ -1,4 +1,4 @@
-Terran.Mineral=AttackableUnit.extends({
+Human.Mineral=AttackableUnit.extends({
     constructorPlus:function(props){
         //Same action mapping
         this.imgPos.dock=this.imgPos.moving;

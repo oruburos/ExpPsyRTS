@@ -1,8 +1,8 @@
-/******* Define Terran units *******/
-var Terran={};
+/******* Define Human units *******/
+var Human={};
 
 
-Terran.Civilian=Unit.extends({
+Human.Civilian=Unit.extends({
     constructorPlus:function(props){
         //Same action mapping
         this.imgPos.dock=this.imgPos.moving;

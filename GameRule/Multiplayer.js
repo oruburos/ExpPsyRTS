@@ -279,7 +279,7 @@ var Multiplayer={
                                                 var evolve=chara.evolveTo({type:Building.ProtossBuilding[unitType+'Evolve']});
                                                 Game.commandTimeout(function(){
                                                     if (evolve.status!='dead'){
-                                                        evolve.evolveTo({type:Protoss[unitType],burstArr:[unitType+'Birth']});
+                                                        evolve.evolveTo({type:Competitor[unitType],burstArr:[unitType+'Birth']});
                                                     }
                                                 },duration*100);
                                                 //Processing flag
@@ -314,11 +314,11 @@ var Multiplayer={
                                                         //Evolve
                                                         if (exceptions.indexOf(unitType)!=-1){
                                                             //Cocoon
-                                                            egg.evolveTo({type:Zerg[unitType],burstArr:[unitType+'Birth']});
+                                                            egg.evolveTo({type:Predator[unitType],burstArr:[unitType+'Birth']});
                                                         }
                                                         else {
                                                             //Egg
-                                                            egg.evolveTo({type:Zerg[unitType],burstArr:['EggBirth',unitType+'Birth'],rallyPoint:base?base.rallyPoint:null});
+                                                            egg.evolveTo({type:Predator[unitType],burstArr:['EggBirth',unitType+'Birth'],rallyPoint:base?base.rallyPoint:null});
                                                         }
                                                     }
                                                 },duration*100);
@@ -340,7 +340,7 @@ var Multiplayer={
                             var duration=cmd.duration;
                             //Find unit name from which race
                             var Race;
-                            [Zerg,Terran,Protoss,Hero].forEach(function(race){
+                            [Predator,Human,Competitor,Hero].forEach(function(race){
                                 if (race[unitType]!=null) Race=race;
                             });
                             return function(){

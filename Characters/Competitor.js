@@ -1,12 +1,12 @@
-/******* Define Protoss units *******/
-var Protoss={};
-Protoss.Templar=AttackableUnit.extends({
+/******* Define Competitor units *******/
+var Competitor={};
+Competitor.CompetitorA=AttackableUnit.extends({
     constructorPlus:function(props){
         //Nothing
     },
     prototypePlus: {
         //Add basic unit info
-        name: "Templar",
+        name: "CompetitorA",
         imgPos: {
             moving: {
                 left: [
@@ -82,24 +82,7 @@ Protoss.Templar=AttackableUnit.extends({
             dock: 7,//7 or 8
             attack: 5
         },
-        //Only for moving status, override
-      /*  speed:8,
-        HP: 10,
-        SP: 10,
-        damage: 10,
-        armor:0,
-        plasma:0,
-        MP: 200,
-        sight:245,
-        attackRange: 100,
-        attackInterval: 2000,
-        dieEffect:Burst.TemplarDeath,
-        attackEffect:Burst.FireSpark,
-        isFlying:false,
-        unitType:Unit.SMALL,
-        attackType:AttackableUnit.WAVE_ATTACK,
-        recover:Building.ProtossBuilding.prototype.recover,*/
-		
+       
 		
 		
 		speed:5,
@@ -110,7 +93,7 @@ Protoss.Templar=AttackableUnit.extends({
         sight:245,
         meleeAttack: true,
         attackInterval: 5200,
-        dieEffect:Burst.TemplarDeath,
+        dieEffect:Burst.CompetitionDeath,
         isFlying:false,
         attackLimit:"ground",
         unitType:Unit.SMALL,

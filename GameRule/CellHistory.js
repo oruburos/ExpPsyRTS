@@ -59,7 +59,7 @@ var CellHistory={
 		     
 			
 			occupancy[0][j][i] ++;
-			else if (chara.name==="Templar") //CHECAR NOMBRE
+			else if (chara.name==="CompetitorA") //CHECAR NOMBRE
 				occupancy[1][j][i] ++;
 			
         });

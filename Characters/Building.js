@@ -120,7 +120,7 @@ Building.enemyBuildings=function(){
     });
 };
 
-//Terran buildings
+//Human buildings
 Building.TerranBuilding=Building.extends({
     constructorPlus:function(props){
         this.sound={
@@ -130,7 +130,8 @@ Building.TerranBuilding=Building.extends({
     },
     prototypePlus: {
         //Add basic unit info
-        name: "TerranBuilding",
+          name: "TerranBuilding",
+        //  name: "ControlBase",
         dieEffect:Burst.TerranBuildingBurst,
         injuryNames:['redFireL','redFireM','redFireR'],
         recover:function(){
@@ -139,7 +140,7 @@ Building.TerranBuilding=Building.extends({
         }
     }
 });
-//Protoss buildings
+//Competitor buildings
 Building.ProtossBuilding=Building.extends({
     constructorPlus:function(props){
         this.sound={
@@ -149,7 +150,7 @@ Building.ProtossBuilding=Building.extends({
     },
     prototypePlus: {
         //Add basic unit info
-        name: "ProtossBuilding",
+        name: "TerranBuilding",
         plasma:0,
         dieEffect:Burst.ProtossBuildingBurst,
         injuryNames:['blueFireL','blueFireM','blueFireR'],
@@ -423,11 +424,11 @@ Building.TerranBuilding.CommandCenter=Building.TerranBuilding.extends({
         imgPos: {
             dock: {
                 left: 0,
-                top: 6
+                top: 0
             }
         },
-        width: 129,
-        height: 106,
+        width: 149,
+        height: 126,
         frame: {
             dock: 1
         },
@@ -468,8 +469,7 @@ Building.TerranBuilding.CommandCenter=Building.TerranBuilding.extends({
             Button.reset();
             //Calculate duration
             var duration=Resource.getCost(this.buildName).time;
-            //Cheat: Operation cwal
-            if (Cheat.cwal) duration=40;
+
             //Processing flag on transfer
             construction.processing={
                 name:construction.buildName,
@@ -526,15 +526,23 @@ Building.ProtossBuilding.Nexus=Building.ProtossBuilding.extends({
         name: "Nexus",
         imgPos: {
             dock: {
-                left: 24,
-                top: 12
+                left: 0,
+                top: 0
             }
         },
-        width: 146,
-        height: 136,
+
+
+
+         width: 149,
+        height: 126,
         frame: {
             dock: 1
         },
+
+
+
+
+
         HP: 750,
         SP: 750,
         manPlus: 10,

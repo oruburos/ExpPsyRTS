@@ -1,13 +1,13 @@
-/******* Define Zerg units *******/
-var Zerg={};
-Zerg.Drone=AttackableUnit.extends({
+/******* Define Predator units *******/
+var Predator={};
+Predator.Alien=AttackableUnit.extends({
     constructorPlus:function(props){
 
         this.direction=7;
     },
     prototypePlus: {
         //Add basic unit info
-        name: "Drone",
+        name: "Alien",
         imgPos: {
             moving: {
                 left: [

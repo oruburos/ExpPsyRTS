@@ -9,10 +9,9 @@ Modified : /StarCraft/Characters/Building.js
 Modified : /StarCraft/Characters/Burst.js
 Modified : /StarCraft/Characters/Button.js
 Modified : /StarCraft/Characters/Magic.js
-Modified : /StarCraft/Characters/Protoss.js
-Modified : /StarCraft/Characters/Terran.js
-Modified : /StarCraft/Characters/Units.js
-Modified : /StarCraft/Characters/Zerg.js
+Modified : /StarCraft/Characters/Competitortor.js
+Modified : /StarCraft/Characters/Human.jsModified : /StarCraft/Characters/Units.js
+Modified : /StarCraft/Characters/Predatorator.js
 Modified : /StarCraft/Controller/mouseController.js
 Modified : /StarCraft/GameRule/Game.js
 Modified : /StarCraft/GameRule/Levels.js
@@ -31,9 +30,8 @@ Double check in for #154:
 4.Adjust sprite images for Archon/Goliath/Tank
 ----
 Modified : /StarCraft/Characters/Burst.js
-Modified : /StarCraft/Characters/Terran.js
-Modified : /StarCraft/Characters/Units.js
-Modified : /StarCraft/Characters/Zerg.js
+Modified : /StarCraft/Characters/Human.jsModified : /StarCraft/Characters/Units.js
+Modified : /StarCraft/Characters/Predator.jsr.js
 Modified : /StarCraft/GameRule/Referee.js
 Modified : /StarCraft/img/Charas/Archon.png
 Modified : /StarCraft/img/Charas/Goliath.png
@@ -52,11 +50,10 @@ Modified : /StarCraft/Characters/Hero.js
 Modified : /StarCraft/Characters/Magic.js
 Modified : /StarCraft/Characters/Map.js
 Modified : /StarCraft/Characters/Neutral.js
-Modified : /StarCraft/Characters/Protoss.js
-Modified : /StarCraft/Characters/Terran.js
-Modified : /StarCraft/Characters/Units.js
+Modified : /StarCraft/Characters/Competitor.js.js
+Modified : /StarCraft/Characters/Human.jsModified : /StarCraft/Characters/Units.js
 Modified : /StarCraft/Characters/Upgrade.js
-Modified : /StarCraft/Characters/Zerg.js
+Modified : /StarCraft/Characters/Predator.jsr.js
 Modified : /StarCraft/GameRule/Game.js
 Modified : /StarCraft/Utils/gFrame.js
 Modified : /StarCraft/img/Charas/Archon.png
@@ -313,7 +310,7 @@ Modified : /StarCraft/GameRule/Levels.js
 Modified : /StarCraft/Characters/Bullets.js
 Modified : /StarCraft/css/style.css
 Modified : /StarCraft/Characters/Building.js
-Modified : /StarCraft/Characters/Zerg.js
+Modified : /StarCraft/Characters/Predatorator.js
 
 Revision: 126
 Author: gloomyson
@@ -366,16 +363,16 @@ Modified : /StarCraft/Characters/Magic.js
 Modified : /StarCraft/Controller/mouseController.js
 Modified : /StarCraft/GameRule/Referee.js
 Modified : /StarCraft/Characters/Building.js
-Modified : /StarCraft/Characters/Zerg.js
-Modified : /StarCraft/Characters/Protoss.js
-Modified : /StarCraft/Characters/Terran.js
+Modified : /StarCraft/Characters/Predator.jsr.js
+Modified : /StarCraft/Characters/Competitortor.js
+Modified : /StarCraft/Characters/Humanjs
 Modified : /StarCraft/GameRule/Resource.js
-Added : /StarCraft/bgm/Magic.Load.Protoss.wav
-Added : /StarCraft/bgm/Magic.Load.Terran.wav
-Added : /StarCraft/bgm/Magic.Load.Zerg.wav
-Added : /StarCraft/bgm/Magic.Unload.Protoss.wav
-Added : /StarCraft/bgm/Magic.Unload.Terran.wav
-Added : /StarCraft/bgm/Magic.Unload.Zerg.wav
+Added : /StarCraft/bgm/Magic.Load.Competitor.wav
+Added : /StarCraft/bgm/Magic.Load.Human.wav
+Added : /StarCraft/bgm/Magic.Load.Predator.wav
+Added : /StarCraft/bgm/Magic.Unload.Competitor.wav
+Added : /StarCraft/bgm/Magic.Unload.Human.wav
+Added : /StarCraft/bgm/Magic.Unload.Predator.wav
 
 Revision: 123
 Author: gloomyson
@@ -412,9 +409,9 @@ Modified : /StarCraft/Characters/Bullets.js
 Modified : /StarCraft/Characters/Button.js
 Modified : /StarCraft/Characters/Magic.js
 Modified : /StarCraft/GameRule/Referee.js
-Modified : /StarCraft/Characters/Zerg.js
-Modified : /StarCraft/Characters/Protoss.js
-Modified : /StarCraft/Characters/Terran.js
+Modified : /StarCraft/Characters/Predator.jsr.js
+Modified : /StarCraft/Characters/Competitor.js.js
+Modified : /StarCraft/Characters/Humanjs
 Modified : /StarCraft/Characters/Burst.js
 
 Revision: 121
@@ -524,8 +521,8 @@ Modified : /StarCraft/Characters/Magic.js
 Modified : /StarCraft/Controller/mouseController.js
 Added : /StarCraft/GameRule/SC_server.js
 Modified : /StarCraft/GameRule/Cheat.js
-Modified : /StarCraft/Characters/Zerg.js
-Modified : /StarCraft/Characters/Protoss.js
+Modified : /StarCraft/Characters/Predator.jsr.js
+Modified : /StarCraft/Characters/Competitor.js.js
 
 Revision: 114
 Author: gloomyson
@@ -583,7 +580,7 @@ Modified : /StarCraft/Controller/mouseController.js
 Modified : /StarCraft/Characters/Upgrade.js
 Modified : /StarCraft/GameRule/Referee.js
 Modified : /StarCraft/Characters/Building.js
-Modified : /StarCraft/Characters/Protoss.js
+Modified : /StarCraft/Characters/Competitortor.js
 Modified : /StarCraft/Characters/Map.js
 
 Revision: 111
@@ -629,8 +626,7 @@ Modified : /StarCraft/Characters/Bullets.js
 Modified : /StarCraft/Characters/Magic.js
 Modified : /StarCraft/GameRule/Cheat.js
 Modified : /StarCraft/Characters/Building.js
-Modified : /StarCraft/Characters/Terran.js
-Modified : /StarCraft/Characters/Map.js
+Modified : /StarCraft/Characters/Human.jsModified : /StarCraft/Characters/Map.js
 
 Revision: 109
 Author: gloomyson
@@ -652,10 +648,9 @@ Modified : /StarCraft/Characters/Button.js
 Modified : /StarCraft/Characters/Magic.js
 Modified : /StarCraft/GameRule/Referee.js
 Modified : /StarCraft/Characters/Building.js
-Modified : /StarCraft/Characters/Zerg.js
-Modified : /StarCraft/Characters/Protoss.js
-Modified : /StarCraft/Characters/Terran.js
-Modified : /StarCraft/Characters/Burst.js
+Modified : /StarCraft/Characters/Predator.jsr.js
+Modified : /StarCraft/Characters/Competitortor.js
+Modified : /StarCraft/Characters/Human.jsModified : /StarCraft/Characters/Burst.js
 Modified : /StarCraft/Characters/Map.js
 Modified : /StarCraft/Characters/Hero.js
 
@@ -680,9 +675,9 @@ Modified : /StarCraft/Characters/Upgrade.js
 Modified : /StarCraft/GameRule/Referee.js
 Modified : /StarCraft/GameRule/Cheat.js
 Modified : /StarCraft/Characters/Building.js
-Modified : /StarCraft/Characters/Zerg.js
-Modified : /StarCraft/Characters/Protoss.js
-Modified : /StarCraft/Characters/Terran.js
+Modified : /StarCraft/Characters/Predator.jsr.js
+Modified : /StarCraft/Characters/Competitortor.js
+Modified : /StarCraft/Characters/Humanjs
 Modified : /StarCraft/GameRule/Resource.js
 Modified : /StarCraft/Characters/Map.js
 Modified : /StarCraft/Characters/Hero.js
@@ -782,8 +777,8 @@ Revision: 101
 Author: gloomyson
 Date: 19:58:26, 2015-10-5
 Message:
-1.Change Terran units to red
-2.Change Protoss units to green
+1.Change Human units to red
+2.Change Competitor units to green
 3.Update level units
 ----
 Modified : /StarCraft/GameRule/Levels.js
@@ -819,7 +814,7 @@ Author: gloomyson
 Date: 20:45:18, 2015-9-20
 Message:
 1.OnFire and Bleed effect (PART B)
-2.Adjust Terran Refinery construction sprites
+2.Adjust Human Refinery construction sprites
 3.Can train InfestedTerran and create nuclear bomb now
 4.Adjust Drone location when start mutation
 5.Enemy units don't have confirmation sound
@@ -831,8 +826,8 @@ Modified : /StarCraft/Characters/Magic.js
 Modified : /StarCraft/Controller/mouseController.js
 Modified : /StarCraft/GameRule/Referee.js
 Modified : /StarCraft/Characters/Building.js
-Modified : /StarCraft/Characters/Zerg.js
-Modified : /StarCraft/Characters/Protoss.js
+Modified : /StarCraft/Characters/Predatorator.js
+Modified : /StarCraft/Characters/Competitor.js.js
 Modified : /StarCraft/Characters/Burst.js
 Modified : /StarCraft/img/Charas/ProtossBuilding.png
 Modified : /StarCraft/img/Charas/TerranBuilding.png
@@ -852,9 +847,9 @@ Modified : /StarCraft/GameRule/Game.js
 Modified : /StarCraft/Characters/Button.js
 Modified : /StarCraft/css/buttonStyle.css
 Modified : /StarCraft/Characters/Building.js
-Modified : /StarCraft/Characters/Zerg.js
-Modified : /StarCraft/Characters/Protoss.js
-Modified : /StarCraft/Characters/Terran.js
+Modified : /StarCraft/Characters/Predator.jsr.js
+Modified : /StarCraft/Characters/Competitor.js.js
+Modified : /StarCraft/Characters/Humanjs
 Modified : /StarCraft/GameRule/Resource.js
 
 Revision: 98
@@ -871,10 +866,9 @@ Modified : /StarCraft/GameRule/Game.js
 Modified : /StarCraft/Characters/Button.js
 Modified : /StarCraft/GameRule/Referee.js
 Modified : /StarCraft/Characters/Building.js
-Modified : /StarCraft/Characters/Zerg.js
-Modified : /StarCraft/Characters/Protoss.js
-Modified : /StarCraft/Characters/Terran.js
-Modified : /StarCraft/GameRule/Resource.js
+Modified : /StarCraft/Characters/Predatorator.js
+Modified : /StarCraft/Characters/Competitor.js.js
+Modified : /StarCraft/Characters/Human.jsModified : /StarCraft/GameRule/Resource.js
 Modified : /StarCraft/Characters/Burst.js
 Modified : /StarCraft/Characters/Animation.js
 
@@ -917,10 +911,9 @@ Modified : /StarCraft/Characters/Magic.js
 Modified : /StarCraft/Characters/Upgrade.js
 Modified : /StarCraft/GameRule/Referee.js
 Modified : /StarCraft/Characters/Building.js
-Modified : /StarCraft/Characters/Zerg.js
-Modified : /StarCraft/Characters/Protoss.js
-Modified : /StarCraft/Characters/Terran.js
-Modified : /StarCraft/Characters/Burst.js
+Modified : /StarCraft/Characters/Predator.jsr.js
+Modified : /StarCraft/Characters/Competitor.js.js
+Modified : /StarCraft/Characters/Human.jsModified : /StarCraft/Characters/Burst.js
 Modified : /StarCraft/Characters/Hero.js
 Modified : /StarCraft/css/portraitStyle.css
 Modified : /StarCraft/Characters/Neutral.js
@@ -965,7 +958,7 @@ Modified : /StarCraft/Characters/Gobj.js
 Modified : /StarCraft/GameRule/Levels.js
 Modified : /StarCraft/Characters/Bullets.js
 Modified : /StarCraft/Controller/mouseController.js
-Modified : /StarCraft/Characters/Zerg.js
+Modified : /StarCraft/Characters/Predator.jsr.js
 Modified : /StarCraft/GameRule/Resource.js
 Modified : /StarCraft/Characters/Map.js
 
@@ -973,9 +966,9 @@ Revision: 93
 Author: gloomyson
 Date: 21:33:18, 2015-9-5
 Message:
-1.Add construction building and complete animation for Zerg/Terran/Protoss
-2.Add onFire or Bleed animation for Zerg/Terran/Protoss
-3.Zerg base can produce larvas every 20 seconds
+1.Add construction building and complete animation for Predator/Human/Competitor
+2.Add onFire or Bleed animation for Predator/Human/Competitor
+3.Predator base can produce larvas every 20 seconds
 4.Change selectLarva to select its own larvas
 5.Fix refresh mud after ZergBuilding born or die
 6.Fix minor SunkenColony align issue
@@ -1049,7 +1042,7 @@ Revision: 89
 Author: gloomyson
 Date: 1:35:53, 2015-8-24
 Message:
-1.Support Zerg egg and cocoon evolve
+1.Support Predator egg and cocoon evolve
 2.Add Larva, can walkaround but cannot be controlled, Larva produce and SelectLarva not complete
 3.Fix no border-image issue on Firefox and IE11
 4.Fix red border color issue on IE11
@@ -1067,8 +1060,8 @@ Modified : /StarCraft/css/buttonStyle.css
 Modified : /StarCraft/css/style.css
 Modified : /StarCraft/GameRule/Cheat.js
 Modified : /StarCraft/Characters/Building.js
-Modified : /StarCraft/Characters/Zerg.js
-Modified : /StarCraft/Characters/Protoss.js
+Modified : /StarCraft/Characters/Predator.jsr.js
+Modified : /StarCraft/Characters/Competitor.js.js
 Modified : /StarCraft/Characters/Burst.js
 Modified : /StarCraft/Characters/Map.js
 Modified : /StarCraft/css/portraitStyle.css
@@ -1097,7 +1090,7 @@ Modified : /StarCraft/GameRule/Levels.js
 Modified : /StarCraft/Characters/Bullets.js
 Modified : /StarCraft/GameRule/Cheat.js
 Modified : /StarCraft/Characters/Building.js
-Modified : /StarCraft/Characters/Protoss.js
+Modified : /StarCraft/Characters/Competitor.js.js
 Modified : /StarCraft/Characters/Burst.js
 
 Revision: 87
@@ -1123,14 +1116,14 @@ Modified : /StarCraft/Characters/Magic.js
 Modified : /StarCraft/Controller/mouseController.js
 Modified : /StarCraft/GameRule/Referee.js
 Modified : /StarCraft/Characters/Building.js
-Modified : /StarCraft/Characters/Zerg.js
-Modified : /StarCraft/Characters/Protoss.js
+Modified : /StarCraft/Characters/Predator.jsr.js
+Modified : /StarCraft/Characters/Competitor.js.js
 Modified : /StarCraft/Characters/Map.js
 Modified : /StarCraft/img/Charas/Archon.png
 Modified : /StarCraft/img/Charas/DarkArchon.png
 Added : /StarCraft/bgm/Lurker.burrow.wav
-Added : /StarCraft/bgm/Zerg.burrow.wav
-Added : /StarCraft/bgm/Zerg.unburrow.wav
+Added : /StarCraft/bgm/Predator.burrow.wav
+Added : /StarCraft/bgm/Predator.unburrow.wav
 Modified : /StarCraft/img/Charas/Devourer.png
 Modified : /StarCraft/img/Charas/Drone.png
 Modified : /StarCraft/img/Charas/Guardian.png
@@ -1155,7 +1148,7 @@ Modified : /StarCraft/Characters/Bullets.js
 Modified : /StarCraft/Characters/Button.js
 Modified : /StarCraft/css/buttonStyle.css
 Modified : /StarCraft/Characters/Building.js
-Modified : /StarCraft/Characters/Protoss.js
+Modified : /StarCraft/Characters/Competitortor.js
 
 Revision: 85
 Author: gloomyson
@@ -1183,7 +1176,7 @@ Message:
 Modified : /StarCraft/Utils/gFrame.js
 Modified : /StarCraft/GameRule/Levels.js
 Modified : /StarCraft/Characters/Bullets.js
-Modified : /StarCraft/Characters/Terran.js
+Modified : /StarCraft/Characters/Humanjs
 
 Revision: 83
 Author: gloomyson
@@ -1222,10 +1215,9 @@ Modified : /StarCraft/GameRule/Levels.js
 Modified : /StarCraft/Characters/Magic.js
 Modified : /StarCraft/GameRule/Referee.js
 Modified : /StarCraft/Characters/Building.js
-Modified : /StarCraft/Characters/Zerg.js
-Modified : /StarCraft/Characters/Protoss.js
-Modified : /StarCraft/Characters/Terran.js
-Modified : /StarCraft/Characters/Map.js
+Modified : /StarCraft/Characters/Predator.jsr.js
+Modified : /StarCraft/Characters/Competitortor.js
+Modified : /StarCraft/Characters/Human.jsModified : /StarCraft/Characters/Map.js
 Modified : /StarCraft/Characters/Animation.js
 
 Revision: 80
@@ -1394,8 +1386,7 @@ Modified : /StarCraft/Characters/Magic.js
 Modified : /StarCraft/css/buttonStyle.css
 Modified : /StarCraft/GameRule/Cheat.js
 Modified : /StarCraft/Characters/Building.js
-Modified : /StarCraft/Characters/Terran.js
-Modified : /StarCraft/GameRule/Resource.js
+Modified : /StarCraft/Characters/Human.jsModified : /StarCraft/GameRule/Resource.js
 Modified : /StarCraft/Characters/Burst.js
 Modified : /StarCraft/Characters/Map.js
 Added : /StarCraft/Characters/Animation.js
@@ -1414,9 +1405,8 @@ Modified : /StarCraft/GameRule/Game.js
 Modified : /StarCraft/Controller/mouseController.js
 Modified : /StarCraft/Characters/Upgrade.js
 Modified : /StarCraft/Characters/Building.js
-Modified : /StarCraft/Characters/Protoss.js
-Modified : /StarCraft/Characters/Terran.js
-
+Modified : /StarCraft/Characters/Competitor.js.js
+Modified : /StarCraft/Characters/Human.js
 Revision: 71
 Author: gloomyson
 Date: 0:22:34, 2015-7-23
@@ -1447,7 +1437,7 @@ Message:
 Modified : /StarCraft/Characters/Button.js
 Modified : /StarCraft/Characters/Magic.js
 Modified : /StarCraft/css/style.css
-Modified : /StarCraft/Characters/Protoss.js
+Modified : /StarCraft/Characters/Competitor.js.js
 Added : /StarCraft/img/Charas/Magic.png
 
 Revision: 69
@@ -1560,9 +1550,9 @@ Modified : /StarCraft/index.html
 Modified : /StarCraft/GameRule/Game.js
 Modified : /StarCraft/Characters/Button.js
 Modified : /StarCraft/css/style.css
-Modified : /StarCraft/Characters/Zerg.js
-Modified : /StarCraft/Characters/Protoss.js
-Modified : /StarCraft/Characters/Terran.js
+Modified : /StarCraft/Characters/Predatorator.js
+Modified : /StarCraft/Characters/Competitortor.js
+Modified : /StarCraft/Characters/Humanjs
 
 Revision: 63
 Author: gloomyson
@@ -1586,14 +1576,13 @@ Modified : /StarCraft/css/style.css
 Modified : /StarCraft/Characters/Upgrade.js
 Modified : /StarCraft/GameRule/Referee.js
 Modified : /StarCraft/Characters/Building.js
-Modified : /StarCraft/Characters/Zerg.js
-Modified : /StarCraft/Characters/Protoss.js
-Modified : /StarCraft/Characters/Terran.js
-Modified : /StarCraft/GameRule/Resource.js
+Modified : /StarCraft/Characters/Predatorator.js
+Modified : /StarCraft/Characters/Competitor.js.js
+Modified : /StarCraft/Characters/Human.jsModified : /StarCraft/GameRule/Resource.js
 Deleted : /StarCraft/Utils/sound.js
-Added : /StarCraft/bgm/upgrade.Protoss.wav
-Added : /StarCraft/bgm/upgrade.Terran.wav
-Added : /StarCraft/bgm/upgrade.Zerg.wav
+Added : /StarCraft/bgm/upgrade.Competitor.wav
+Added : /StarCraft/bgm/upgrade.Human.wav
+Added : /StarCraft/bgm/upgrade.Predator.wav
 Modified : /StarCraft/favicon.ico
 Modified : /StarCraft/img/Menu/Thingy.png
 
@@ -1619,25 +1608,24 @@ Modified : /StarCraft/Characters/Upgrade.js
 Modified : /StarCraft/GameRule/Referee.js
 Modified : /StarCraft/GameRule/Cheat.js
 Modified : /StarCraft/Characters/Building.js
-Modified : /StarCraft/Characters/Zerg.js
-Modified : /StarCraft/Characters/Protoss.js
-Modified : /StarCraft/Characters/Terran.js
-Added : /StarCraft/GameRule/Resource.js
+Modified : /StarCraft/Characters/Predator.jsr.js
+Modified : /StarCraft/Characters/Competitortor.js
+Modified : /StarCraft/Characters/Human.jsAdded : /StarCraft/GameRule/Resource.js
 Modified : /StarCraft/Characters/Map.js
 Modified : /StarCraft/img/Menu/Thingy.png
 Added : /StarCraft/bgm/Button.wav
-Added : /StarCraft/bgm/gas.Protoss.wav
-Added : /StarCraft/bgm/gas.Terran.wav
-Added : /StarCraft/bgm/gas.Zerg.wav
-Added : /StarCraft/bgm/magic.Protoss.wav
-Added : /StarCraft/bgm/magic.Terran.wav
-Added : /StarCraft/bgm/magic.Zerg.wav
-Added : /StarCraft/bgm/man.Protoss.wav
-Added : /StarCraft/bgm/man.Terran.wav
-Added : /StarCraft/bgm/man.Zerg.wav
-Added : /StarCraft/bgm/mine.Protoss.wav
-Added : /StarCraft/bgm/mine.Terran.wav
-Added : /StarCraft/bgm/mine.Zerg.wav
+Added : /StarCraft/bgm/gas.Competitor.wav
+Added : /StarCraft/bgm/gas.Human.wav
+Added : /StarCraft/bgm/gas.Predator.wav
+Added : /StarCraft/bgm/magic.Competitor.wav
+Added : /StarCraft/bgm/magic.Human.wav
+Added : /StarCraft/bgm/magic.Predator.wav
+Added : /StarCraft/bgm/man.Competitor.wav
+Added : /StarCraft/bgm/man.Human.wav
+Added : /StarCraft/bgm/man.Predator.wav
+Added : /StarCraft/bgm/mine.Competitor.wav
+Added : /StarCraft/bgm/mine.Human.wav
+Added : /StarCraft/bgm/mine.Predator.wav
 Modified : /StarCraft/img/Charas/Mud.png
 
 Revision: 61
@@ -1666,9 +1654,9 @@ Modified : /StarCraft/css/style.css
 Modified : /StarCraft/GameRule/Referee.js
 Modified : /StarCraft/GameRule/Cheat.js
 Modified : /StarCraft/Characters/Building.js
-Modified : /StarCraft/Characters/Zerg.js
-Modified : /StarCraft/Characters/Protoss.js
-Modified : /StarCraft/Characters/Terran.js
+Modified : /StarCraft/Characters/Predator.jsr.js
+Modified : /StarCraft/Characters/Competitortor.js
+Modified : /StarCraft/Characters/Humanjs
 Modified : /StarCraft/Characters/Hero.js
 Added : /StarCraft/img/Menu/Thingy.png
 Modified : /StarCraft/img/Menu/cursor.ico
@@ -1710,7 +1698,7 @@ Modified : /StarCraft/css/buttonStyle.css
 Modified : /StarCraft/css/style.css
 Modified : /StarCraft/GameRule/Cheat.js
 Modified : /StarCraft/Characters/Building.js
-Modified : /StarCraft/Characters/Protoss.js
+Modified : /StarCraft/Characters/Competitortor.js
 Modified : /StarCraft/Characters/Burst.js
 Modified : /StarCraft/Characters/Map.js
 Modified : /StarCraft/css/mapStyle.css
@@ -1807,7 +1795,7 @@ Message:
 Fullfill bullets for enemy Reaver and Carrier
 ----
 Modified : /StarCraft/GameRule/Levels.js
-Modified : /StarCraft/Characters/Protoss.js
+Modified : /StarCraft/Characters/Competitor.js.js
 
 Revision: 49
 Author: gloomyson
@@ -1854,8 +1842,7 @@ Message:
 ----
 Modified : /StarCraft/Characters/Button.js
 Modified : /StarCraft/css/buttonStyle.css
-Modified : /StarCraft/Characters/Terran.js
-
+Modified : /StarCraft/Characters/Human.js
 Revision: 46
 Author: gloomyson
 Date: 19:18:34, 2015-6-14
@@ -1869,7 +1856,7 @@ Message:
 7.No sound from outside screen
 8.Build scarab and interceptor, then can attack
 9.Remove noise for ControlPanel and Archon
-10.Control panel style for Zerg and Protoss
+10.Control panel style for Predator and Competitor
 11.Fix shaking when reach attack target
 12.Basic fix for hold handler
 ----
@@ -1884,9 +1871,9 @@ Modified : /StarCraft/css/style.css
 Modified : /StarCraft/Characters/Upgrade.js
 Modified : /StarCraft/GameRule/Referee.js
 Modified : /StarCraft/Characters/Building.js
-Modified : /StarCraft/Characters/Zerg.js
-Modified : /StarCraft/Characters/Protoss.js
-Modified : /StarCraft/Characters/Terran.js
+Modified : /StarCraft/Characters/Predatorator.js
+Modified : /StarCraft/Characters/Competitortor.js
+Modified : /StarCraft/Characters/Humanjs
 Modified : /StarCraft/Characters/Burst.js
 Modified : /StarCraft/Characters/Hero.js
 Modified : /StarCraft/Characters/Neutral.js
@@ -1912,9 +1899,9 @@ Modified : /StarCraft/Characters/Magic.js
 Modified : /StarCraft/Characters/Upgrade.js
 Modified : /StarCraft/GameRule/Referee.js
 Modified : /StarCraft/Characters/Building.js
-Modified : /StarCraft/Characters/Zerg.js
-Modified : /StarCraft/Characters/Protoss.js
-Modified : /StarCraft/Characters/Terran.js
+Modified : /StarCraft/Characters/Predator.jsr.js
+Modified : /StarCraft/Characters/Competitortor.js
+Modified : /StarCraft/Characters/Humanjs
 Modified : /StarCraft/Characters/Hero.js
 
 Revision: 44
@@ -1949,9 +1936,9 @@ Modified : /StarCraft/Characters/Button.js
 Modified : /StarCraft/Characters/Magic.js
 Modified : /StarCraft/css/buttonStyle.css
 Modified : /StarCraft/Characters/Building.js
-Modified : /StarCraft/Characters/Zerg.js
-Modified : /StarCraft/Characters/Protoss.js
-Modified : /StarCraft/Characters/Terran.js
+Modified : /StarCraft/Characters/Predatorator.js
+Modified : /StarCraft/Characters/Competitor.js.js
+Modified : /StarCraft/Characters/Humanjs
 Modified : /StarCraft/Characters/Hero.js
 
 Revision: 42
@@ -1968,7 +1955,7 @@ Date: 17:52:23, 2015-6-2
 Message:
 1.Update critters name (js, png and wav)
 2.Fully fix bottom white line issue
-3.Zerg building burst changed to 18 frames
+3.Predator building burst changed to 18 frames
 ----
 Modified : /StarCraft/GameRule/Game.js
 Modified : /StarCraft/GameRule/Levels.js

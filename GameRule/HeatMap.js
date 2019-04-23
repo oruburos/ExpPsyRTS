@@ -110,11 +110,11 @@ var HeatMap = {
 
 			}
 			else
-				if (chara.name === "Templar") //CHECAR NOMBRE
+				if (chara.name === "CompetitorA") //CHECAR NOMBRE
 				{
 					occupancy[1][j][i]++;
 				}
-				else if (chara.name === "Drone" && myself.recordPredator) {
+				else if (chara.name === "Alien" && myself.recordPredator) {
 
 					//console.log("guardando depredador")
 

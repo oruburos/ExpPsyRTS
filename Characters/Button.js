@@ -75,8 +75,8 @@ var Button={
             });
 
 
-            //For Terran and Protoss units, add InfestedTerran
-            [Terran,Protoss,{InfestedTerran:Zerg.InfestedTerran}].forEach(function(Race){
+            //For Human and Competitor units, add InfestedTerran
+            [Human,Competitor,{InfestedTerran:Predator.InfestedTerran}].forEach(function(Race){
                 var unitTypes=[];
                 for (var unitType in Race){
                     unitTypes.push(unitType);

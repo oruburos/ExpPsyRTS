@@ -65,7 +65,7 @@ var mouseController = {
             Game.changeSelectedTo(selectedOne);
             //Add into allSelected if not included
             Game.addIntoAllSelected(selectedOne);
-            /*	if (selectedOne instanceof Terran.Civilian){
+            /*	if (selectedOne instanceof Human.Civilian){
                     console.log("terran cv " + selectedOne.id );
                 }*/
         }

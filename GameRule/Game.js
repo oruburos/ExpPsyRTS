@@ -149,7 +149,7 @@ var Game = {
 		Game.commandTimeout(funcAdjust, interval);
 	},
 	race: {
-		selected: 'Terran',//Terran race by default
+		selected: 'Human',//Human race by default
 		choose: function (race) {
 			this.selected = race;
 			$('div#GamePlay').attr('race', race);
@@ -183,22 +183,21 @@ var Game = {
 		}
 		//Start loading
 		Game.layerSwitchTo("GameLoading");
-		//Zerg
-		sourceLoader.load("img", Game.CDN + "img/Charas/Drone.png", "Drone");
-		sourceLoader.load("img", Game.CDN + "img/Charas/SCV.png", "SCV");
+		//Predator
+		sourceLoader.load("img", Game.CDN + "img/Charas/Alien.png", "Alien");
 		sourceLoader.load("img", Game.CDN + "img/Charas/CivilianGrey.png", "Civilian");
-		sourceLoader.load("img", Game.CDN + "img/Charas/Templar.png", "Templar");
+		sourceLoader.load("img", Game.CDN + "img/Charas/CompetitorA.png", "CompetitorA");
 
 		//Building
 		sourceLoader.load("img", Game.CDN + "img/Charas/TerranBuilding.png", "TerranBuilding");
-		sourceLoader.load("img", Game.CDN + "img/Charas/ControlBase.png", "ControlBase");
-		sourceLoader.load("img", Game.CDN + "img/Charas/ProtossBuilding.png", "ProtossBuilding");
+		//sourceLoader.load("img", Game.CDN + "img/Charas/ControlBase.png", "ControlBase");
+		//sourceLoader.load("img", Game.CDN + "img/Charas/ProtossBuilding.png", "ProtossBuilding");
 
 		//Map
 
 		sourceLoader.load("img", Game.CDN + "img/Maps/Map_Grass.jpg", "Map_Grass");
 		//Extra
-		sourceLoader.load("img", Game.CDN + "img/Charas/BuildingBurst.png", "BuildingBurst");
+		//sourceLoader.load("img", Game.CDN + "img/Charas/BuildingBurst.png", "BuildingBurst");
 		sourceLoader.load("img", Game.CDN + "img/Charas/Portrait.png", "Portrait");
 		sourceLoader.load("img", Game.CDN + "img/Menu/ControlPanel.png", "ControlPanel");
 
@@ -301,10 +300,10 @@ var Game = {
 		}
 		return result;
 	},
-	//Do we need this because we only support Zerg vs Terran vs Protoss?
+	//Do we need this because we only support Predator vs Human vs Competitor?
 	expandUnitProps: function () {
 		//Post-operation for all unit types, prepare basic properties for different team numbers, init in level.js
-		_$.traverse([Zerg, Terran, Protoss], function (unitType) {
+		_$.traverse([Predator, Human, Competitor], function (unitType) {
 			['HP', 'SP', 'MP', 'damage', 'armor', 'speed', 'attackRange', 'attackInterval', 'plasma', 'sight'].forEach(function (prop) {
 				//Prop array, first one for us, second for enemy
 				if (unitType.prototype[prop] != undefined) {
@@ -1099,7 +1098,7 @@ var Game = {
 
 					if (chara.name !== 'Mineral') {
 						//console.log("ciclo ai  " + chara.name );
-						if (chara.name === 'Templar') {
+						if (chara.name === 'CompetitorA') {
 							chara.AIForager();
 							//	console.log("ciclo ai22");
 						} else {

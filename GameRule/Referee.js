@@ -61,7 +61,7 @@ var Referee={
         //Every 0.4 sec
         if (Game.mainTick%4==0){
             //Special skill: make nearby units invisible
-          //  var arbiterBuffer=Protoss.Arbiter.prototype.bufferObj;
+          //  var arbiterBuffer=Competitor.Arbiter.prototype.bufferObj;
             var allArbiters=Game.getPropArray([]);
             Unit.allUnits.forEach(function(chara){
                 if (chara.name=='Arbiter') allArbiters[chara.team].push(chara);
@@ -348,7 +348,7 @@ var Referee={
                 //Can give birth to 3 larvas
                 for(var N=0;N<3;N++){
                     if (build.larvas[N]==null || build.larvas[N].status=="dead"){
-                        build.larvas[N]=new Zerg.Larva({x:(build.x+N*48),y:(build.y+build.height+4),team:build.team});
+                        build.larvas[N]=new Predator.Larva({x:(build.x+N*48),y:(build.y+build.height+4),team:build.team});
                         //Which base larva belongs to
                         build.larvas[N].owner=build;
                         break;

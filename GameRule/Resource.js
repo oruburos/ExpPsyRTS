@@ -12,7 +12,7 @@ var Resource={
     getCost:function(name,team){
         var cost,count;
         if (!team) team=Game.team;
-        [Zerg,Terran,Protoss,Building.ZergBuilding,Building.TerranBuilding,Building.ProtossBuilding,Magic,Upgrade].forEach(function(Type){
+        [Predator,Human,Competitor,Building.ZergBuilding,Building.TerranBuilding,Building.ProtossBuilding,Magic,Upgrade].forEach(function(Type){
             //Not found yet
             if (!cost) {
                 for (var item in Type){
@@ -67,13 +67,13 @@ var Resource={
             if(cost['man'] && cost['man']>(Resource[team].totalMan-Resource[team].curMan) && !Cheat.manUnlimited){
                 oweFlag=true;
                 switch(Game.race.selected){
-                    case 'Zerg':
+                    case 'Predator':
                         Game.showMessage('Too many underlings...create more Overlords');
                         break;
-                    case 'Terran':
+                    case 'Human':
                         Game.showMessage('Not enough supplies...build more Supply Depots');
                         break;
-                    case 'Protoss':
+                    case 'Competitor':
                         Game.showMessage('Not enough psi...build more Pylons');
                         break;
                 }

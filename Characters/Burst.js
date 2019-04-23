@@ -268,3 +268,23 @@ Burst.HumanDeath=Burst.extends({
         }
     }
 });
+Burst.CompetitionDeath=Burst.extends({
+    constructorPlus:function(props){
+        //Nothing
+    },
+    prototypePlus:{
+        //Add basic unit info
+        name:"CompetitorA",
+        imgPos:{
+            burst:{
+                left:[6,58,106,158,6,54,102,152],
+                top:[286,286,286,286,320,320,320,320]
+            }
+        },
+        width:42,
+        height:30,
+        frame:{
+            burst:8
+        }
+    }
+});

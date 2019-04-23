@@ -12,10 +12,10 @@ var Levels = [
 			Unit.allUnits = [];
 
 			//Choose side and apply race style
-			var races = ['Terran', 'Zerg'];
+			var races = ['Human', 'Predator'];
 			var startPoint = [{ x: 330, y: 20 }, { x: 200, y: 50 }];
 			//if (!Game.replayFlag) Game.team=Math.random()*2>>0;
-			Game.race.choose('Terran');
+			Game.race.choose('Human');
 			Map.offsetX = startPoint[Game.team].x;
 			Map.offsetY = startPoint[Game.team].y;
 
@@ -24,58 +24,58 @@ var Levels = [
 			Game.showMessage('Gather resources.');
 
 			Game.showWarning("Starting", 3000000)
-			new Terran.Civilian({ x: 900, y: 400, team: 0, id: 0 });
-			new Terran.Civilian({ x: 950, y: 400, team: 0 });
-			new Terran.Civilian({ x: 1100, y: 400, team: 0 });
-			new Terran.Civilian({ x: 1050, y: 400, team: 0 });
-			new Terran.Civilian({ x: 1000, y: 400, team: 0 });
+			new Human.Civilian({ x: 900, y: 400, team: 0, id: 0 });
+			new Human.Civilian({ x: 950, y: 400, team: 0 });
+			new Human.Civilian({ x: 1100, y: 400, team: 0 });
+			new Human.Civilian({ x: 1050, y: 400, team: 0 });
+			new Human.Civilian({ x: 1000, y: 400, team: 0 });
 
 			new Building.TerranBuilding.CommandCenter({ x: 1000, y: 200 });
 
 			//pellet 1
-			min = new Terran.Mineral({ x: 400, y: 150 });
+			min = new Human.Mineral({ x: 400, y: 150 });
 			randomValue = Math.floor((Math.random() * 10) + 1);
 			min.resources = randomValue;
 			min.HP = randomValue;
 			Game.totalResources = min.resources;
 
 			//pellet 2
-			min = new Terran.Mineral({ x: 1600, y: 150 });
+			min = new Human.Mineral({ x: 1600, y: 150 });
 			randomValue = Math.floor((Math.random() * 10) + 1);
 			min.resources = randomValue;
 			min.HP = randomValue;
 			Game.totalResources = Game.totalResources + min.resources;
 
 			//pellet 3
-			min = new Terran.Mineral({ x: 400, y: 1850 });
+			min = new Human.Mineral({ x: 400, y: 1850 });
 			randomValue = Math.floor((Math.random() * 10) + 1);
 			min.resources = randomValue;
 			min.HP = randomValue;
 			Game.totalResources = Game.totalResources + min.resources;
 
 			//pellet 4
-			min = new Terran.Mineral({ x: 1600, y: 1850 });
+			min = new Human.Mineral({ x: 1600, y: 1850 });
 			randomValue = Math.floor((Math.random() * 10) + 1);
 			min.resources = randomValue;
 			min.HP = randomValue;
 			Game.totalResources = Game.totalResources + min.resources;
 
 			//pellet 5
-			min = new Terran.Mineral({ x: 300, y: 1000 });
+			min = new Human.Mineral({ x: 300, y: 1000 });
 			randomValue = Math.floor((Math.random() * 10) + 1);
 			min.resources = randomValue;
 			min.HP = randomValue;
 			Game.totalResources = Game.totalResources + min.resources;
 
 			//pellet 6
-			min = new Terran.Mineral({ x: 1700, y: 1000 });
+			min = new Human.Mineral({ x: 1700, y: 1000 });
 			randomValue = Math.floor((Math.random() * 10) + 1);
 			min.resources = randomValue;
 			min.HP = randomValue;
 			Game.totalResources = Game.totalResources + min.resources;
 
 			//pellet 7
-			min = new Terran.Mineral({ x: 1000, y: 1000 });
+			min = new Human.Mineral({ x: 1000, y: 1000 });
 			randomValue = Math.floor((Math.random() * 10) + 1);
 
 			min.resources = randomValue;
@@ -129,10 +129,10 @@ var Levels = [
 
 
 			//Choose side and apply race style
-			var races = ['Terran', 'Zerg'];
+			var races = ['Human', 'Predator'];
 			var startPoint = [{ x: 330, y: 20 }, { x: 200, y: 50 }];
 			//if (!Game.replayFlag) Game.team=Math.random()*2>>0;
-			Game.race.choose('Terran');
+			Game.race.choose('Human');
 			Map.offsetX = startPoint[Game.team].x;
 			Map.offsetY = startPoint[Game.team].y;
 
@@ -144,18 +144,18 @@ var Levels = [
 
 
 
-			new Terran.Civilian({ x: 900, y: 400, team: 0 });
-			new Terran.Civilian({ x: 950, y: 400, team: 0 });
-			new Terran.Civilian({ x: 1100, y: 400, team: 0 });
-			new Terran.Civilian({ x: 1050, y: 400, team: 0 });
-			new Terran.Civilian({ x: 1000, y: 400, team: 0 });
+			new Human.Civilian({ x: 900, y: 400, team: 0 });
+			new Human.Civilian({ x: 950, y: 400, team: 0 });
+			new Human.Civilian({ x: 1100, y: 400, team: 0 });
+			new Human.Civilian({ x: 1050, y: 400, team: 0 });
+			new Human.Civilian({ x: 1000, y: 400, team: 0 });
 
 			new Building.TerranBuilding.CommandCenter({ x: 1000, y: 200 });
 
 
 
 			//pellet 1
-			min = new Terran.Mineral({ x: 400, y: 150 });
+			min = new Human.Mineral({ x: 400, y: 150 });
 			randomValue = Math.floor((Math.random() * 10) + 1);
 
 			min.resources = randomValue;
@@ -163,35 +163,35 @@ var Levels = [
 			Game.totalResources = min.resources;
 
 			//pellet 2
-			min = new Terran.Mineral({ x: 1600, y: 150 });
+			min = new Human.Mineral({ x: 1600, y: 150 });
 			randomValue = Math.floor((Math.random() * 10) + 1);
 			min.resources = randomValue;
 			min.HP = randomValue;
 			Game.totalResources = Game.totalResources + min.resources;
 
 			//pellet 3
-			min = new Terran.Mineral({ x: 400, y: 1850 });
+			min = new Human.Mineral({ x: 400, y: 1850 });
 			randomValue = Math.floor((Math.random() * 10) + 1);
 			min.resources = randomValue;
 			min.HP = randomValue;
 			Game.totalResources = Game.totalResources + min.resources;
 
 			//pellet 4
-			min = new Terran.Mineral({ x: 1600, y: 1850 });
+			min = new Human.Mineral({ x: 1600, y: 1850 });
 			randomValue = Math.floor((Math.random() * 10) + 1);
 			min.resources = randomValue;
 			min.HP = randomValue;
 			Game.totalResources = Game.totalResources + min.resources;
 
 			//pellet 5
-			min = new Terran.Mineral({ x: 300, y: 1000 });
+			min = new Human.Mineral({ x: 300, y: 1000 });
 			randomValue = Math.floor((Math.random() * 10) + 1);
 			min.resources = randomValue;
 			min.HP = randomValue;
 			Game.totalResources = Game.totalResources + min.resources;
 
 			//pellet 6
-			min = new Terran.Mineral({ x: 1700, y: 1000 });
+			min = new Human.Mineral({ x: 1700, y: 1000 });
 			randomValue = Math.floor((Math.random() * 10) + 1);
 			min.resources = randomValue;
 			
@@ -199,7 +199,7 @@ var Levels = [
 			Game.totalResources = Game.totalResources + min.resources;
 
 			//pellet 7
-			min = new Terran.Mineral({ x: 1000, y: 1000 });
+			min = new Human.Mineral({ x: 1000, y: 1000 });
 			randomValue = Math.floor((Math.random() * 10) + 1);
 			min.resources = randomValue;
 			min.HP = randomValue;
@@ -243,10 +243,10 @@ var Levels = [
 			Map.offsetY = 50;
 			Unit.allUnits = [];
 			//Choose side and apply race style
-			var races = ['Terran', 'Zerg'];
+			var races = ['Human', 'Predator'];
 			var startPoint = [{ x: 330, y: 20 }, { x: 200, y: 50 }];
 			//if (!Game.replayFlag) Game.team=Math.random()*2>>0;
-			Game.race.choose('Terran');
+			Game.race.choose('Human');
 			Map.offsetX = startPoint[Game.team].x;
 			Map.offsetY = startPoint[Game.team].y;
 
@@ -255,67 +255,67 @@ var Levels = [
 			Game.showMessage('Gather resources. ');
 
 
-			new Terran.Civilian({ x: 900, y: 400, team: 0 });
-			new Terran.Civilian({ x: 950, y: 400, team: 0 });
-			new Terran.Civilian({ x: 1100, y: 400, team: 0 });
-			new Terran.Civilian({ x: 1050, y: 400, team: 0 });
-			new Terran.Civilian({ x: 1000, y: 400, team: 0 });
+			new Human.Civilian({ x: 900, y: 400, team: 0 });
+			new Human.Civilian({ x: 950, y: 400, team: 0 });
+			new Human.Civilian({ x: 1100, y: 400, team: 0 });
+			new Human.Civilian({ x: 1050, y: 400, team: 0 });
+			new Human.Civilian({ x: 1000, y: 400, team: 0 });
 
 			new Building.TerranBuilding.CommandCenter({ x: 1000, y: 200 });
 
 
 			//pellet 1
-			min = new Terran.Mineral({ x: 400, y: 150 });
+			min = new Human.Mineral({ x: 400, y: 150 });
 			randomValue = Math.floor((Math.random() * 10) + 1);
 			min.resources = randomValue;
 			min.HP = randomValue;
 			Game.totalResources = min.resources;
 
 			//pellet 2
-			min = new Terran.Mineral({ x: 1600, y: 150 });
+			min = new Human.Mineral({ x: 1600, y: 150 });
 			randomValue = Math.floor((Math.random() * 10) + 1);
 			min.resources = randomValue;
 			min.HP = randomValue;
 			Game.totalResources = Game.totalResources + min.resources;
 
 			//pellet 3
-			min = new Terran.Mineral({ x: 400, y: 1850 });
+			min = new Human.Mineral({ x: 400, y: 1850 });
 			randomValue = Math.floor((Math.random() * 10) + 1);
 			min.resources = randomValue;
 			min.HP = randomValue;
 			Game.totalResources = Game.totalResources + min.resources;
 
 			//pellet 4
-			min = new Terran.Mineral({ x: 1600, y: 1850 });
+			min = new Human.Mineral({ x: 1600, y: 1850 });
 			randomValue = Math.floor((Math.random() * 10) + 1);
 			min.resources = randomValue;
 			min.HP = randomValue;
 			Game.totalResources = Game.totalResources + min.resources;
 
 			//pellet 5
-			min = new Terran.Mineral({ x: 300, y: 1000 });
+			min = new Human.Mineral({ x: 300, y: 1000 });
 			randomValue = Math.floor((Math.random() * 10) + 1);
 			min.resources = randomValue;
 			min.HP = randomValue;
 			Game.totalResources = Game.totalResources + min.resources;
 
 			//pellet 6
-			min = new Terran.Mineral({ x: 1700, y: 1000 });
+			min = new Human.Mineral({ x: 1700, y: 1000 });
 			randomValue = Math.floor((Math.random() * 10) + 1);
 			min.resources = randomValue;
 			min.HP = randomValue;
 			Game.totalResources = Game.totalResources + min.resources;
 
 			//pellet 7
-			min = new Terran.Mineral({ x: 1000, y: 1000 });
+			min = new Human.Mineral({ x: 1000, y: 1000 });
 			randomValue = Math.floor((Math.random() * 10) + 1);
 			min.resources = randomValue;
 			min.HP = randomValue;
 			Game.totalResources = Game.totalResources + min.resources;
 
-			new Zerg.Drone({ x: 300, y: 1000, team: 1 });
-			new Zerg.Drone({ x: 1000, y: 1000, team: 1 });
-			new Zerg.Drone({ x: 1700, y: 1000, team: 1 });
+			new Predator.Alien({ x: 300, y: 1000, team: 1 });
+			new Predator.Alien({ x: 1000, y: 1000, team: 1 });
+			new Predator.Alien({ x: 1700, y: 1000, team: 1 });
 
 			if (Game.modoTutorial) {
 				Game.commandTimeout(function () {
@@ -357,10 +357,10 @@ var Levels = [
 			Unit.allUnits = [];
 
 			//Choose side and apply race style
-			var races = ['Terran',  'Protoss'];
+			var races = ['Human',  'Competitor'];
 			var startPoint = [{ x: 330, y: 20 }, { x: 200, y: 50 }];
 			//if (!Game.replayFlag) Game.team=Math.random()*2>>0;
-			Game.race.choose('Terran');
+			Game.race.choose('Human');
 			Map.offsetX = startPoint[Game.team].x;
 			Map.offsetY = startPoint[Game.team].y;
 
@@ -370,59 +370,59 @@ var Levels = [
 			Game.showMessage('Gather resources.');
 
 
-			new Terran.Civilian({ x: 900, y: 400, team: 0 });
-			new Terran.Civilian({ x: 950, y: 400, team: 0 });
-			new Terran.Civilian({ x: 1100, y: 400, team: 0 });
-			new Terran.Civilian({ x: 1050, y: 400, team: 0 });
-			new Terran.Civilian({ x: 1000, y: 400, team: 0 });
+			new Human.Civilian({ x: 900, y: 400, team: 0 });
+			new Human.Civilian({ x: 950, y: 400, team: 0 });
+			new Human.Civilian({ x: 1100, y: 400, team: 0 });
+			new Human.Civilian({ x: 1050, y: 400, team: 0 });
+			new Human.Civilian({ x: 1000, y: 400, team: 0 });
 
 			new Building.TerranBuilding.CommandCenter({ x: 1000, y: 200 });
 
 
 			//pellet 1
-			min = new Terran.Mineral({ x: 400, y: 150 });
+			min = new Human.Mineral({ x: 400, y: 150 });
 			randomValue = Math.floor((Math.random() * 10) + 1);
 			min.resources = randomValue;
 			min.HP = randomValue;
 			Game.totalResources = min.resources;
 
 			//pellet 2
-			min = new Terran.Mineral({ x: 1600, y: 150 });
+			min = new Human.Mineral({ x: 1600, y: 150 });
 			randomValue = Math.floor((Math.random() * 10) + 1);
 			min.resources = randomValue;
 			min.HP = randomValue;
 			Game.totalResources = Game.totalResources + min.resources;
 
 			//pellet 3
-			min = new Terran.Mineral({ x: 400, y: 1850 });
+			min = new Human.Mineral({ x: 400, y: 1850 });
 			randomValue = Math.floor((Math.random() * 10) + 1);
 			min.resources = randomValue;
 			min.HP = randomValue;
 			Game.totalResources = Game.totalResources + min.resources;
 
 			//pellet 4
-			min = new Terran.Mineral({ x: 1600, y: 1850 });
+			min = new Human.Mineral({ x: 1600, y: 1850 });
 			randomValue = Math.floor((Math.random() * 10) + 1);
 			min.resources = randomValue;
 			min.HP = randomValue;
 			Game.totalResources = Game.totalResources + min.resources;
 
 			//pellet 5
-			min = new Terran.Mineral({ x: 300, y: 1000 });
+			min = new Human.Mineral({ x: 300, y: 1000 });
 			randomValue = Math.floor((Math.random() * 10) + 1);
 			min.resources = randomValue;
 			min.HP = randomValue;
 			Game.totalResources = Game.totalResources + min.resources;
 
 			//pellet 6
-			min = new Terran.Mineral({ x: 1700, y: 1000 });
+			min = new Human.Mineral({ x: 1700, y: 1000 });
 			randomValue = Math.floor((Math.random() * 10) + 1);
 			min.resources = randomValue;
 			min.HP = randomValue;
 			Game.totalResources = Game.totalResources + min.resources;
 
 			//pellet 7
-			min = new Terran.Mineral({ x: 1000, y: 1000 });
+			min = new Human.Mineral({ x: 1000, y: 1000 });
 			randomValue = Math.floor((Math.random() * 10) + 1);
 			min.resources = randomValue;
 			min.HP = randomValue;
@@ -431,7 +431,7 @@ var Levels = [
 	
 
 
-			m = new Protoss.Templar({ x: 900, y: 1600, team: 2, });
+			m = new Competitor.CompetitorA({ x: 900, y: 1600, team: 2, });
 			m.sight = 250;
 			m.speed = 5;
 			m.HP = 10;
@@ -442,7 +442,7 @@ var Levels = [
 
 
 
-			m = new Protoss.Templar({ x: 950, y: 1600, team: 2, });
+			m = new Competitor.CompetitorA({ x: 950, y: 1600, team: 2, });
 			m.sight = 250;
 			m.speed = 5;
 			m.HP = 10;
@@ -452,7 +452,7 @@ var Levels = [
 			m.id = 98;
 
 
-			m = new Protoss.Templar({ x: 1000, y: 1600, team: 2, });
+			m = new Competitor.CompetitorA({ x: 1000, y: 1600, team: 2, });
 			m.sight = 250;
 			m.speed = 5;
 			m.HP = 10;
@@ -461,7 +461,7 @@ var Levels = [
 			m.attackInterval = 3000000
 			m.id = 95;
 
-			m = new Protoss.Templar({ x: 1050, y: 1600, team: 2, });
+			m = new Competitor.CompetitorA({ x: 1050, y: 1600, team: 2, });
 			m.sight = 250;
 			m.speed = 5;
 			m.HP = 10;
@@ -470,7 +470,7 @@ var Levels = [
 			m.attackInterval = 3000000
 			m.id = 97;
 
-			m = new Protoss.Templar({ x: 1100, y: 1600, team: 2, });
+			m = new Competitor.CompetitorA({ x: 1100, y: 1600, team: 2, });
 			m.sight = 250;
 			m.speed = 5;
 			m.HP = 10;
@@ -520,10 +520,10 @@ var Levels = [
 			Unit.allUnits = [];
 
 			//Choose side and apply race style
-			var races = ['Terran', 'Zerg', 'Protoss'];
+			var races = ['Human', 'Predator', 'Competitor'];
 			var startPoint = [{ x: 330, y: 20 }, { x: 200, y: 50 }];
 			//if (!Game.replayFlag) Game.team=Math.random()*2>>0;
-			Game.race.choose('Terran');
+			Game.race.choose('Human');
 			Map.offsetX = startPoint[Game.team].x;
 			Map.offsetY = startPoint[Game.team].y;
 
@@ -532,71 +532,71 @@ var Levels = [
 			Game.showMessage('Gather resources.');
 
 
-			new Terran.Civilian({ x: 900, y: 400, team: 0 });
-			new Terran.Civilian({ x: 950, y: 400, team: 0 });
-			new Terran.Civilian({ x: 1100, y: 400, team: 0 });
-			new Terran.Civilian({ x: 1050, y: 400, team: 0 });
-			new Terran.Civilian({ x: 1000, y: 400, team: 0 });
+			new Human.Civilian({ x: 900, y: 400, team: 0 });
+			new Human.Civilian({ x: 950, y: 400, team: 0 });
+			new Human.Civilian({ x: 1100, y: 400, team: 0 });
+			new Human.Civilian({ x: 1050, y: 400, team: 0 });
+			new Human.Civilian({ x: 1000, y: 400, team: 0 });
 
 			new Building.TerranBuilding.CommandCenter({ x: 1000, y: 200 });
 
 
 
 			//pellet 1
-			min = new Terran.Mineral({ x: 400, y: 150 });
+			min = new Human.Mineral({ x: 400, y: 150 });
 			randomValue = Math.floor((Math.random() * 10) + 1);
 			min.resources = randomValue;
 			min.HP = randomValue;
 			Game.totalResources = min.resources;
 
 			//pellet 2
-			min = new Terran.Mineral({ x: 1600, y: 150 });
+			min = new Human.Mineral({ x: 1600, y: 150 });
 			randomValue = Math.floor((Math.random() * 10) + 1);
 			min.resources = randomValue;
 			min.HP = randomValue;
 			Game.totalResources = Game.totalResources + min.resources;
 
 			//pellet 3
-			min = new Terran.Mineral({ x: 400, y: 1850 });
+			min = new Human.Mineral({ x: 400, y: 1850 });
 			randomValue = Math.floor((Math.random() * 10) + 1);
 			min.resources = randomValue;
 			min.HP = randomValue;
 			Game.totalResources = Game.totalResources + min.resources;
 
 			//pellet 4
-			min = new Terran.Mineral({ x: 1600, y: 1850 });
+			min = new Human.Mineral({ x: 1600, y: 1850 });
 			randomValue = Math.floor((Math.random() * 10) + 1);
 			min.resources = randomValue;
 			min.HP = randomValue;
 			Game.totalResources = Game.totalResources + min.resources;
 
 			//pellet 5
-			min = new Terran.Mineral({ x: 300, y: 1000 });
+			min = new Human.Mineral({ x: 300, y: 1000 });
 			randomValue = Math.floor((Math.random() * 10) + 1);
 			min.resources = randomValue;
 			min.HP = randomValue;
 			Game.totalResources = Game.totalResources + min.resources;
 
 			//pellet 6
-			min = new Terran.Mineral({ x: 1700, y: 1000 });
+			min = new Human.Mineral({ x: 1700, y: 1000 });
 			randomValue = Math.floor((Math.random() * 10) + 1);
 			min.resources = randomValue;
 			min.HP = randomValue;
 			Game.totalResources = Game.totalResources + min.resources;
 
 			//pellet 7
-			min = new Terran.Mineral({ x: 1000, y: 1000 });
+			min = new Human.Mineral({ x: 1000, y: 1000 });
 			randomValue = Math.floor((Math.random() * 10) + 1);
 			min.resources = randomValue;
 			min.HP = randomValue;
 			Game.totalResources = Game.totalResources + min.resources;
 
-			new Zerg.Drone({ x: 300, y: 1000, team: 1 });
-			new Zerg.Drone({ x: 1000, y: 1000, team: 1 });
-			new Zerg.Drone({ x: 1700, y: 1000, team: 1 });
+			new Predator.Alien({ x: 300, y: 1000, team: 1 });
+			new Predator.Alien({ x: 1000, y: 1000, team: 1 });
+			new Predator.Alien({ x: 1700, y: 1000, team: 1 });
 
 
-			m = new Protoss.Templar({ x: 900, y: 1600, team: 2, });
+			m = new Competitor.CompetitorA({ x: 900, y: 1600, team: 2, });
 			m.sight = 250;
 			m.speed = 5;
 			m.HP = 10;
@@ -607,7 +607,7 @@ var Levels = [
 
 
 
-			m = new Protoss.Templar({ x: 950, y: 1600, team: 2, });
+			m = new Competitor.CompetitorA({ x: 950, y: 1600, team: 2, });
 			m.sight = 250;
 			m.speed = 5;
 			m.HP = 10;
@@ -617,7 +617,7 @@ var Levels = [
 			m.id = 98;
 
 
-			m = new Protoss.Templar({ x: 1000, y: 1600, team: 2, });
+			m = new Competitor.CompetitorA({ x: 1000, y: 1600, team: 2, });
 			m.sight = 250;
 			m.speed = 5;
 			m.HP = 10;
@@ -626,7 +626,7 @@ var Levels = [
 			m.attackInterval = 3000000
 			m.id = 95;
 
-			m = new Protoss.Templar({ x: 1050, y: 1600, team: 2, });
+			m = new Competitor.CompetitorA({ x: 1050, y: 1600, team: 2, });
 			m.sight = 250;
 			m.speed = 5;
 			m.HP = 10;
@@ -635,7 +635,7 @@ var Levels = [
 			m.attackInterval = 3000000
 			m.id = 97;
 
-			m = new Protoss.Templar({ x: 1100, y: 1600, team: 2, });
+			m = new Competitor.CompetitorA({ x: 1100, y: 1600, team: 2, });
 			m.sight = 250;
 			m.speed = 5;
 			m.HP = 10;
