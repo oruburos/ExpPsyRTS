@@ -7,6 +7,9 @@ var Resource={
                 curMan:0,
                 totalMan:0
             };
+
+           // console.log("Resource init")
         }
+
     },
 };

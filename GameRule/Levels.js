@@ -21,6 +21,7 @@ var Levels = [
 			Game.showWarning("Starting", 3000000)
 
 			new Human.Civilian({ x: 1100, y: 400, team: 0 });
+			new Human.Civilian({ x: 100, y: 400, team: 0 });
 			new Building.TerranBuilding.CommandCenter({ x: 1000, y: 200 });
 
 			//pellet 1
@@ -78,7 +79,6 @@ var Levels = [
 			/**/
 
 			console.log("COndition 1");
-
 			//console.log(" duracion " + Game.duration )
 			if (Game.modoTutorial) {
 				Game.commandTimeout(function () {

@@ -277,7 +277,8 @@ var Referee={
                 }
             }
         }
-        units=Unit.allFlyingUnits();
+
+       /* units=Unit.allFlyingUnits();
         for(var N=0;N<units.length;N++) {
             var chara1 = units[N];
             for(var M=N+1;M<units.length;M++) {
@@ -304,7 +305,7 @@ var Referee={
                     chara2.y-=adjustY;
                 }
             }
-        }
+        }*/
     },
     coverFog:function(){
         //No need to set interval as 1sec
@@ -411,6 +412,7 @@ var Referee={
             Resource[N].curMan=curMan[N];
             Resource[N].totalMan=totalMan[N];
         }
+        console.log( "level cargadp  hombres totales " +  Resource[Game.team].totalMan );
     },
     judgeWinLose:function(){
         //Every 1 sec

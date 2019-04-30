@@ -222,7 +222,7 @@ div.infoRight div.upgraded{
 div.infoRight div.upgrading{
     bottom:10px;
     border-color:blue;
-}
+}/*
 div.infoRight div[name='icon']{
     width:32px;
     height:34px;
@@ -237,7 +237,8 @@ div.infoRight div[name='icon']{
 div#GamePlay div.infoRight div.upgraded div[name='icon']{
     position:relative;
     display:inline-block;
-}
+}*/
+/*
 div.infoRight div[name='icon'][disabled='true']{
     background-image: url('../img/Menu/CmdIconsDisabled.png');
 }
@@ -248,7 +249,7 @@ div.infoRight div.upgrading div[name='processing']{
     text-align:center;
     color:white;
     font:bold 0.6em Arial;
-}
+}/*
 div.infoRight div.upgrading div.processBar{
     width:100%;
     height:14px;
@@ -259,7 +260,7 @@ div.infoRight div.upgrading div.processedBar{
     background:url('../img/Menu/Thingy.png') 0 -28px;
 }
 
-
+*/
 
 div#GameLose 
 {
@@ -270,7 +271,7 @@ div#GameLose
 	 /*text-align:center;
     */
 	
-    font:bold 26 px Arial;
+    font:bold 26px Arial;
 }
 
 
@@ -285,7 +286,7 @@ div#GamePlay div.panel_Info {
     border-width:22px 0 0 0;
     border-style:solid;
 }
-
+/*
 div#GamePlay[race="Zerg"] div.panel_Info {
     -webkit-border-image: url('../img/Menu/ControlPanel.png') 22 1265 0 163 repeat;
     -o-border-image: url('../img/Menu/ControlPanel.png') 22 1265 0 163 repeat;
@@ -308,7 +309,7 @@ div#GamePlay[race="Terran"] div.panel_Info {
 }
 div#GamePlay[race="Terran"] div.panel_Control {
     background-position: -1516px bottom;
-}
+}*/
 div#GamePlay div.panel_Info div.override{
     width:100%;
     height:100%;
@@ -399,6 +400,8 @@ div#GamePlay div.resource_Box div, div#GamePlay div.tooltip_Box div.cost div{
 div#GamePlay div.mine{
     background-position:0 0;
 }
+
+/*
 div#GamePlay[race="Zerg"] div.gas{
     background-position:-14px 0;
 }
@@ -416,7 +419,7 @@ div#GamePlay[race="Terran"] div.man{
 }
 div#GamePlay[race="Protoss"] div.man{
     background-position:-84px 0;
-}
+}*/
 div#GamePlay div.magic{
     background-position:-98px 0;
 }

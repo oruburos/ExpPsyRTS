@@ -16,7 +16,7 @@ var Game = {
 	sessionDuration: 300000,
 	*/
 
-	trainingDuration:  23000,
+	trainingDuration:  2003000,
 	sessionDuration: 23000,
 
 	leaveEarly: false,
@@ -255,6 +255,7 @@ var Game = {
 			if (Game.level != null) return;
 			//Game.level=parseInt(this.value);
 			Game.level = Game.conditionExperiment;
+			//console.log( "level cargadp  hombres totales " +  Resource[Game.team].totalMan );
 			Game.play();
 		});
 	},
@@ -270,6 +271,9 @@ var Game = {
 				//Resource.init();
 			}
 			Resource.init();
+
+
+			console.log( "level cargadp  hombres totales " +  Resource[Game.team].totalMan );
 			//Game background
 			Game.layerSwitchTo("GamePlay");
 			Game.resizeWindow();
@@ -813,12 +817,14 @@ var Game = {
 
 		$('div.resource_Box span.mineNum')[0].innerHTML = Game.resources;
 		//$('div.resource_Box span.gasNum')[0].innerHTML=Resource[Game.team].gas;
-		//  $('div.resource_Box span.gasNum')[0].innerHTML=20000;
+
 
 		$('div.resource_Box span.manNum>span')[0].innerHTML = Resource[Game.team].curMan;
+		console.log( "  hombres actuales " +  Resource[Game.team].curMan );
 
 		// $('div.resource_Box span.manNum>span')[0].innerHTML=203;
 		$('div.resource_Box span.manNum>span')[1].innerHTML = Resource[Game.team].totalMan;
+		console.log( "  hombres totales " +  Resource[Game.team].totalMan );
 		//Check if man overflow
 		$('div.resource_Box span.manNum')[0].style.color = (Resource[Game.team].curMan > Resource[Game.team].totalMan) ? "red" : "#00ff00";
 	},
@@ -1175,7 +1181,7 @@ var Game = {
 		//console.log("comando" +Multiplayer.cmds)
 		Game.historialResources[Game.mainTick] = {
 			"participant": Game.resources,
-			//"competitor": Game.competitorResources
+			//"competitor": Game.competitorResources//for experiment 3
 		}
 
 	}
