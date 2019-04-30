@@ -2,7 +2,7 @@
 div[name="portrait"].Civilian{
     background-position: -900px -56px;
 }
-
+/*
 div[name="portrait"].Templar{
     background-position: -180px -112px;
 }
@@ -10,7 +10,7 @@ div[name="portrait"].DarkTemplar{
     background-position: -240px -112px;
 }
 
-/*Building Protraits*/
+/*Building Protraits*
 div[name="portrait"].ZergBuilding{
     background-position: 0 -168px;
 }
@@ -18,7 +18,7 @@ div[name="portrait"].TerranBuilding{
     background-position: -780px -56px;
 }
 
-
+*/
 /*Mineral
 */
 

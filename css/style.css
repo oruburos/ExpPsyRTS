@@ -227,7 +227,7 @@ div.infoRight div[name='icon']{
     width:32px;
     height:34px;
     background-image: url('../img/Menu/CmdIcons.png');
-    /*For text inside icon*/
+    /*For text inside icon*
     color:red;
     font:bolder 1.8em Verdana,Arial;
     text-align:right;
@@ -399,6 +399,10 @@ div#GamePlay div.resource_Box div, div#GamePlay div.tooltip_Box div.cost div{
 }
 div#GamePlay div.mine{
     background-position:0 0;
+}
+
+div#GamePlay[race="Human"] div.man{
+    background-position:-42px 0;
 }
 
 /*

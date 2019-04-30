@@ -412,7 +412,7 @@ var Referee={
             Resource[N].curMan=curMan[N];
             Resource[N].totalMan=totalMan[N];
         }
-        console.log( "level cargadp  hombres totales " +  Resource[Game.team].totalMan );
+      //  console.log( "level cargadp  hombres totales " +  Resource[Game.team].totalMan );
     },
     judgeWinLose:function(){
         //Every 1 sec

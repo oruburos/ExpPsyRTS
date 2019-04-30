@@ -820,11 +820,11 @@ var Game = {
 
 
 		$('div.resource_Box span.manNum>span')[0].innerHTML = Resource[Game.team].curMan;
-		console.log( "  hombres actuales " +  Resource[Game.team].curMan );
+		//console.log( "  hombres actuales " +  Resource[Game.team].curMan );
 
 		// $('div.resource_Box span.manNum>span')[0].innerHTML=203;
 		$('div.resource_Box span.manNum>span')[1].innerHTML = Resource[Game.team].totalMan;
-		console.log( "  hombres totales " +  Resource[Game.team].totalMan );
+		//console.log( "  hombres totales " +  Resource[Game.team].totalMan );
 		//Check if man overflow
 		$('div.resource_Box span.manNum')[0].style.color = (Resource[Game.team].curMan > Resource[Game.team].totalMan) ? "red" : "#00ff00";
 	},

@@ -72,6 +72,7 @@ var mouseController = {
                 this.clickmap.play();
             var pos = { x: (clickX + Map.offsetX), y: (clickY + Map.offsetY) };
 
+            console.log("left click en " + pos.x + " ,  " + pos.y)
             //Handle user right click
             Multiplayer.cmds.push(JSON.stringify({
                 
@@ -115,6 +116,7 @@ rightClick: function (event, unlock, btn) {
     //Show right click cursor
     var pos = { x: (clickX + Map.offsetX), y: (clickY + Map.offsetY) };
 
+            console.log("right click en " + pos.x + " ,  " + pos.y)
 
     //fin extra
 
@@ -123,7 +125,7 @@ rightClick: function (event, unlock, btn) {
     //console.log("burst en posicion " +pos.x + " - " + pos.y + " chara " + chara.id )
     var charas = Game.allSelected.filter(function (chara) {
         //Can only control our alive unit
-        //	console.log("rightClick2");
+        	console.log("rightClick2");
         return chara.team == Game.team && chara.status != "dead";
     });
     //Handle user right click
@@ -147,7 +149,7 @@ rightClickHandler: function (charas, pos, unlock, btn) {
     //	console.log("rightClickHandler");
     var selectedEnemy = (charas.length > 0) ? Game.getSelectedOne(pos.x, pos.y, charas[0].team.toString()) : null;
 
-    //console.log("Punto 1");
+    console.log("Punto 1");
     /**Logica para seleccionar minerales*/
     var selectedOne = Game.getSelectedOne(pos.x, pos.y);///extra
     if (selectedOne instanceof Gobj) {
