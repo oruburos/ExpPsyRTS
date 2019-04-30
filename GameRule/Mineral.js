@@ -1,4 +1,4 @@
-Human.Mineral=AttackableUnit.extends({
+Mineral=AttackableUnit.extends({
     constructorPlus:function(props){
         //Same action mapping
         this.imgPos.dock=this.imgPos.moving;
@@ -49,8 +49,9 @@ Human.Mineral=AttackableUnit.extends({
         },
         //Only for moving status, override
         speed:0,
-        HP: 3,
-        resources: 3,
+
+        resources:  Math.floor((Math.random() * 10) + 1),
+        HP: this.resources,
         armor:0,
         sight:0,
         meleeAttack: false,

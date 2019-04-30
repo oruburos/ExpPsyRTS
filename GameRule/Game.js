@@ -10,17 +10,14 @@ var Game = {
 		height: 110
 	},
 
-
-
 	inGame: false,
 	/*
 	trainingDuration:  300000,
 	sessionDuration: 300000,
 	*/
 
-	trainingDuration:  300000,
-	sessionDuration: 300000,
-
+	trainingDuration:  23000,
+	sessionDuration: 23000,
 
 	leaveEarly: false,
 	volumenGlobal: 0,
@@ -89,9 +86,8 @@ var Game = {
 				$('div.warning_Box').html(minutes + ":" + seconds);
 
 				if (--timer < 0) {
-					console.log(" Negative timer " + timer);
-
-				//	$('div.warning_Box').hide();
+				///	console.log(" Negative timer 1212 " + timer);
+					Referee.judgeWinLose();
 				}
 			}, 1000);
 		
@@ -575,7 +571,8 @@ var Game = {
 		//Choose context
 		var cxt = ((chara instanceof Unit) || (chara instanceof Building)) ? Game.cxt : Game.frontCxt;
 		//Draw shadow
-		cxt.save();
+	/***** DEACTIVATE shadows
+	 * cxt.save();
 		//cxt.shadowBlur=50;//Different blur level on Firefox and Chrome, bad performance
 		cxt.shadowOffsetX = (chara.isFlying) ? 5 : 3;
 		cxt.shadowOffsetY = (chara.isFlying) ? 20 : 8;
@@ -592,6 +589,8 @@ var Game = {
 				else cxt.globalAlpha = 1;
 			}
 		}
+
+	********	*/
 		//Draw unit or building
 		var imgSrc;
 		if (chara instanceof Building) {
@@ -972,6 +971,7 @@ var Game = {
 				//Draw
 				Game.draw(chara);
 			}
+			/*
 			//DrawLayer3: Draw all bullets
 			for (var N = 0; N < Bullets.allBullets.length; N++) {
 				var bullet = Bullets.allBullets[N];
@@ -982,7 +982,7 @@ var Game = {
 					continue;
 				}
 				Game.drawBullet(bullet);
-			}
+			}*/
 			//DrawLayer4: Draw effects above units
 			for (var N = 0; N < Burst.allEffects.length; N++) {
 				var effect = Burst.allEffects[N];
@@ -1040,7 +1040,8 @@ var Game = {
 				Multiplayer.cmds = [];
 			}
 			//Postpone play frames and AI after drawing (consume time)
-			Building.allBuildings.concat(Unit.allUnits).concat(Bullets.allBullets).concat(Burst.allEffects).forEach(function (chara) {
+			Building.allBuildings.concat(Unit.allUnits).concat(Burst.allEffects).forEach(function (chara) {
+			//Building.allBuildings.concat(Unit.allUnits).concat(Bullets.allBullets).concat(Burst.allEffects).forEach(function (chara) {
 				//Add this makes chara intelligent for attack
 				if (chara.AI) {
 
@@ -1161,7 +1162,7 @@ var Game = {
 			));
 			
 		}
-
+/*
 		Multiplayer.cmds.push(
 			JSON.stringify(
 				{
@@ -1170,10 +1171,11 @@ var Game = {
 			uids: { mapOffsetX: Map.offsetX , mapOffsetY: Map.offsetY },
 	   	}
 		));
-
+*/
 		//console.log("comando" +Multiplayer.cmds)
 		Game.historialResources[Game.mainTick] = {
-			"participant": Game.resources, "competitor": Game.competitorResources
+			"participant": Game.resources,
+			//"competitor": Game.competitorResources
 		}
 
 	}
@@ -1532,10 +1534,10 @@ var Game = {
 
 		*/
 
-			Game.conditionExperiment = 5; //
+			Game.conditionExperiment =1; //
 			console.log( "Condition" + Game.conditionExperiment )//hay 5 condiciones
 			Game.createParticipant();
-			//}
+
 	},
 
 
@@ -1586,7 +1588,7 @@ var Game = {
 				console.log("returning to prolific " + Game.idParticipant + " " + Game.conditionExperiment)
 				//alert("aqui mando a completar el estudio, sello la bd y ya" + Game.idParticipant + " " + Game.conditionExperiment );
 				alert("Experiment completed. Going back to prolific")
-				window.location.href ='https://app.prolific.ac/submissions/complete?cc=5XT0ZE8O';//experimento 2
+				window.location.href ='https://app.prolific.ac/submissions/complete?cc=sss';//experimento 2
 
 
 

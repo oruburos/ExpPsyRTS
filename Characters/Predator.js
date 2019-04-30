@@ -119,7 +119,6 @@ Predator.Alien=AttackableUnit.extends({
         sight:360,
         meleeAttack: true,
         attackInterval: 2200,
-        dieEffect:Burst.DroneDeath,
         isFlying:false,
         attackLimit:"ground",
         unitType:Unit.SMALL,
@@ -129,15 +128,7 @@ Predator.Alien=AttackableUnit.extends({
             man:1,
             time:200
         },
-        upgrade:['EvolveCarapace'],
-        items:{'4':undefined,
-            '5':{name:'gather'},
-            '7':{name:'BasicMutation'},
-            '8':{name:'AdvancedMutation'},
-            '9':{name:'Burrow',condition:function(){
-                return Magic.Burrow.enabled
-            }}
-        },
+
 
     }
 });

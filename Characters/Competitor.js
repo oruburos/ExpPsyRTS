@@ -106,15 +106,5 @@ Competitor.CompetitorA=AttackableUnit.extends({
             man:2,
             time:500
         },
-        upgrade:['UpgradeGroundWeapons','UpgradeGroundArmor','UpgradePlasmaShields'],
-        items:{
-            '7':{name:'PsionicStorm',condition:function(){
-                return Magic.PsionicStorm.enabled
-            }},
-            '8':{name:'Hallucination',condition:function(){
-                return Magic.Hallucination.enabled
-            }},
-            '9':{name:'Archon'}
-        }
     }
 });

@@ -70,7 +70,7 @@ Human.Civilian=Unit.extends({
         isFlying:false,
         unitType:Unit.SMALL,
         recover:Building.TerranBuilding.prototype.recover,
-        upgrade:['UpgradeInfantryArmors'],
+
         //Override
         dock:function(){
             //Use the same behavior

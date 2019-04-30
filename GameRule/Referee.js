@@ -414,9 +414,10 @@ var Referee={
     },
     judgeWinLose:function(){
         //Every 1 sec
+     //   console.log(Game.mainTick)
         if (Game.mainTick%10==0){
             if (Referee.loseCondition() && Game.leaveEarly === false ){//leaveEarly when predators kill you
-              //  console.log("envando lose condition")
+                console.log("envando lose condition")
               //console.log("guardando gametik: " + Game.mainTick +  " -> participant "+ Game.resources,  "competitor:" + Game.competitorResources);
 
               Game.historialResources[Game.mainTick] = {	
@@ -430,7 +431,7 @@ var Referee={
                 Game.historialResources[Game.mainTick] = {	
                     "participant": Game.resources,  "competitor" : Game.competitorResources
                      }
-             //   console.log("envando win condition")
+                     console.log("envando win condition")
                  Game.win();
              }
         }

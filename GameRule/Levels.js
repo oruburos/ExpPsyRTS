@@ -1,8 +1,8 @@
 var Levels = [
 	{
 		level: 1,
-		label: "Condition 1: No predators, total visibility",
-		duration: 1000 * 6,
+		label: "Condition 1: No predators, total visibility , 1 worker",
+		duration: 0,
 		has_predator: false,
 		load: function () {
 			//Load map
@@ -10,76 +10,67 @@ var Levels = [
 			Map.offsetX = 120;
 			Map.offsetY = 50;
 			Unit.allUnits = [];
-
-			//Choose side and apply race style
-			var races = ['Human', 'Predator'];
+			var races = ['Human'];
 			var startPoint = [{ x: 330, y: 20 }, { x: 200, y: 50 }];
-			//if (!Game.replayFlag) Game.team=Math.random()*2>>0;
 			Game.race.choose('Human');
 			Map.offsetX = startPoint[Game.team].x;
 			Map.offsetY = startPoint[Game.team].y;
 
 			Map.fogFlag = false;//niebla total
-
 			Game.showMessage('Gather resources.');
-
 			Game.showWarning("Starting", 3000000)
-			new Human.Civilian({ x: 900, y: 400, team: 0, id: 0 });
-			new Human.Civilian({ x: 950, y: 400, team: 0 });
-			new Human.Civilian({ x: 1100, y: 400, team: 0 });
-			new Human.Civilian({ x: 1050, y: 400, team: 0 });
-			new Human.Civilian({ x: 1000, y: 400, team: 0 });
 
+			new Human.Civilian({ x: 1100, y: 400, team: 0 });
 			new Building.TerranBuilding.CommandCenter({ x: 1000, y: 200 });
 
 			//pellet 1
-			min = new Human.Mineral({ x: 400, y: 150 });
+			min = new Mineral({ x: 400, y: 150 });
 			randomValue = Math.floor((Math.random() * 10) + 1);
 			min.resources = randomValue;
 			min.HP = randomValue;
 			Game.totalResources = min.resources;
 
 			//pellet 2
-			min = new Human.Mineral({ x: 1600, y: 150 });
-			randomValue = Math.floor((Math.random() * 10) + 1);
-			min.resources = randomValue;
-			min.HP = randomValue;
+			min = new Mineral({ x: 1600, y: 150 });
+			//randomValue = Math.floor((Math.random() * 10) + 1);
+			//min.resources = randomValue;
+			//min.HP = randomValue;
 			Game.totalResources = Game.totalResources + min.resources;
 
 			//pellet 3
-			min = new Human.Mineral({ x: 400, y: 1850 });
-			randomValue = Math.floor((Math.random() * 10) + 1);
-			min.resources = randomValue;
-			min.HP = randomValue;
+			min = new Mineral({ x: 400, y: 1850 });
+			///randomValue = Math.floor((Math.random() * 10) + 1);
+			//min.resources = randomValue;
+			//min.HP = randomValue;
 			Game.totalResources = Game.totalResources + min.resources;
 
 			//pellet 4
-			min = new Human.Mineral({ x: 1600, y: 1850 });
-			randomValue = Math.floor((Math.random() * 10) + 1);
-			min.resources = randomValue;
-			min.HP = randomValue;
+			min = new Mineral({ x: 1600, y: 1850 });
+			//randomValue = Math.floor((Math.random() * 10) + 1);
+			//min.resources = randomValue;
+			//min.HP = randomValue;
 			Game.totalResources = Game.totalResources + min.resources;
 
 			//pellet 5
-			min = new Human.Mineral({ x: 300, y: 1000 });
-			randomValue = Math.floor((Math.random() * 10) + 1);
-			min.resources = randomValue;
-			min.HP = randomValue;
+			min = new Mineral({ x: 300, y: 1000 });
+			//randomValue = Math.floor((Math.random() * 10) + 1);
+			//min.resources = randomValue;
+			//min.HP = randomValue;
 			Game.totalResources = Game.totalResources + min.resources;
 
 			//pellet 6
-			min = new Human.Mineral({ x: 1700, y: 1000 });
-			randomValue = Math.floor((Math.random() * 10) + 1);
-			min.resources = randomValue;
-			min.HP = randomValue;
+			min = new Mineral({ x: 1700, y: 1000 });
+			//randomValue = Math.floor((Math.random() * 10) + 1);
+			//min.resources = randomValue;
+			//min.HP = randomValue;
 			Game.totalResources = Game.totalResources + min.resources;
 
 			//pellet 7
-			min = new Human.Mineral({ x: 1000, y: 1000 });
-			randomValue = Math.floor((Math.random() * 10) + 1);
+			min = new Mineral({ x: 1000, y: 1000 });
+			//randomValue = Math.floor((Math.random() * 10) + 1);
 
-			min.resources = randomValue;
-			min.HP = randomValue;
+		//	min.resources = randomValue;
+		//	min.HP = randomValue;
 			Game.totalResources = Game.totalResources + min.resources;
 
 
@@ -115,6 +106,14 @@ var Levels = [
 
 
 	},
+
+
+
+
+
+
+
+	/*
 	{
 		level: 2,
 		label: "Condition 2: No predators, partial visibility",
@@ -671,5 +670,5 @@ var Levels = [
 		}
 
 	}
-
+*/
 ];

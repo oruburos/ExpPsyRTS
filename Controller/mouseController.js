@@ -49,10 +49,6 @@ var mouseController = {
             /***/
 
 
-
-
-
-
             //Sound effect
             if (!(selectedOne.isEnemy()))
             {
@@ -127,7 +123,7 @@ rightClick: function (event, unlock, btn) {
     //console.log("burst en posicion " +pos.x + " - " + pos.y + " chara " + chara.id )
     var charas = Game.allSelected.filter(function (chara) {
         //Can only control our alive unit
-        	console.log("rightClick2");
+        //	console.log("rightClick2");
         return chara.team == Game.team && chara.status != "dead";
     });
     //Handle user right click
@@ -227,7 +223,7 @@ rightClickHandler: function (charas, pos, unlock, btn) {
         else {
 
 
-            console.log("move mode")
+           // console.log("move mode")
 
 
             if (selectedOne.isMineral && !chara.cannotMove()) {

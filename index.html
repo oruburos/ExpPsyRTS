@@ -1,11 +1,8 @@
 <!DOCTYPE HTML>
-
-
 <?php
 $ParticipantId = $_GET['PROLIFIC_PID'] ;
 $SessionId =  $_GET['SESSION_ID'];
 ?>
-
     <html>
     <head>
         <title>Exploitation-Exploration in RTS Scenario QMUL</title>
@@ -114,15 +111,10 @@ $SessionId =  $_GET['SESSION_ID'];
             </div>
         </div>
 
-
-
-
-
         <div id="IntroSurvey">
             <div id="surveyElement"></div>
             <div id="surveyResult"></div>
         </div>
-
         <script src="Utils/jquery.min.js"></script>
         <script src="https://surveyjs.azureedge.net/1.0.10/survey.jquery.min.js"></script>
         <script src="Utils/gFrame.js"></script>
@@ -135,7 +127,6 @@ $SessionId =  $_GET['SESSION_ID'];
         <script src="Characters/Predator.js"></script>
         <script src="Characters/Human.js"></script>
         <script src="Characters/Competitor.js"></script>
-        <script src="Characters/Bullets.js"></script>
        <script src="Characters/Button.js"></script>
         <script src="Characters/Map.js"></script>
         <script src="GameRule/Multiplayer.js"></script>
@@ -144,7 +135,6 @@ $SessionId =  $_GET['SESSION_ID'];
         <script src="GameRule/Referee.js"></script>
         <script src="GameRule/Game.js"></script>
         <script src="GameRule/Levels.js"></script>
-        <!--<script src="GameRule/Cheat.js"></script>-->
         <script src="Controller/mouseController.js"></script>
         <script src="Controller/keyController.js"></script>
         <script src="GameRule/HeatMap.js"></script>
@@ -167,11 +157,7 @@ $SessionId =  $_GET['SESSION_ID'];
             Game.prolificID = getParameterByName("PROLIFIC_PID");
             Game.sessionID =getParameterByName("SESSION_ID") ;
             console.log("PROLIFIC_PID: " + Game.prolificID);
-
             console.log("SESSION_ID: " +Game.sessionID);
-            
-  
-
         </script>
 
 
