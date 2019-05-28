@@ -72,7 +72,7 @@ var mouseController = {
                 this.clickmap.play();
             var pos = { x: (clickX + Map.offsetX), y: (clickY + Map.offsetY) };
 
-            console.log("left click en " + pos.x + " ,  " + pos.y)
+          //  console.log("left click en " + pos.x + " ,  " + pos.y)
             //Handle user right click
             Multiplayer.cmds.push(JSON.stringify({
                 

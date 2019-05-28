@@ -1,4 +1,11 @@
 
+
+
+var txt = "";
+
+
+//if (con)
+
 var json = {
     title: "Online Mini Gaming Tasks",
     showProgressBar: "top",

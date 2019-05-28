@@ -1,6 +1,6 @@
 /*Units Protraits*/
 div[name="portrait"].Civilian{
-    background-position: -900px -56px;
+    background-position: -74px -2px;
 }
 /*
 div[name="portrait"].Templar{
@@ -23,5 +23,13 @@ div[name="portrait"].TerranBuilding{
 */
 
 div[name="portrait"].Mineral{
-    background-position: -667px -224px;
+    background-position: -0px -54px;
 }
+div[name="portrait"].CompetitorA{
+    background-position: -80px -65px;
+}
+
+div[name="portrait"].Alien{
+    background-position: -163px -10px;
+}
+

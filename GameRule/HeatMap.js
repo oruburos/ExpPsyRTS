@@ -17,7 +17,7 @@ var HeatMap = {
 		width = Map.getCurrentMap().width / this.cell;
 		height = Map.getCurrentMap().height / this.cell;
 		if (Levels[Game.level - 1].has_predator) {//logic when the level has a predator inside
-			//console.log("Si hay depredador");
+
 			this.recordPredator = true;
 
 
@@ -47,7 +47,7 @@ var HeatMap = {
 			occupancy[0][i] = new Array(width);
 			for (var j = 0; j < width; j++) {
 				occupancy[0][i][j] = 0;
-
+			//	console.log("generando mis posiciones")
 			}
 
 		}
@@ -57,7 +57,7 @@ var HeatMap = {
 			occupancy[1][i] = new Array(width);
 			for (var j = 0; j < width; j++) {
 				occupancy[1][i][j] = 0;
-
+			//console.log("generando competidor")
 			}
 
 		}
@@ -78,13 +78,13 @@ var HeatMap = {
 		Unit.allUnits.forEach(function (chara) {
 
 
-			//console.log("chara id " + chara.id + " x " + chara.x + " w " + chara.width )
+			//console.log("chara id " + chara.id + " x " + chara.posX() + " w " + chara.width + " name   " + chara.name)
 
 			//   console.log( "actualizando " + chara.posX() +" " + chara.posY()  + " id:" + chara.id)
 			i = Math.floor(chara.posX() / myself.cell);
 			//console.log (i);
 			j = Math.floor(chara.posY() / myself.cell);
-			//console.log( "actualizando " + i +" " + j)
+		//	console.log( "actualizando " + i +" " + j)
 			if (chara.name === "Civilian") //CHECAR NOMBRE
 			{
 
@@ -112,11 +112,19 @@ var HeatMap = {
 			else
 				if (chara.name === "CompetitorA") //CHECAR NOMBRE
 				{
-					occupancy[1][j][i]++;
+
+
+					if ((tick) % 50 == 0) {
+				/*		console.log (i);
+						console.log (j);
+						console.log(" Competitor current tick "+ tick)*/
+                        occupancy[1][j][i]++;
+                    }
 				}
 				else if (chara.name === "Alien" && myself.recordPredator) {
+					//console.log(" Predator current tick "+ tick)
 
-					//console.log("guardando depredador")
+
 
 					occupancyPredators[j][i]++;
 					//console.log(	occupancyPredators[j][i] 		);

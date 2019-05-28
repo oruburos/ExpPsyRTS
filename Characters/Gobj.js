@@ -66,6 +66,7 @@ Gobj.prototype.moving=function(){
     this.status="moving";
     var myself=this;
     var movingFrame=function(){
+        //console.log("moving gobj")
         myself.animeFrame();
         //Relocate character
         myself.updateLocation();

@@ -68,8 +68,14 @@
 			},
 			//Can move in any direction
 			updateLocation:function(){
-				this.x=Math.round(this.x+this.get('speed')*Math.cos(this.angle));
+			//	console.log(" updating location " + this.name +" " + this.x+" speed "+ this.speed)
+				/*this.x=Math.round(this.x+this.get('speed')*Math.cos(this.angle));
 				this.y=Math.round(this.y+this.get('speed')*Math.sin(this.angle));
+*/
+				this.x=Math.round(this.x+this.speed[0]*Math.cos(this.angle));
+				this.y=Math.round(this.y+this.speed[1]*Math.sin(this.angle));
+
+				//console.log(" updating location " + this.name   + " x, y " + this.x)
 			},
 			//Add new functions to prototype
 			turnTo:function(direction){
@@ -99,7 +105,7 @@
 				this.dock();
 			},//alias
 			run:function(){
-	//			console.log("moving");
+			//	console.log("moving");
 				this.moving();
 			},//alias
 
@@ -1148,7 +1154,9 @@
 		var myself=this;
 		var dockFrame=function(){
 			//Every 2 sec
-			if ((Game.mainTick+myself.id)%50==0){
+			//if ((Game.mainTick+myself.id)%50==0){
+			if ((Game.mainTick+myself.id)%20==0){//sospechoso
+				//console.log(" myself id" + myself.id )
 				var direction=Unit.randomDirection();
 				
 				//check this.
@@ -1172,11 +1180,15 @@
 		this.allFrames['dock']=dockFrame;
 	},
 			 AIForager:function(){
-				
+				//console.log(" aiforager " +  this.status )
 				//Dead unit doesn't have following AI
-				if (this.status=='dead') return;
+				if (this.status=='dead') {
+			//		console.log("DEAD")
+					return;
+				}
 				//If no mission, return it to scout status
 				if (this.isIdle()) {
+				//	console.log("IDLE")
 					this.targetLock=false;
 				}
 			 
@@ -1199,11 +1211,11 @@
 						if( mineral ) {
 						if ( mineral.resources>0){
 						
-							//	console.log("caminando a mineral");
+								//console.log("caminando a mineral");
 								this.collect(mineral);
 							}
 						}else{
-							//console.log("buscando mineral");
+						//	console.log("buscando mineral");
 							this.walkRandomPosition();
 						}
 					}else{
@@ -1213,7 +1225,7 @@
 										
 						 this.depot = this.findDepot();
 						 
-						// console.log("depot en  " +  this.depot.posX() + " " +  this.depot.posY() ) ;
+							console.log("depot en  " +  this.depot.posX() + " " +  this.depot.posY() ) ;
 						}else{
 							var myself = this;
 							myself.moveToward( myself.depot, 100, function() {

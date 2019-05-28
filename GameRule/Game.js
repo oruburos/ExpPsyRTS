@@ -161,7 +161,7 @@ var Game = {
 
 		Game.getCondition();
 
-		console.log("condition obtained " + Game.conditionExperiment )
+		//console.log("condition obtained " + Game.conditionExperiment )
 		//Prevent full select
 		$('div.GameLayer').on("selectstart", function (event) {
 			//console.log("select start")
@@ -273,7 +273,7 @@ var Game = {
 			Resource.init();
 
 
-			console.log( "level cargadp  hombres totales " +  Resource[Game.team].totalMan );
+			//console.log( "level cargadp  hombres totales " +  Resource[Game.team].totalMan );
 			//Game background
 			Game.layerSwitchTo("GamePlay");
 			Game.resizeWindow();
@@ -517,7 +517,10 @@ var Game = {
 			$('div.infoCenter p.kill').hide();
 			$('div.infoCenter p.damage').hide();
 			//Draw selected unit portrait
-			if (chara.portrait) $('div.infoLeft div[name="portrait"]')[0].className = chara.portrait;//Override portrait
+			if (chara.portrait){
+			    $('div.infoLeft div[name="portrait"]')[0].className = chara.portrait;
+			    console.log("SHow protrati " + chara.portrait)
+            }//Override portrait
 			else {
 
 
@@ -575,8 +578,8 @@ var Game = {
 		//Choose context
 		var cxt = ((chara instanceof Unit) || (chara instanceof Building)) ? Game.cxt : Game.frontCxt;
 		//Draw shadow
-	/***** DEACTIVATE shadows
-	 * cxt.save();
+	/***** DEACTIVATE shadows*
+	  cxt.save();
 		//cxt.shadowBlur=50;//Different blur level on Firefox and Chrome, bad performance
 		cxt.shadowOffsetX = (chara.isFlying) ? 5 : 3;
 		cxt.shadowOffsetY = (chara.isFlying) ? 20 : 8;
@@ -594,7 +597,7 @@ var Game = {
 			}
 		}
 
-	********	*/
+	/********	*/
 		//Draw unit or building
 		var imgSrc;
 		if (chara instanceof Building) {
@@ -1056,7 +1059,7 @@ var Game = {
 						//console.log("ciclo ai  " + chara.name );
 						if (chara.name === 'CompetitorA') {
 							chara.AIForager();
-							//	console.log("ciclo ai22");
+								//console.log("ciclo ai22" + chara.get("speed"));
 						} else {
 
 							//console.log("ciclo ai3333");
@@ -1147,7 +1150,7 @@ var Game = {
 
 		HeatMap.recordInfo(Game.mainTick);
 
-	//	console.log("guardando gametik: " + Game.mainTick + " -> participant " + Game.resources, "competitor:" + Game.competitorResources);
+		//console.log("guardando gametik: " + Game.mainTick + " -> participant " + Game.resources, "competitor:" + Game.competitorResources);
 
 		var statusOurunits = "";
 
@@ -1540,7 +1543,7 @@ var Game = {
 
 		*/
 
-			Game.conditionExperiment =1; //
+			Game.conditionExperiment = 1; //
 			console.log( "Condition" + Game.conditionExperiment )//hay 5 condiciones
 			Game.createParticipant();
 

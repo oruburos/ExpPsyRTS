@@ -85,14 +85,14 @@ Competitor.CompetitorA=AttackableUnit.extends({
        
 		
 		
-		speed:5,
+		speed:5,//default
         HP: 10,
         damage: 0,
         armor:0,
 		carryingResources:false,
         sight:245,
         meleeAttack: true,
-        attackInterval: 5200,
+        attackInterval: 52000,
         dieEffect:Burst.CompetitionDeath,
         isFlying:false,
         attackLimit:"ground",

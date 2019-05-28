@@ -3,14 +3,15 @@ var Levels = [
 		level: 1,
 		label: "Condition 1: No predators, total visibility , 1 worker",
 		duration: 0,
-		has_predator: false,
+		has_predator: true,
 		load: function () {
 			//Load map
 			Map.setCurrentMap('Grass');
 			Map.offsetX = 120;
 			Map.offsetY = 50;
 			Unit.allUnits = [];
-			var races = ['Human'];
+			//var races = ['Human'];
+			var races = ['Human', 'Predator'];
 			var startPoint = [{ x: 330, y: 20 }, { x: 200, y: 50 }];
 			Game.race.choose('Human');
 			Map.offsetX = startPoint[Game.team].x;
@@ -21,7 +22,7 @@ var Levels = [
 			Game.showWarning("Starting", 3000000)
 
 			new Human.Civilian({ x: 1100, y: 400, team: 0 });
-			new Human.Civilian({ x: 100, y: 400, team: 0 });
+			//new Human.Civilian({ x: 100, y: 400, team: 0 });
 			new Building.TerranBuilding.CommandCenter({ x: 1000, y: 200 });
 
 			//pellet 1
@@ -76,9 +77,18 @@ var Levels = [
 
 
 
+
+			new Predator.Alien({ x: 700, y: 1200, team: 1 });
+
+
+			m = new Competitor.CompetitorA({ x: 900, y: 200, speed:5, team: 2});
+
+			new Building.ProtossBuilding.Nexus({ x: 1000, y: 1800, team: 2 });
+
+
 			/**/
 
-			console.log("COndition 1");
+			//console.log("COndition 1");
 			//console.log(" duracion " + Game.duration )
 			if (Game.modoTutorial) {
 				Game.commandTimeout(function () {
@@ -113,7 +123,7 @@ var Levels = [
 
 
 
-	/*
+
 	{
 		level: 2,
 		label: "Condition 2: No predators, partial visibility",
@@ -154,7 +164,7 @@ var Levels = [
 
 
 			//pellet 1
-			min = new Human.Mineral({ x: 400, y: 150 });
+			min = new Mineral({ x: 400, y: 150 });
 			randomValue = Math.floor((Math.random() * 10) + 1);
 
 			min.resources = randomValue;
@@ -162,35 +172,35 @@ var Levels = [
 			Game.totalResources = min.resources;
 
 			//pellet 2
-			min = new Human.Mineral({ x: 1600, y: 150 });
+			min = new Mineral({ x: 1600, y: 150 });
 			randomValue = Math.floor((Math.random() * 10) + 1);
 			min.resources = randomValue;
 			min.HP = randomValue;
 			Game.totalResources = Game.totalResources + min.resources;
 
 			//pellet 3
-			min = new Human.Mineral({ x: 400, y: 1850 });
+			min = new Mineral({ x: 400, y: 1850 });
 			randomValue = Math.floor((Math.random() * 10) + 1);
 			min.resources = randomValue;
 			min.HP = randomValue;
 			Game.totalResources = Game.totalResources + min.resources;
 
 			//pellet 4
-			min = new Human.Mineral({ x: 1600, y: 1850 });
+			min = new Mineral({ x: 1600, y: 1850 });
 			randomValue = Math.floor((Math.random() * 10) + 1);
 			min.resources = randomValue;
 			min.HP = randomValue;
 			Game.totalResources = Game.totalResources + min.resources;
 
 			//pellet 5
-			min = new Human.Mineral({ x: 300, y: 1000 });
+			min = new Mineral({ x: 300, y: 1000 });
 			randomValue = Math.floor((Math.random() * 10) + 1);
 			min.resources = randomValue;
 			min.HP = randomValue;
 			Game.totalResources = Game.totalResources + min.resources;
 
 			//pellet 6
-			min = new Human.Mineral({ x: 1700, y: 1000 });
+			min = new Mineral({ x: 1700, y: 1000 });
 			randomValue = Math.floor((Math.random() * 10) + 1);
 			min.resources = randomValue;
 			
@@ -198,7 +208,7 @@ var Levels = [
 			Game.totalResources = Game.totalResources + min.resources;
 
 			//pellet 7
-			min = new Human.Mineral({ x: 1000, y: 1000 });
+			min = new Mineral({ x: 1000, y: 1000 });
 			randomValue = Math.floor((Math.random() * 10) + 1);
 			min.resources = randomValue;
 			min.HP = randomValue;
@@ -229,7 +239,7 @@ var Levels = [
 
 		}
 
-	},
+	},/*
 	{
 		level: 3,
 		label: "Condition 3 : Predators, partial visibility",
