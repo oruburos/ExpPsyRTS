@@ -90,6 +90,9 @@ var Map={
             //Draw fog on main map
             var ratio=Map.fogCanvas.ratio;
             Game.fogCxt.clearRect(0,0,Game.HBOUND,Game.VBOUND);
+          //
+            //
+            // Game.fogCxt.borderColor'rgb(230, 22, 230)'
             Game.fogCxt.drawImage(Map.fogCanvas,Math.round(Map.offsetX*ratio),Math.round(Map.offsetY*ratio),
                 Math.round(Game.HBOUND*ratio),Math.round(Game.VBOUND*ratio),0,0,Game.HBOUND,Game.VBOUND);
         }

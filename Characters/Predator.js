@@ -8,6 +8,8 @@ Predator.Alien=AttackableUnit.extends({
     prototypePlus: {
         //Add basic unit info
         name: "Alien",
+        descriptionUI:"Predator",
+
         imgPos: {
             moving: {
                 left: [

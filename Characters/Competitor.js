@@ -7,6 +7,8 @@ Competitor.CompetitorA=AttackableUnit.extends({
     prototypePlus: {
         //Add basic unit info
         name: "CompetitorA",
+                descriptionUI:"Competitor",
+
         imgPos: {
             moving: {
                 left: [

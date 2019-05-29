@@ -151,6 +151,8 @@ Building.ProtossBuilding=Building.extends({
     prototypePlus: {
         //Add basic unit info
         name: "TerranBuilding",
+
+        descriptionUI:"Competitor's Basecamp",
         plasma:0,
         dieEffect:Burst.ProtossBuildingBurst,
         injuryNames:['blueFireL','blueFireM','blueFireR'],
@@ -421,6 +423,7 @@ Building.TerranBuilding.CommandCenter=Building.TerranBuilding.extends({
     prototypePlus: {
         //Add basic unit info
         name: "CommandCenter",
+        descriptionUI:"Basecamp ",
         imgPos: {
             dock: {
                 left: 0,

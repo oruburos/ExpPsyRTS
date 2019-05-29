@@ -238,7 +238,7 @@ var Game = {
 		if (Game.modoTutorial) {
 			console.log("Modo tutorial")
 
-			$('.levelSelectionBg').append("<div class='levelItem'><p>Online Mini gaming task (Training)</p><input type='button'  class='sv_next_btn' value='Start Task' name='levelSelect'></input></div>");
+			$('.levelSelectionBg').append("<div class='PsyRTSButton'><p>Online Mini gaming task (Training)</p><input type='button'  class='sv_next_btn' value='Start Task' name='levelSelect'></input></div>");
 		}
 
 		else {
@@ -520,6 +520,8 @@ var Game = {
 			if (chara.portrait){
 			    $('div.infoLeft div[name="portrait"]')[0].className = chara.portrait;
 			    console.log("SHow protrati " + chara.portrait)
+                $('div.infoLeft span.HP')[0].innerHTML = chara.name;
+
             }//Override portrait
 			else {
 
@@ -534,20 +536,37 @@ var Game = {
 
 
 				if (chara.name == "Civilian") {
-                  //  console.log(chara.name)
+                    console.log(chara.name  + " res  " +chara.carryingResources)
+	                if (chara.carryingResources) {
+	                    console.log(" cargando recursos" )
+			        		$('div.infoLeft div[name="portrait"]')[0].style.borderColor = "rgb(230, 22, 230)  ";
 
+			            }
+			            else{
+			               $('div.infoLeft div[name="portrait"]')[0].style.borderColor = "rgb(0, 255, 120)  ";
+                    }
                     //	console.log(" chara id " + chara.id + "life/hp "+chara.life+ "/" + chara.get('HP')  )
 
-                    $('div.infoLeft span._Health')[0].style.color = "" + Game.selectedUnit.id + Game.selectedUnit.lifeStatus();
-                    $('div.infoLeft span.life')[0].innerHTML = Game.selectedUnit.life >> 0;
-                    $('div.infoLeft span.HP')[0].innerHTML = "/ " +Game.selectedUnit.get('HP');
+                 //   $('div.infoLeft span._Health')[0].style.color = "" + Game.selectedUnit.id + Game.selectedUnit.lifeStatus();
+                   // $('div.infoLeft span.life')[0].innerHTML = Game.selectedUnit.life >> 0;
+                    //$('div.infoLeft span.HP')[0].innerHTML = "/ " +Game.selectedUnit.get('HP');
+                    $('div.infoLeft span.HP')[0].innerHTML = chara.descriptionUI;
 
+                }else
+                    if (chara.name == "Mineral") {
+                        console.log(chara.name + " res  " + chara.carryingResources)
 
-                }else{
+                        console.log(" cargando recursos")
+                        $('div.infoLeft div[name="portrait"]')[0].style.borderColor = "rgb(230, 22, 230)  ";
+
+                    $('div.infoLeft span.life')[0].innerHTML = "";
+                    $('div.infoLeft span.HP')[0].innerHTML = chara.descriptionUI;
+                    }else
+                    {
 					  //$('div.infoLeft span._Health')[0].style.color =  yellow ;
 
                     $('div.infoLeft span.life')[0].innerHTML = "";
-                    $('div.infoLeft span.HP')[0].innerHTML = "";
+                    $('div.infoLeft span.HP')[0].innerHTML = chara.descriptionUI;
 
 				}
 		}
@@ -671,19 +690,19 @@ var Game = {
 		if (chara.selected == true) {
 			cxt = Game.frontCxt;
 			//Draw selected circle
-			cxt.strokeStyle = (chara.isEnemy()) ? "red" : "green";//Distinguish enemy
+			cxt.strokeStyle = (chara.isEnemy()) ? "red" : "rgb(0, 255, 120) ";//Distinguish enemy
 
 			if (chara.carryingResources) {
-				cxt.strokeStyle = 'blue'; //poner halo azul en el trabajador que carga...en teorio
+				cxt.strokeStyle = 'rgb(230, 22, 230)'; //poner halo azul en el trabajador que carga...en teorio
 			}
 
 			if (chara.isMineral) { //poner halo azul en el mineral
-				cxt.strokeStyle = 'blue';
+				cxt.strokeStyle = "rgb(230, 22, 230)  ";
 			}
 			///cxt.strokeStyle=(chara.isEnemy())?"red":"green";//Distinguish enemy
-			cxt.lineWidth = 2;//Cannot see 1px width circle clearly
+			cxt.lineWidth = 3;//Cannot see 1px width circle clearly
 			cxt.beginPath();
-			cxt.arc(chara.posX() - Map.offsetX, chara.posY() - Map.offsetY, chara.radius(), 0, 2 * Math.PI);
+			cxt.arc(chara.posX() - Map.offsetX, chara.posY() - Map.offsetY, chara.radius(), 0, 3 * Math.PI);
 			cxt.stroke();
 			//Draw HP bar and SP bar and magic bar
 			cxt.globalAlpha = 1;
@@ -694,13 +713,15 @@ var Game = {
 
 			if (!chara.isMineral) { //poner halo azul en el mineral
 				var lifeRatio = chara.life / chara.get('HP');
-				cxt.fillStyle = (lifeRatio > 0.7) ? "green" : (lifeRatio > 0.3) ? "yellow" : "red";//Distinguish life
+				//cxt.fillStyle = (lifeRatio > 0.7) ? "green" : (lifeRatio > 0.3) ? "yellow" : "red";//Distinguish life
+                cxt.fillStyle = (lifeRatio > 0.7) ? "rgb(0, 255, 120) ": (lifeRatio > 0.3) ? "yellow" : "red";//Distinguish life
 				cxt.fillRect(chara.x - Map.offsetX, chara.y - Map.offsetY + offsetY, chara.width * lifeRatio, 5);
 				cxt.strokeRect(chara.x - Map.offsetX, chara.y - Map.offsetY + offsetY, chara.width, 5);
 
 				if (chara.carryingResources) {
 					var offsetY = -10;
-					cxt.fillStyle = "darkviolet";
+					//cxt.fillStyle = "darkviolet";
+                    cxt.fillStyle = "rgb(230, 22, 230) ";
 					cxt.fillRect(chara.x - Map.offsetX, chara.y - Map.offsetY + offsetY, chara.width * lifeRatio, 5);
 					cxt.strokeRect(chara.x - Map.offsetX, chara.y - Map.offsetY + offsetY, chara.width, 5);
 				}
@@ -800,7 +821,7 @@ var Game = {
 		if (Game.selectedUnit instanceof Gobj && Game.selectedUnit.status != "dead") {
 			//Update selected unit life,shield and magic
 			var lifeRatio = Game.selectedUnit.life / Game.selectedUnit.get('HP');
-			$('div.infoLeft span._Health')[0].style.color = ((lifeRatio > 0.7) ? "green" : (lifeRatio > 0.3) ? "yellow" : "red");
+			$('div.infoLeft span._Health')[0].style.color = ((lifeRatio > 0.7) ? "rgb(0, 255, 120) " : (lifeRatio > 0.3) ? "yellow" : "red");
 			$('div.infoLeft span.life')[0].innerHTML = Game.selectedUnit.life >> 0;
 			/* if (Game.selectedUnit.SP) {
 				 $('div.infoLeft span.shield')[0].innerHTML=Game.selectedUnit.shield>>0;
@@ -829,7 +850,7 @@ var Game = {
 		$('div.resource_Box span.manNum>span')[1].innerHTML = Resource[Game.team].totalMan;
 		//console.log( "  hombres totales " +  Resource[Game.team].totalMan );
 		//Check if man overflow
-		$('div.resource_Box span.manNum')[0].style.color = (Resource[Game.team].curMan > Resource[Game.team].totalMan) ? "red" : "#00ff00";
+		$('div.resource_Box span.manNum')[0].style.color = (Resource[Game.team].curMan > Resource[Game.team].totalMan) ? "red" : "'rgb(0, 22, 230)'";
 	},
 	drawProcessingBox: function () {
 		//Show processing box if it's processing
@@ -863,8 +884,11 @@ var Game = {
 		var divs = $('div.override div.multiSelection div');
 		//Only refresh border color on current multiSelect box
 		for (var n = 0; n < divs.length; n++) {
-			divs[n].style.borderColor = Game.allSelected[n].lifeStatus();
-			if (Game.allSelected[n].carryingResources) divs[n].style.borderColor = 'darkviolet';
+			//divs[n].style.borderColor = Game.allSelected[n].lifeStatus();
+            divs[n].style.borderColor = 'rgb(0, 255, 120)';
+			//if (Game.allSelected[n].carryingResources) divs[n].style.borderColor = 'darkviolet';
+			if (Game.allSelected[n].carryingResources) divs[n].style.borderColor = 'rgb(230, 22, 230)';
+
 		}
 	},
 	drawMultiSelectBox: function () {
@@ -882,7 +906,7 @@ var Game = {
 			node.title = chara.name;
 			//node.style.borderColor=chara.lifeStatus();
 			if (chara.carryingResources) {
-				node.style.borderColor = 'darkviolet';
+				node.style.borderColor = 'ffffff';
 
 			}
 
@@ -908,8 +932,9 @@ var Game = {
 			$('div.override div.multiSelection')[0].appendChild(node);
 		});
 		var iconNum = $('div.override div.multiSelection div').length;
+		console.log(" iconos " + iconNum)
 		//Adjust width if unit icon space overflow
-		$('div.override div.multiSelection').css('width', (iconNum > 12 ? Math.ceil(iconNum / 2) * 55 : 330) + 'px');
+		$('div.override div.multiSelection').css('width', (iconNum > 12 ? Math.ceil(iconNum / 2) * 55 : 500) + 'px');
 		//Adjust background position after added into DOM, nth starts from 1st(no 0th)
 		for (var n = 1; n <= iconNum; n++) {
 			var bgPosition = $('div.override div.multiSelection div:nth-child(' + n + ')').css('background-position');
@@ -1005,8 +1030,12 @@ var Game = {
 			}
 			//DrawLayer5: Draw drag rect
 			if (mouseController.drag) {
-				Game.cxt.lineWidth = 3;
+				/*Game.cxt.lineWidth = 3;
 				Game.cxt.strokeStyle = "green";
+				Antes experimento 3*/
+				Game.cxt.lineWidth = 5;
+				Game.cxt.strokeStyle = "orange";
+
 				Game.cxt.strokeRect(mouseController.startPoint.x, mouseController.startPoint.y,
 					mouseController.endPoint.x - mouseController.startPoint.x,
 					mouseController.endPoint.y - mouseController.startPoint.y);
@@ -1543,7 +1572,8 @@ var Game = {
 
 		*/
 
-			Game.conditionExperiment = 1; //
+
+			Game.conditionExperiment = 3; //
 			console.log( "Condition" + Game.conditionExperiment )//hay 5 condiciones
 			Game.createParticipant();
 

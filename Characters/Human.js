@@ -18,6 +18,7 @@ Human.Civilian=Unit.extends({
     prototypePlus: {
         //Add basic unit info
         name: "Civilian",
+        descriptionUI:"Explorer",
         imgPos: {
             moving: {
                 left: [

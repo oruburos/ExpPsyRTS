@@ -11,6 +11,7 @@ Mineral=AttackableUnit.extends({
     prototypePlus: {
         //Add basic unit info
         name: "Mineral",
+        descriptionUI:"Resources",
 		source:"Mineral",
 		isMineral:true,
         imgPos: {

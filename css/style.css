@@ -54,7 +54,7 @@ div.GameLayer[status="button"]{
 }
 #GameLoading{
     text-align:center;
-    font:bold 25px Arial;
+    font:bold 25px fantasy;
     color:black;
 }
 .LoadingDiv{
@@ -72,7 +72,7 @@ div.GameLayer[status="button"]{
     height:50%;
     text-align:center;
     font:bold 25px Georgia,Verdana;
-    color:blue;
+    color: #578cfa;
 }
 .LoadingBlock{
     width:100%;
@@ -111,6 +111,21 @@ div.GameLayer[status="button"]{
    
 }
 
+
+  .PsyRTSButton input[type="button"],
+  .PsyRTSButton button {
+      margin-left: 45%;
+      color: white;
+       width:200px;
+    height: 50px;
+    background-color: #63bafa;
+      font:  20px  fantasy;
+  }
+    .sv_main input[type="button"]:hover,
+    .sv_main button:hover {
+      background-color: #578cfa; }
+
+
 .levelItem p {
     text-align:left;
     font: bold 24px  Arial;
@@ -144,13 +159,14 @@ div#GamePlay div.panel_Info div.infoLeft {
 div#GamePlay div.panel_Info div.infoLeft div {
     position:relative;
     margin:0 auto 1px auto;
-    font:bold 12px Verdana,Arial;
+    font: 12px fantasy;
 }
 div#GamePlay div.panel_Info div.infoLeft div[name="portrait"] {
-    /*width:60px;*/
-	width:60px;
-    height:56px;
-    margin-top:12px;
+
+
+	width: 79px;
+    height:60px;
+    margin-top:1px;
     background-image:url('../img/Charas/Portrait.png');
 }
 div.infoLeft div#HP_SP,div.infoLeft div#MP {
@@ -161,7 +177,8 @@ div.panel_Info>div{
     display:none;
 }
 div.infoLeft span._Health {
-    color:green;
+    color: rgb(210, 205, 200) ;
+     font: 16px fantasy;
 }
 div.infoLeft span._Resources {
     color:white;
@@ -203,7 +220,7 @@ div#GamePlay div.panel_Info div.infoRight {
     width:200px;
     height:100%;
 }
-div.infoRight>div{
+div.infoRight div{
     width:100%;
     height:34px;
     padding:0 2px;
@@ -328,24 +345,25 @@ div#GamePlay div.override div.multiSelection{
 }
 div#GamePlay div.panel_Info div.override div.multiSelection div{
     float:left;
-    width:45px;
-    height:42px;
+    width:85px;
+    height:60px;
     background-image:url('../img/Charas/Portrait.png');
-    background-size:720px 210px;
+    /*background-size:720px 210px;*/
+    background-size: -74px -2px;
     border:3px solid white;
     border-radius:6px;
     margin:2px;
 }
 div#GamePlay div.warning_Box {
-    width:300px;
-    height:30px;
+    width:150px;
+    height:40px;
     left:50%;
-    margin-top:10px;
-    margin-left:-150px;
-    background: cornflowerblue;
+    margin-top:20px;
+    margin-left:-50px;
+    background: #14143c;
     text-align:center;
-    line-height:50px;
-    font:bold 24px Arial;
+    line-height:20px;
+    font: 28px fantasy;
     color:whitesmoke;
     display:none;
 }
@@ -356,7 +374,7 @@ div#GamePlay div#cheat_Box {
     left:50%;
     margin-left:-200px;
     bottom:130px;
-    font:bold 15px Verdana,Arial;
+    font:bold 15px fantasy;
     color:white;
     display:none;
 }
@@ -367,7 +385,7 @@ div#GamePlay div#cheat_Box input#cheatInput {
     border-left:none;
     border-right:none;
     border-bottom:2px solid white;
-    font:bold 1em Arial;
+    font:bold 1em fantasy;
     color:white;
 }
 div#GamePlay div.message_Box {
@@ -386,8 +404,7 @@ div#GamePlay div.message_Box p {
 div#GamePlay div.resource_Box {
     right:100px;
     top:30px;
-    font:bolder 1em Verdana,Arial;
-	font:bold 1.6em Arial;
+	font:bold 1.6em fantasy;
     color: #ffcc00;
 }
 div#GamePlay div.resource_Box div, div#GamePlay div.tooltip_Box div.cost div{
@@ -464,11 +481,15 @@ div#GamePlay div.tooltip_Box div.itemName{
         -o-transform-origin:bottom;
     }*/
     div#GamePlay div.panel_Info div.infoLeft {
-        left:5px;
+        left:47%;
         width:auto;
+
     }
     div#GamePlay div.panel_Info div.infoLeft div {
-        font-size:20px;
+border:3px solid white;
+    border-radius:6px;
+    margin:2px;
+        font:  20px fantasy;
     }
     div#GamePlay div.panel_Info div.infoCenter {
         left:30%;
