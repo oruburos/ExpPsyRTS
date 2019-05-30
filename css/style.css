@@ -142,13 +142,17 @@ div#GamePlay div.panel_Map {
     bottom:0;
     width:145px;
     height:145px;
+
+    border:4px solid yellowgreen;
     background-image: url('../img/Menu/ControlPanel.png');
 }
 div#GamePlay div.panel_Info {
-    left:145px;
+
+    left:152px;
     bottom:0;
-    height:123px;
-    background:black none;
+    height:149px;
+    background: #14143c;
+    border:10px yellowgreen;
 }
 div#GamePlay div.panel_Info div.infoLeft {
     left:10%;
@@ -189,7 +193,7 @@ div.infoLeft span._Carrying {
 div#GamePlay div.panel_Info div.infoCenter {
     left:45%;
     top:0;
-    /*width:300px;*/
+
 	width:300px;
     height:100%;
     color:white;
@@ -239,46 +243,7 @@ div.infoRight div.upgraded{
 div.infoRight div.upgrading{
     bottom:10px;
     border-color:blue;
-}/*
-div.infoRight div[name='icon']{
-    width:32px;
-    height:34px;
-    background-image: url('../img/Menu/CmdIcons.png');
-    /*For text inside icon*
-    color:red;
-    font:bolder 1.8em Verdana,Arial;
-    text-align:right;
-    line-height:46px;
-    vertical-align:bottom;
 }
-div#GamePlay div.infoRight div.upgraded div[name='icon']{
-    position:relative;
-    display:inline-block;
-}*/
-/*
-div.infoRight div[name='icon'][disabled='true']{
-    background-image: url('../img/Menu/CmdIconsDisabled.png');
-}
-div.infoRight div.upgrading div[name='processing']{
-    right:6px;
-    width:156px;
-    height:100%;
-    text-align:center;
-    color:white;
-    font:bold 0.6em Arial;
-}/*
-div.infoRight div.upgrading div.processBar{
-    width:100%;
-    height:14px;
-    background:url('../img/Menu/Thingy.png') 0 -14px;
-}
-div.infoRight div.upgrading div.processedBar{
-    height:100%;
-    background:url('../img/Menu/Thingy.png') 0 -28px;
-}
-
-*/
-
 div#GameLose 
 {
    
@@ -296,37 +261,19 @@ div#GamePlay div.panel_Control {
     right:0;
     bottom:0;
     width:185px;
-    height:140px;
     background-image: url('../img/Menu/ControlPanel.png');
+
+    height:145px;
+    background: #14143c;
+    border:4px solid yellowgreen;
+
+
 }
 div#GamePlay div.panel_Info {
-    border-width:22px 0 0 0;
+    border-width:4px 0 0 0;
     border-style:solid;
-}
-/*
-div#GamePlay[race="Zerg"] div.panel_Info {
-    -webkit-border-image: url('../img/Menu/ControlPanel.png') 22 1265 0 163 repeat;
-    -o-border-image: url('../img/Menu/ControlPanel.png') 22 1265 0 163 repeat;
-    border-image: url('../img/Menu/ControlPanel.png') 22 1265 0 163 repeat;
-}
 
-div#GamePlay[race="Protoss"] div.panel_Info {
-    -webkit-border-image: url('../img/Menu/ControlPanel.png') 22 743 0 745 repeat;
-    -o-border-image: url('../img/Menu/ControlPanel.png') 22 743 0 745 repeat;
-    border-image: url('../img/Menu/ControlPanel.png') 22 743 0 745 repeat;
 }
-
-div#GamePlay[race="Terran"] div.panel_Map {
-    background-position: -1110px bottom;
-}
-div#GamePlay[race="Terran"] div.panel_Info {
-    -webkit-border-image: url('../img/Menu/ControlPanel.png') 22 149 0 1284 repeat;
-    -o-border-image: url('../img/Menu/ControlPanel.png') 22 149 0 1284 repeat;
-    border-image: url('../img/Menu/ControlPanel.png') 22 149 0 1284 repeat;
-}
-div#GamePlay[race="Terran"] div.panel_Control {
-    background-position: -1516px bottom;
-}*/
 div#GamePlay div.panel_Info div.override{
     width:100%;
     height:100%;
@@ -363,7 +310,9 @@ div#GamePlay div.warning_Box {
     background: #14143c;
     text-align:center;
     line-height:20px;
-    font: 28px fantasy;
+    font: 24px fantasy;
+
+    border:2px solid yellowgreen;
     color:whitesmoke;
     display:none;
 }
@@ -402,10 +351,13 @@ div#GamePlay div.message_Box p {
     margin:0;
 }
 div#GamePlay div.resource_Box {
-    right:100px;
-    top:30px;
-	font:bold 1.6em fantasy;
-    color: #ffcc00;
+    right:10px;
+    top:20px;
+	font:18px fantasy;
+    color: #fcfdfd;
+background-color: #14143c;
+
+    border:2px solid yellowgreen;
 }
 div#GamePlay div.resource_Box div, div#GamePlay div.tooltip_Box div.cost div{
     position:relative;
@@ -419,28 +371,10 @@ div#GamePlay div.mine{
 }
 
 div#GamePlay[race="Human"] div.man{
-    background-position:-42px 0;
+    background-position:-49px 0;
 }
 
-/*
-div#GamePlay[race="Zerg"] div.gas{
-    background-position:-14px 0;
-}
-div#GamePlay[race="Terran"] div.gas{
-    background-position:-28px 0;
-}
-div#GamePlay[race="Protoss"] div.gas{
-    background-position:-42px 0;
-}
-div#GamePlay[race="Zerg"] div.man{
-    background-position:-56px 0;
-}
-div#GamePlay[race="Terran"] div.man{
-    background-position:-42px 0;
-}
-div#GamePlay[race="Protoss"] div.man{
-    background-position:-84px 0;
-}*/
+
 div#GamePlay div.magic{
     background-position:-98px 0;
 }
@@ -448,6 +382,11 @@ div#GamePlay div.resource_Box>span{
     position:relative;
     min-width:50px;
     display:inline-block;
+     /*margin-bottom:20px;*/
+    text-align:center;
+
+
+  /*  border:2px solid yellow;*/
 }
 div#GamePlay div.tooltip_Box {
     font:bold 0.8em Arial;
@@ -466,24 +405,10 @@ div#GamePlay div.tooltip_Box div.itemName{
     text-transform:capitalize;
     display:block;
 }
-/* For mobile */
-/*@media screen and (max-width: 700px){
-    .levelSelectionBg{
-        transform:scale(0.7);
-        transform-origin:bottom;
-        -ms-transform:scale(0.7);
-        -ms-transform-origin:bottom;
-        -moz-transform:scale(0.7);
-        -moz-transform-origin:bottom;
-        -webkit-transform:scale(0.7);
-        -webkit-transform-origin:bottom;
-        -o-transform:scale(0.7);
-        -o-transform-origin:bottom;
-    }*/
-    div#GamePlay div.panel_Info div.infoLeft {
-        left:47%;
-        width:auto;
 
+    div#GamePlay div.panel_Info div.infoLeft {
+        left:37%;
+        width:auto;
     }
     div#GamePlay div.panel_Info div.infoLeft div {
 border:3px solid white;
@@ -521,4 +446,3 @@ border:3px solid white;
         -o-transform:scaleX(0.8);
         -o-transform-origin:right;
     }
-}

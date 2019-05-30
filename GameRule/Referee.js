@@ -277,35 +277,6 @@ var Referee={
                 }
             }
         }
-
-       /* units=Unit.allFlyingUnits();
-        for(var N=0;N<units.length;N++) {
-            var chara1 = units[N];
-            for(var M=N+1;M<units.length;M++) {
-                var chara2 = units[M];
-                var dist=chara1.distanceFrom(chara2);
-                //Flying unit collision limit
-                var distLimit=Unit.meleeRange;
-                //Separate override ones
-                if (dist==0) {
-                    var colPos=Referee._pos[Game.getNextRandom()*4>>0];
-                    chara1.x+=colPos[0];
-                    chara1.y+=colPos[1];
-                    dist=1;
-                }
-                if (dist<distLimit) {
-                    //Adjust ratio
-                    var K=(distLimit-dist)/dist/2;
-                    var adjustX=K*(chara1.x-chara2.x)>>0;
-                    var adjustY=K*(chara1.y-chara2.y)>>0;
-                    //Adjust location
-                    chara1.x+=adjustX;
-                    chara1.y+=adjustY;
-                    chara2.x-=adjustX;
-                    chara2.y-=adjustY;
-                }
-            }
-        }*/
     },
     coverFog:function(){
         //No need to set interval as 1sec
@@ -341,7 +312,7 @@ var Referee={
         }
     },
     addLarva:function(){
-        //Every 20 sec
+       /* //Every 20 sec
         if (Game.mainTick%200==0){
             Building.allBuildings.filter(function(build){
                 return build.produceLarva;
@@ -356,11 +327,11 @@ var Referee={
                     }
                 }
             });
-        }
+        }*/
     },
     judgeBuildingInjury:function(){
         //Every 1 sec
-        if (Game.mainTick%10==0){
+   /*     if (Game.mainTick%10==0){
             Building.allBuildings.filter(function(build){
                 return build.injuryOffsets;
             }).forEach(function(build){
@@ -388,31 +359,41 @@ var Referee={
                     }
                 }
             });
-        }
+        }*/
     },
     judgeMan:function(){
         //Update current man and total man for all teams
         //?We may only need to judge our team's man for client consume use
-        var curMan=Game.getPropArray(0),totalMan=Game.getPropArray(0);
+        var curMan=Game.getPropArray(0);
+        var totalMan=Game.getPropArray(0);
+      //  console.log( " judge man " + curMan[0] + " " + totalMan[0])
         Unit.allUnits.concat(Building.allBuildings).forEach(function(chara){
 			
 			
-			if(!chara.isMineral){ //para que no cuente los minerales
-            if ( chara.cost && chara.cost.man) (curMan[chara.team])+=chara.cost.man;
-            if (chara.manPlus) (totalMan[chara.team])+=chara.manPlus;
-            //Transport
+			if(!chara.isMineral ){ //para que no cuente los minerales
+
+            if ( chara.cost && chara.cost.man) {
+            //     console.log("agregandocost  " + chara.name );
+                (curMan[chara.team])+=chara.cost.man;}
+            if (chara.manPlus) {
+           //     console.log("agregando manplus" + chara.name );
+                (totalMan[chara.team])+=chara.manPlus;
+            }
+
+
+           /* //Transport
             if (chara.loadedUnits) {
                 chara.loadedUnits.forEach(function(passenger){
                     if (passenger.cost && passenger.cost.man) (curMan[passenger.team])+=passenger.cost.man;
                 });
-            }
+            }*/
 			}
         });
         for (var N=0;N<Game.playerNum;N++){
             Resource[N].curMan=curMan[N];
             Resource[N].totalMan=totalMan[N];
         }
-      //  console.log( "level cargadp  hombres totales " +  Resource[Game.team].totalMan );
+      //
     },
     judgeWinLose:function(){
         //Every 1 sec

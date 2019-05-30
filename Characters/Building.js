@@ -437,6 +437,7 @@ Building.TerranBuilding.CommandCenter=Building.TerranBuilding.extends({
         },
         HP: 10000,
         manPlus: 5,
+
         cost:{
             mine:400,
             time:1200

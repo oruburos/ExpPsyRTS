@@ -55,8 +55,9 @@ var mouseController = {
                 selectedOne.sound.selected.play();
             
             }    //Cannot multiSelect with enemy
-            if (selectedOne.isEnemy() || (Game.selectedUnit.isEnemy && Game.selectedUnit.isEnemy()))
+            if (selectedOne.isEnemy() || (Game.selectedUnit.isEnemy && Game.selectedUnit.isEnemy())) {
                 Game.unselectAll();
+            }
             //Only selected one to show portrait
               Game.changeSelectedTo(selectedOne);
              selectedOne.sound.selected.play();

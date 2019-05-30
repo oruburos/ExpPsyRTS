@@ -21,9 +21,10 @@ var Levels = [
 			Game.showMessage('Gather resources.');
 			Game.showWarning("Starting", 3000000)
 
+
 			new Human.Civilian({ x: 1100, y: 400, team: 0 });
 			//new Human.Civilian({ x: 100, y: 400, team: 0 });
-			new Building.TerranBuilding.CommandCenter({ x: 1000, y: 200 });
+			new Building.TerranBuilding.CommandCenter({ x: 1000, y: 200 , manPlus:3});
 
 			//pellet 1
 			min = new Mineral({ x: 400, y: 150 });
@@ -252,11 +253,23 @@ var Levels = [
 			Game.showWarning("Starting", 3000000)
 
 			new Human.Civilian({ x: 1100, y: 400, team: 0 });
-            new Human.Civilian({ x: 900, y: 400, team: 0 });
+         /*   new Human.Civilian({ x: 900, y: 400, team: 0 });
 			new Human.Civilian({ x: 1000, y: 400, team: 0 });
-			new Human.Civilian({ x: 1000, y: 300, team: 0 });
+
+
+
+			new Human.Civilian({ x: 1100, y: 400, team: 0 });
+			new Human.Civilian({ x: 1100, y: 400, team: 0 });
+			new Human.Civilian({ x: 1100, y: 400, team: 0 });
+			new Human.Civilian({ x: 1100, y: 400, team: 0 });
+			new Human.Civilian({ x: 1100, y: 400, team: 0 });*/
+
+		 	new Human.Civilian({ x: 1000, y: 300, team: 0 });
 			new Human.Civilian({ x: 1000, y: 500, team: 0 });
-			new Building.TerranBuilding.CommandCenter({ x: 1000, y: 200 });
+
+
+		basecamp = new Building.TerranBuilding.CommandCenter({ x: 1000, y: 200 , manPlus:3});
+		basecamp.manPlus = 1;
 
 			//pellet 1
 			min = new Mineral({ x: 400, y: 150 });
@@ -313,13 +326,13 @@ var Levels = [
 
 
 
-		/*	new Predator.Alien({ x: 700, y: 1200, team: 1 });
+			new Predator.Alien({ x: 700, y: 1200, team: 1 });
 
 
 			m = new Competitor.CompetitorA({ x: 900, y: 200, speed:5, team: 2});
 
 			new Building.ProtossBuilding.Nexus({ x: 1000, y: 1800, team: 2 });
-*/
+
 
 			//console.log("COndition 1");
 			//console.log(" duracion " + Game.duration )

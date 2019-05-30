@@ -526,11 +526,13 @@ var Game = {
 			else {
 
 
-				if (Game.selectedUnit instanceof Unit)
-					$('div.infoLeft div[name="portrait"]')[0].className = Game.selectedUnit.name;
-				if (Game.selectedUnit instanceof Building)
+				if (Game.selectedUnit instanceof Unit) {
+                    $('div.infoLeft div[name="portrait"]')[0].className = Game.selectedUnit.name;
+                }
+				if (Game.selectedUnit instanceof Building){
 					$('div.infoLeft div[name="portrait"]')[0].className =
 						Game.selectedUnit.attack ? Game.selectedUnit.inherited.inherited.name : Game.selectedUnit.inherited.name;
+				}
 
 			}
 
@@ -550,6 +552,8 @@ var Game = {
                  //   $('div.infoLeft span._Health')[0].style.color = "" + Game.selectedUnit.id + Game.selectedUnit.lifeStatus();
                    // $('div.infoLeft span.life')[0].innerHTML = Game.selectedUnit.life >> 0;
                     //$('div.infoLeft span.HP')[0].innerHTML = "/ " +Game.selectedUnit.get('HP');
+
+                    $('div.infoLeft span.life')[0].innerHTML = "";
                     $('div.infoLeft span.HP')[0].innerHTML = chara.descriptionUI;
 
                 }else
@@ -702,7 +706,14 @@ var Game = {
 			///cxt.strokeStyle=(chara.isEnemy())?"red":"green";//Distinguish enemy
 			cxt.lineWidth = 3;//Cannot see 1px width circle clearly
 			cxt.beginPath();
-			cxt.arc(chara.posX() - Map.offsetX, chara.posY() - Map.offsetY, chara.radius(), 0, 3 * Math.PI);
+			console.log("radius" + chara.radius())
+            radiodibujo  =chara.radius();
+
+			if ( chara.name=="Civilian")
+			    radiodibujo  = 20 ;
+
+			//cxt.arc(chara.posX() - Map.offsetX, chara.posY() - Map.offsetY, chara.radius(), 0, 3 * Math.PI);
+			cxt.arc(chara.posX() - Map.offsetX, chara.posY() - Map.offsetY, radiodibujo, 0, 3 * Math.PI);
 			cxt.stroke();
 			//Draw HP bar and SP bar and magic bar
 			cxt.globalAlpha = 1;
@@ -711,7 +722,8 @@ var Game = {
 
 			cxt.strokeStyle = "black";
 
-			if (!chara.isMineral) { //poner halo azul en el mineral
+		//	if (!chara.isMineral) { //poner halo azul en el mineral
+            if (chara.name=="Civilian") { //poner halo azul en el mineral
 				var lifeRatio = chara.life / chara.get('HP');
 				//cxt.fillStyle = (lifeRatio > 0.7) ? "green" : (lifeRatio > 0.3) ? "yellow" : "red";//Distinguish life
                 cxt.fillStyle = (lifeRatio > 0.7) ? "rgb(0, 255, 120) ": (lifeRatio > 0.3) ? "yellow" : "red";//Distinguish life
@@ -844,12 +856,8 @@ var Game = {
 
 
 		$('div.resource_Box span.manNum>span')[0].innerHTML = Resource[Game.team].curMan;
-		//console.log( "  hombres actuales " +  Resource[Game.team].curMan );
-
-		// $('div.resource_Box span.manNum>span')[0].innerHTML=203;
 		$('div.resource_Box span.manNum>span')[1].innerHTML = Resource[Game.team].totalMan;
-		//console.log( "  hombres totales " +  Resource[Game.team].totalMan );
-		//Check if man overflow
+
 		$('div.resource_Box span.manNum')[0].style.color = (Resource[Game.team].curMan > Resource[Game.team].totalMan) ? "red" : "'rgb(0, 22, 230)'";
 	},
 	drawProcessingBox: function () {
