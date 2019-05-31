@@ -11,13 +11,12 @@ var Game = {
 	},
 
 	inGame: false,
-	/*
+
 	trainingDuration:  300000,
 	sessionDuration: 300000,
-	*/
 
-	trainingDuration:  2003000,
-	sessionDuration: 23000,
+
+
 
 	leaveEarly: false,
 	volumenGlobal: 0,

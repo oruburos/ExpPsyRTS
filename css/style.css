@@ -277,7 +277,7 @@ div#GamePlay div.panel_Info {
 div#GamePlay div.panel_Info div.override{
     width:100%;
     height:100%;
-    background:black;
+    background: #141450;
     position:relative;
 }
 div#GamePlay div.panel_Info div.override div{
@@ -299,21 +299,21 @@ div#GamePlay div.panel_Info div.override div.multiSelection div{
     background-size: -74px -2px;
     border:3px solid white;
     border-radius:6px;
+
     margin:2px;
 }
 div#GamePlay div.warning_Box {
     width:150px;
-    height:40px;
+    height:30px;
     left:50%;
     margin-top:20px;
     margin-left:-50px;
     background: #14143c;
     text-align:center;
-    line-height:20px;
+    /*line-height:20px;*/
     font: 24px fantasy;
-
     border:2px solid yellowgreen;
-    color:whitesmoke;
+    color:white;
     display:none;
 }
 div#GamePlay div#cheat_Box {
