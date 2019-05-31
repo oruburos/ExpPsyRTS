@@ -1580,7 +1580,7 @@ var Game = {
 		*/
 
 
-			Game.conditionExperiment = 3; //
+			Game.conditionExperiment = 1; //
 			console.log( "Condition" + Game.conditionExperiment )//hay 5 condiciones
 			Game.createParticipant();
 

@@ -310,6 +310,7 @@ div#GamePlay div.warning_Box {
     margin-left:-50px;
     background: #14143c;
     text-align:center;
+
     /*line-height:20px;*/
     font: 24px fantasy;
     border:2px solid yellowgreen;
@@ -355,16 +356,19 @@ div#GamePlay div.resource_Box {
     top:20px;
 	font:18px fantasy;
     color: #fcfdfd;
-background-color: #14143c;
-
+    background-color: #14143c;
     border:2px solid yellowgreen;
+    width:175px;
+    height:38px
 }
 div#GamePlay div.resource_Box div, div#GamePlay div.tooltip_Box div.cost div{
     position:relative;
     width:38px;
     height:38px;
     background-image:url('../img/Menu/Thingy.png');
-   display:inline-block;
+    display:inline-block;
+
+
 }
 div#GamePlay div.mine{
     background-position:0 0;
@@ -380,13 +384,12 @@ div#GamePlay div.magic{
 }
 div#GamePlay div.resource_Box>span{
     position:relative;
-    min-width:50px;
+    min-width:40px;
     display:inline-block;
-     /*margin-bottom:20px;*/
+     margin-bottom:20px;
     text-align:center;
-
-
-  /*  border:2px solid yellow;*/
+    vertical-align: middle;
+    /*border:2px solid yellow;*/
 }
 div#GamePlay div.tooltip_Box {
     font:bold 0.8em Arial;

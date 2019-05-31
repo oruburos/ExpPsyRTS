@@ -24,8 +24,8 @@ var Levels = [
 
 			new Human.Civilian({ x: 1100, y: 400, team: 0 });
 			//new Human.Civilian({ x: 100, y: 400, team: 0 });
-			new Building.TerranBuilding.CommandCenter({ x: 1000, y: 200 , manPlus:3});
-
+			basecamp = new Building.TerranBuilding.CommandCenter({ x: 1000, y: 200 , manPlus:3});
+		    basecamp.manPlus = 1;
 			//pellet 1
 			min = new Mineral({ x: 400, y: 150 });
 			randomValue = Math.floor((Math.random() * 10) + 1);
