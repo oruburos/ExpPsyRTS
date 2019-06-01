@@ -1,9 +1,12 @@
 var Referee={
     ourDetectedUnits:[],//Detected enemies
     enemyDetectedUnits:[],//Detected ours
+    timerExperiment:0,
     _pos:[[-1,0],[1,0],[0,-1],[0,1]],//Collision avoid
-    tasks:['judgeArbiter','judgeDetect','judgeCollision','judgeRecover','judgeDying','judgeMan',
-        'addLarva','coverFog','alterSelectionMode','judgeBuildingInjury','judgeWinLose','saveReplaySnapshot'],
+   /* tasks:['judgeArbiter','judgeDetect','judgeCollision','judgeRecover','judgeDying','judgeMan',
+        'addLarva','coverFog','alterSelectionMode','judgeBuildingInjury','judgeWinLose','saveReplaySnapshot'],*/
+   tasks:['judgeArbiter','judgeDetect','judgeCollision','judgeRecover','judgeDying','judgeMan',
+        ,'coverFog','alterSelectionMode','judgeWinLose','saveReplaySnapshot'],
     voice:(function(){
         var voice;
         return function(name){
@@ -55,7 +58,12 @@ var Referee={
        // return (Unit.allOurUnits().length==0 && Building.ourBuildings().length==0);
 		unidadesVivas = Unit.allOurUnits().length ; 
 		//console.log("unidades vivas" + unidadesVivas );
-        return (unidadesVivas==0 );
+
+        tiempoNegativo  = Game.timerExperiment < 0 ;
+//        console.log(" tiempo experimento" + Game.timerExperiment);
+        if( tiempoNegativo){ console.log("TIME OVER")}
+
+        return (unidadesVivas==0 || tiempoNegativo);
     },
     judgeArbiter:function(){
         //Every 0.4 sec
@@ -280,7 +288,7 @@ var Referee={
     },
     coverFog:function(){
         //No need to set interval as 1sec
-        if (Game.mainTick%10==0) Map.drawFogAndMinimap();
+        if (Game.mainTick%5==0) Map.drawFogAndMinimap();//original 10
     },
     alterSelectionMode:function(){
         //GC after some user changes
@@ -310,56 +318,6 @@ var Referee={
             $('div.override').hide();
             $('div.override div.multiSelection').hide();
         }
-    },
-    addLarva:function(){
-       /* //Every 20 sec
-        if (Game.mainTick%200==0){
-            Building.allBuildings.filter(function(build){
-                return build.produceLarva;
-            }).forEach(function(build){
-                //Can give birth to 3 larvas
-                for(var N=0;N<3;N++){
-                    if (build.larvas[N]==null || build.larvas[N].status=="dead"){
-                        build.larvas[N]=new Predator.Larva({x:(build.x+N*48),y:(build.y+build.height+4),team:build.team});
-                        //Which base larva belongs to
-                        build.larvas[N].owner=build;
-                        break;
-                    }
-                }
-            });
-        }*/
-    },
-    judgeBuildingInjury:function(){
-        //Every 1 sec
-   /*     if (Game.mainTick%10==0){
-            Building.allBuildings.filter(function(build){
-                return build.injuryOffsets;
-            }).forEach(function(build){
-                var injuryLevel=(1-build.life/build.HP)/0.25>>0;
-                if (injuryLevel>3) injuryLevel=3;
-                var curLevel=build.injuryAnimations.length;
-                if (injuryLevel>curLevel){
-                    var offsets=build.injuryOffsets;
-                    var scale=build.injuryScale?build.injuryScale:1;
-                    for (var N=curLevel;N<injuryLevel;N++){
-                        //Add injury animations
-                        build.injuryAnimations.push(new Animation[build.injuryNames[N]]({target:build,offset:offsets[N],scale:scale}));
-                    }
-                    if ((build instanceof Building.TerranBuilding) || (build instanceof Building.ProtossBuilding)){
-                        if (injuryLevel>1) build.sound.selected=build.sound.onfire;
-                    }
-                }
-                if (injuryLevel<curLevel){
-                    for (var N=curLevel;N>injuryLevel;N--){
-                        //Clear injury animations
-                        build.injuryAnimations.pop().die();
-                    }
-                    if ((build instanceof Building.TerranBuilding) || (build instanceof Building.ProtossBuilding)){
-                        if (injuryLevel<=1) build.sound.selected=build.sound.normal;
-                    }
-                }
-            });
-        }*/
     },
     judgeMan:function(){
         //Update current man and total man for all teams
@@ -395,12 +353,27 @@ var Referee={
         }
       //
     },
-    judgeWinLose:function(){
+    judgeWinLose:function( timer ){
         //Every 1 sec
-     //   console.log(Game.mainTick)
+
+      //  console.log(" timer " + Game.timerExperiment + " maint tick " + Game.mainTick )
+
+/*        if(document.hasFocus()){
+            console.log("FOCO")
+        }else{
+            console.log("_______________")
+        }
+*/
+        if(Game.timerExperiment <= - 1 ){
+            if (Game.refreshIntervalId) {
+                clearInterval(Game.refreshIntervalId);
+           //     console.log("limpiando intervalo")
+            }
+        }
         if (Game.mainTick%10==0){
+//            console.log(" Judge win lose " + Game.timerExperiment);
             if (Referee.loseCondition() && Game.leaveEarly === false ){//leaveEarly when predators kill you
-                console.log("envando lose condition")
+             //   console.log("envando lose condition")
               //console.log("guardando gametik: " + Game.mainTick +  " -> participant "+ Game.resources,  "competitor:" + Game.competitorResources);
 
               Game.historialResources[Game.mainTick] = {	
@@ -416,13 +389,12 @@ var Referee={
                      }
                      console.log("envando win condition")
                  Game.win();
+
              }
+
         }
     },
     saveReplaySnapshot:function(){
-        //Save replay snapshot every 3 sec
-        /*if (Game.mainTick%30==0){
-            Game.saveReplay();
-        }*/
+
     }
 };

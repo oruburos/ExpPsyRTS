@@ -12,7 +12,7 @@ var Game = {
 
 	inGame: false,
 
-	trainingDuration:  300000,
+	trainingDuration:  253000,
 	sessionDuration: 300000,
 
 
@@ -56,6 +56,7 @@ var Game = {
 	sessionID:-1,
 	prolificID:-1,
 	refreshIntervalId:undefined,
+    timerExperiment:0,
 	//
 	startClock: function () {
 
@@ -76,7 +77,8 @@ var Game = {
 
 			
 			Game.refreshIntervalId   = 	setInterval(function () {
-					minutes = parseInt(timer / 60, 10)
+			    console.log("funcion reloj")
+				minutes = parseInt(timer / 60, 10)
 				seconds = parseInt(timer % 60, 10);
 
 				minutes = minutes < 10 ? "0" + minutes : minutes;
@@ -84,9 +86,13 @@ var Game = {
 
 				$('div.warning_Box').html(minutes + ":" + seconds);
 
+				Game.timerExperiment = timer ;
+
+			//	console.log("Gmaer timer experiment  " + Game.timerExperiment)
+                Referee.judgeWinLose( Game.timerExperiment );
 				if (--timer < 0) {
-				///	console.log(" Negative timer 1212 " + timer);
-					Referee.judgeWinLose();
+			//		console.log(" Negative timer : " + timer);
+					Referee.judgeWinLose( timer );
 				}
 			}, 1000);
 		
@@ -225,11 +231,7 @@ var Game = {
 
 	start: function () {
 		//Game start
-
-
-
 		Game.layerSwitchTo("GameStart");
-
 
 		var level = Game.conditionExperiment;
 
@@ -705,7 +707,7 @@ var Game = {
 			///cxt.strokeStyle=(chara.isEnemy())?"red":"green";//Distinguish enemy
 			cxt.lineWidth = 3;//Cannot see 1px width circle clearly
 			cxt.beginPath();
-			console.log("radius" + chara.radius())
+//			console.log("radius" + chara.radius())
             radiodibujo  =chara.radius();
 
 			if ( chara.name=="Civilian")

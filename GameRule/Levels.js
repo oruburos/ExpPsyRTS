@@ -17,7 +17,7 @@ var Levels = [
 			Map.offsetX = startPoint[Game.team].x;
 			Map.offsetY = startPoint[Game.team].y;
 
-			Map.fogFlag = false;//niebla total
+			Map.fogFlag = true;//niebla total
 			Game.showMessage('Gather resources.');
 			Game.showWarning("Starting", 3000000)
 
