@@ -4,7 +4,7 @@ var json = {
     pages:
 
         [
-/*
+
             {
                 title: "Consent Form",
                 questions:
@@ -203,7 +203,7 @@ var json = {
             }
             ,
 
-            */
+
 
             {
                 title: "",
@@ -235,7 +235,7 @@ var json = {
                                     "<b><b>Minimap:</b> The alien planet is large, so there are lots of places where there are potential resources for the explorers to collect.<br/>" +
                                     "You can use a minimap located in the bottom-left corner of the screen to help yourself in the navigation, clicking on a point in the map will relocate the camera over that location.<br/>" +
 
-                                    " These are the only buttons you need to press while you are playing the online game. "
+                                    " These are the only buttons you need to press while you are playing the online game. <br/><br/> <b>Please do not to switch between browser tabs or you will spend more time completing the experiment.<b>"
 
 
 
@@ -253,7 +253,7 @@ var json = {
         ]
 };
 
-console.log(" experiment " + Game.conditionExperiment);
+console.log(" experiment 3 , condition " + Game.conditionExperiment);
 Survey
     .StylesManager
     .applyTheme("winterstone");

@@ -322,7 +322,7 @@ var Button={
         $('button.Play').attr('disabled',false);
     },
     speedUpHandler:function(){
-        if (Game.replayFlag){
+        /*if (Game.replayFlag){
             //Can speed up
             if (Game._frameInterval>25) {
                 Game._frameInterval/=2;
@@ -334,10 +334,10 @@ var Button={
             }
             //Enable SlowDown button
             $('button.SlowDown').attr('disabled',false);
-        }
+        }*/
     },
     slowDownHandler:function(){
-        if (Game.replayFlag){
+      /*  if (Game.replayFlag){
             //Can slow down
             if (Game._frameInterval<400)  {
                 Game._frameInterval*=2;
@@ -349,7 +349,7 @@ var Button={
             }
             //Enable SpeedUp button
             $('button.SpeedUp').attr('disabled',false);
-        }
+        }*/
     },
     //Execute callback
     execute:function(event){

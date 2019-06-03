@@ -79,6 +79,7 @@ Animation.Lockdown=Animation.extends({
         }
     }
 });
+
 Animation.PurpleEffect=Animation.extends({
     constructorPlus:function(props){
         //Nothing
@@ -214,6 +215,8 @@ Animation.MindControl=Animation.extends({
         }
     }
 });
+
+/*
 Animation.RedShield=Animation.extends({
     constructorPlus:function(props){
         //Nothing
@@ -548,4 +551,4 @@ Animation.bloodD=Animation.extends({
             burst:12
         }
     }
-});
+});*/

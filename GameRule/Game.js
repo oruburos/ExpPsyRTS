@@ -12,7 +12,7 @@ var Game = {
 
 	inGame: false,
 
-	trainingDuration:  253000,
+	trainingDuration:  300000,
 	sessionDuration: 300000,
 
 
@@ -57,13 +57,16 @@ var Game = {
 	prolificID:-1,
 	refreshIntervalId:undefined,
     timerExperiment:0,
+    timer:0,
+    minutes:0,
+    seconds:0,
 	//
 	startClock: function () {
 
 
 		$('div.warning_Box').show();
 		if (Game.toggleClock) {
-			var timer = 0;
+			 timer = 0;
 			if (Game.modoTutorial) {
 				timer = Game.trainingDuration;
 			} else {
@@ -72,9 +75,9 @@ var Game = {
 			//	console.log( " starting clock with " + timer )
 
 			timer = timer/1000;
-			var minutes = 0
-			var seconds = 0;
-
+			minutes = 0
+			 seconds = 0;
+/*
 			
 			Game.refreshIntervalId   = 	setInterval(function () {
 			    console.log("funcion reloj")
@@ -95,6 +98,8 @@ var Game = {
 					Referee.judgeWinLose( timer );
 				}
 			}, 1000);
+
+			*/
 		
 
 		} else {
@@ -102,9 +107,31 @@ var Game = {
 
 		}
 
-
-
 	},
+    updateClock: function(){
+
+	    	//Game.refreshIntervalId   = 	setInterval(function () {
+			    console.log("funcion reloj")
+				minutes = parseInt(timer / 60, 10)
+				seconds = parseInt(timer % 60, 10);
+
+				minutes = minutes < 10 ? "0" + minutes : minutes;
+				seconds = seconds < 10 ? "0" + seconds : seconds;
+
+				$('div.warning_Box').html(minutes + ":" + seconds);
+
+				Game.timerExperiment = timer ;
+
+			//	console.log("Gmaer timer experiment  " + Game.timerExperiment)
+               // Referee.judgeWinLose( Game.timerExperiment );
+				if (--timer < 0) {
+			//		console.log(" Negative timer : " + timer);
+					Referee.judgeWinLose(  );
+				}
+		//	}, 1000);
+
+
+},
 	addIntoAllSelected: function (chara, override) {
 		if (chara instanceof Gobj) {
 			//Add into allSelected if not included
@@ -353,7 +380,7 @@ var Game = {
 		//Build a new team
 		Game.teams[teamNum] = _$.mixin([], Game.allSelected);
 	},
-	callTeam: function (teamNum) {
+	/*callTeam: function (teamNum) {
 		var team = _$.mixin([], Game.teams[teamNum]);
 		//When team already exist
 		if (team instanceof Array) {
@@ -371,7 +398,7 @@ var Game = {
 				Map.relocateAt(team[0].posX(), team[0].posY());
 			}
 		}
-	},
+	},*/
 	unselectAll: function () {
 		//Unselect all
 		var units = Unit.allUnits.concat(Building.allBuildings);
@@ -787,7 +814,7 @@ var Game = {
 		//Remove shadow
 		cxt.restore();
 	},
-	drawBullet: function (chara) {
+	/*drawBullet: function (chara) {
 		//Can draw bullets need rotate
 		if (!(chara instanceof Bullets)) return;//Will only show bullet
 		if (chara.status == "dead") return;//Will not show dead
@@ -828,7 +855,7 @@ var Game = {
 		//Below 2 separated steps might cause mess
 		//Game.frontCxt.translate(-centerX,-centerY);
 		//Game.frontCxt.rotate(chara.angle);
-	},
+	},*/
 	drawInfoBox: function () {
 		//Update selected unit active info which need refresh
 		if (Game.selectedUnit instanceof Gobj && Game.selectedUnit.status != "dead") {
@@ -862,7 +889,7 @@ var Game = {
 		$('div.resource_Box span.manNum')[0].style.color = (Resource[Game.team].curMan > Resource[Game.team].totalMan) ? "red" : "'rgb(0, 22, 230)'";
 	},
 	drawProcessingBox: function () {
-		//Show processing box if it's processing
+	/*	//Show processing box if it's processing
 		var processing = Game.selectedUnit.processing;
 		//Can disable this filter for testing
 		if (processing && Game.selectedUnit.team == Game.team) {
@@ -887,7 +914,7 @@ var Game = {
 				}
 			}
 			else $('div.upgrading').removeAttr('title').hide();
-		}
+		}*/
 	},
 	refreshMultiSelectBox: function () {
 		var divs = $('div.override div.multiSelection div');
@@ -1056,8 +1083,12 @@ var Game = {
 			/************ Calculate for next frame *************/
 			//Clock ticking
 
-			if (Game.inGame)
-				Game.mainTick++;
+			if (Game.inGame) {
+                Game.mainTick++;
+                if ( Game.mainTick%10 == 0) {//cada segundo
+                    Game.updateClock();
+                }
+            }
 			//For network mode
 			if (Multiplayer.ON) {
 
@@ -1082,6 +1113,7 @@ var Game = {
 					});
 				}
 			}
+
 			//Clear commands
 			if (Multiplayer.cmds.length > 0) {
 				Multiplayer.cmds = [];
@@ -1122,12 +1154,13 @@ var Game = {
 				}
 			}
 		};
-		if (Multiplayer.ON) {
+		/*if (Multiplayer.ON) {
 			Game._timer = setInterval(function () {
 				if (Game.mainTick < Game.serverTick) Game.animation.loop();
 			}, Game._frameInterval);
 		}
-		else Game.startAnimation();
+		else */
+		Game.startAnimation();
 	},
 	stopAnimation: function () {
 		if (Game._timer != -1) clearInterval(Game._timer);
@@ -1311,7 +1344,7 @@ var Game = {
 			+ formatNum(now.getHours()) + ':' + formatNum(now.getMinutes()) + ':' + formatNum(now.getSeconds());
 		return timestamp;
 	},
-	//New H5 features demo
+	/*//New H5 features demo
 	pauseWhenHide: function () {
 		//Add pause when hide window
 		$(document).on('visibilitychange', function () {
@@ -1327,7 +1360,7 @@ var Game = {
 			}
 		});
 	},
-
+*/
 	saveReplayIntoDB: function () {
 
 
@@ -1380,7 +1413,7 @@ var Game = {
 
 												type: "html",
 												name: "finishTutorial",
-												html: " <h3>You finished the tutorial!!!</h3>After the previous practice session, now you are ready to take part in the main session.<br/><br>The main task will last 5 minutes</br>. The game controls are identical to the previous controls in the practice session."
+												html: " <h3>You finished the tutorial!!!</h3>After the previous practice session, now you are ready to take part in the main session.The main task will last 5 minutes.</br> The game controls are identical to the previous controls in the practice session. <b>Remember not to switch between browser tabs or you will spend more time doing the experiment.<b>"
 											}
 										]
 								}
@@ -1583,7 +1616,7 @@ var Game = {
 
 
 			Game.conditionExperiment = 1; //
-			console.log( "Condition" + Game.conditionExperiment )//hay 5 condiciones
+			console.log( "Condition" + Game.conditionExperiment )//hay 4 condiciones Experimento 3
 			Game.createParticipant();
 
 	},
@@ -1636,7 +1669,7 @@ var Game = {
 				console.log("returning to prolific " + Game.idParticipant + " " + Game.conditionExperiment)
 				//alert("aqui mando a completar el estudio, sello la bd y ya" + Game.idParticipant + " " + Game.conditionExperiment );
 				alert("Experiment completed. Going back to prolific")
-				window.location.href ='https://app.prolific.ac/submissions/complete?cc=sss';//experimento 2
+				window.location.href ='https://app.prolific.ac/submissions/complete?cc=12341234';//experimento 2
 
 
 

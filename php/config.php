@@ -10,7 +10,7 @@ $username   = "root";
 $password   = "";
 
 /*PRODUCTION *
-$host       = "http://explotradeoff.sbcs.qmul.ac.uk";
+$host       = "localhost";
 $username   = "root";
 $password   = "MolE2XWh3rSS";
 

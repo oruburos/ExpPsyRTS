@@ -1,7 +1,7 @@
 var Levels = [
 	{//cond 1 experiment 3
 		level: 1,
-		label: "Condition 1: No predators, total visibility , 1 worker",
+		label: "Condition 1: Total visibility , 1 explorer",
 		duration: 0,
 		has_predator: false,
 		load: function () {
@@ -17,13 +17,13 @@ var Levels = [
 			Map.offsetX = startPoint[Game.team].x;
 			Map.offsetY = startPoint[Game.team].y;
 
-			Map.fogFlag = true;//niebla total
+			Map.fogFlag = false;//niebla total
 			Game.showMessage('Gather resources.');
 			Game.showWarning("Starting", 3000000)
 
 
-			new Human.Civilian({ x: 1100, y: 400, team: 0 });
-			//new Human.Civilian({ x: 100, y: 400, team: 0 });
+		//	new Human.Civilian({ x: 1100, y: 400, team: 0 });
+			new Human.Civilian({ x: 1000, y: 400, team: 0 });
 			basecamp = new Building.TerranBuilding.CommandCenter({ x: 1000, y: 200 , manPlus:3});
 		    basecamp.manPlus = 1;
 			//pellet 1
@@ -77,15 +77,17 @@ var Levels = [
 			Game.totalResources = Game.totalResources + min.resources;
 
 
+/*
+
+			new Predator.Alien({ x: 700, y: 200, team: 1 });
 
 
-		/*	new Predator.Alien({ x: 700, y: 1200, team: 1 });
-
-
-			m = new Competitor.CompetitorA({ x: 900, y: 200, speed:5, team: 2});
+			m = new Competitor.CompetitorA({ x: 900, y: 300, speed:5, team: 2});
 
 			new Building.ProtossBuilding.Nexus({ x: 1000, y: 1800, team: 2 });
-*/
+
+
+			*/
 
 			/**/
 
@@ -122,7 +124,7 @@ var Levels = [
 
 { //cond 2 experiment 3
 		level: 2,
-		label: "Condition 2: No predators, partial visibility , 1 worker",
+		label: "Condition 2: Partial visibility , 1 worker",
 		duration: 0,
 		has_predator: false,
 		load: function () {
@@ -142,9 +144,10 @@ var Levels = [
 			Game.showMessage('Gather resources.');
 			Game.showWarning("Starting", 3000000)
 
-			new Human.Civilian({ x: 1100, y: 400, team: 0 });
+			new Human.Civilian({ x: 1000, y: 400, team: 0 });
 
-			new Building.TerranBuilding.CommandCenter({ x: 1000, y: 200 });
+			basecamp = new Building.TerranBuilding.CommandCenter({ x: 1000, y: 200 , manPlus:3});
+		    basecamp.manPlus = 1;
 
 			//pellet 1
 			min = new Mineral({ x: 400, y: 150 });
@@ -232,7 +235,7 @@ var Levels = [
 
 { //cond 3 experiment 3
 		level: 3,
-		label: "Condition 3: No predators, total visibility , 3 worker",
+		label: "Condition 3:  total visibility , 3 explorers",
 		duration: 0,
 		has_predator: false,
 		load: function () {
@@ -252,24 +255,13 @@ var Levels = [
 			Game.showMessage('Gather resources.');
 			Game.showWarning("Starting", 3000000)
 
-			new Human.Civilian({ x: 1100, y: 400, team: 0 });
-         /*   new Human.Civilian({ x: 900, y: 400, team: 0 });
 			new Human.Civilian({ x: 1000, y: 400, team: 0 });
+            new Human.Civilian({ x: 950, y: 400, team: 0 });
+			new Human.Civilian({ x: 1050, y: 400, team: 0 });
 
 
-
-			new Human.Civilian({ x: 1100, y: 400, team: 0 });
-			new Human.Civilian({ x: 1100, y: 400, team: 0 });
-			new Human.Civilian({ x: 1100, y: 400, team: 0 });
-			new Human.Civilian({ x: 1100, y: 400, team: 0 });
-			new Human.Civilian({ x: 1100, y: 400, team: 0 });*/
-
-		 	new Human.Civilian({ x: 1000, y: 300, team: 0 });
-			new Human.Civilian({ x: 1000, y: 500, team: 0 });
-
-
-		basecamp = new Building.TerranBuilding.CommandCenter({ x: 1000, y: 200 , manPlus:3});
-		basecamp.manPlus = 1;
+		    basecamp = new Building.TerranBuilding.CommandCenter({ x: 1000, y: 200 , manPlus:3});
+		    basecamp.manPlus = 3;
 
 			//pellet 1
 			min = new Mineral({ x: 400, y: 150 });
@@ -362,6 +354,122 @@ var Levels = [
 
 
 	},
+
+{ //cond 3 experiment 3
+		level: 4,
+		label: "Condition 4:  Partial visibility , 3 explorers",
+		duration: 0,
+		has_predator: false,
+		load: function () {
+			//Load map
+			Map.setCurrentMap('Grass');
+			Map.offsetX = 120;
+			Map.offsetY = 50;
+			Unit.allUnits = [];
+			//var races = ['Human'];
+			var races = ['Human'];
+			var startPoint = [{ x: 330, y: 20 }, { x: 200, y: 50 }];
+			Game.race.choose('Human');
+			Map.offsetX = startPoint[Game.team].x;
+			Map.offsetY = startPoint[Game.team].y;
+
+			Map.fogFlag = true;//niebla total
+			Game.showMessage('Gather resources.');
+			Game.showWarning("Starting", 3000000)
+
+			new Human.Civilian({ x: 1000, y: 400, team: 0 });
+            new Human.Civilian({ x: 950, y: 400, team: 0 });
+			new Human.Civilian({ x: 1050, y: 400, team: 0 });
+
+
+		    basecamp = new Building.TerranBuilding.CommandCenter({ x: 1000, y: 200 , manPlus:3});
+		    basecamp.manPlus = 3;
+
+			//pellet 1
+			min = new Mineral({ x: 400, y: 150 });
+			randomValue = Math.floor((Math.random() * 10) + 1);
+			min.resources = randomValue;
+			min.HP = randomValue;
+			Game.totalResources = min.resources;
+
+			//pellet 2
+			min = new Mineral({ x: 1600, y: 150 });
+			//randomValue = Math.floor((Math.random() * 10) + 1);
+			//min.resources = randomValue;
+			//min.HP = randomValue;
+			Game.totalResources = Game.totalResources + min.resources;
+
+			//pellet 3
+			min = new Mineral({ x: 400, y: 1850 });
+			///randomValue = Math.floor((Math.random() * 10) + 1);
+			//min.resources = randomValue;
+			//min.HP = randomValue;
+			Game.totalResources = Game.totalResources + min.resources;
+
+			//pellet 4
+			min = new Mineral({ x: 1600, y: 1850 });
+			//randomValue = Math.floor((Math.random() * 10) + 1);
+			//min.resources = randomValue;
+			//min.HP = randomValue;
+			Game.totalResources = Game.totalResources + min.resources;
+
+			//pellet 5
+			min = new Mineral({ x: 300, y: 1000 });
+			//randomValue = Math.floor((Math.random() * 10) + 1);
+			//min.resources = randomValue;
+			//min.HP = randomValue;
+			Game.totalResources = Game.totalResources + min.resources;
+
+			//pellet 6
+			min = new Mineral({ x: 1700, y: 1000 });
+			//randomValue = Math.floor((Math.random() * 10) + 1);
+			//min.resources = randomValue;
+			//min.HP = randomValue;
+			Game.totalResources = Game.totalResources + min.resources;
+
+			//pellet 7
+			min = new Mineral({ x: 1000, y: 1000 });
+			//randomValue = Math.floor((Math.random() * 10) + 1);
+
+		//	min.resources = randomValue;
+		//	min.HP = randomValue;
+
+
+
+			Game.totalResources = Game.totalResources + min.resources;
+
+
+
+
+			//console.log("COndition 1");
+			//console.log(" duracion " + Game.duration )
+			if (Game.modoTutorial) {
+				Game.commandTimeout(function () {
+					Game.showMessage("Task Finished"),
+
+						//console.log("tiempo terminad" +Game.trainingDuration),
+						Game.lose();
+				}, Game.trainingDuration);//60 segundos
+
+			}
+			else {
+				Game.commandTimeout(function () {
+					Game.showMessage("Task Finished"),
+						Game.inGame = false,
+						console.log("time" + Game.sessionDuration),
+						Game.lose();
+				}, Game.sessionDuration);//60 segundos}
+
+
+			}
+
+			Game.startClock();
+
+		}
+
+
+	},
+
 
 
 

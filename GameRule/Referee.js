@@ -353,7 +353,7 @@ var Referee={
         }
       //
     },
-    judgeWinLose:function( timer ){
+    judgeWinLose:function(  ){
         //Every 1 sec
 
       //  console.log(" timer " + Game.timerExperiment + " maint tick " + Game.mainTick )
