@@ -70,60 +70,58 @@ var HeatMap = {
 	,
 
 	update: function (tick) {
-		myself = this;
-		unitsXTick = [];
+
+		if (!Game.modoTutorial) {
+			console.log("Performance")
+			myself = this;
+			unitsXTick = [];
 
 
-
-		Unit.allUnits.forEach(function (chara) {
-
-
-			//console.log("chara id " + chara.id + " x " + chara.posX() + " w " + chara.width + " name   " + chara.name)
-
-			//   console.log( "actualizando " + chara.posX() +" " + chara.posY()  + " id:" + chara.id)
-			i = Math.floor(chara.posX() / myself.cell);
-			//console.log (i);
-			j = Math.floor(chara.posY() / myself.cell);
-		//	console.log( "actualizando " + i +" " + j)
-			if (chara.name === "Civilian") //CHECAR NOMBRE
-			{
-
-				//	console.log(" j " + j + " i " + i)
-				occupancy[0][j][i]++;
+			Unit.allUnits.forEach(function (chara) {
 
 
-				if ((tick) % 50 == 0) {
+				//console.log("chara id " + chara.id + " x " + chara.posX() + " w " + chara.width + " name   " + chara.name)
+
+				//   console.log( "actualizando " + chara.posX() +" " + chara.posY()  + " id:" + chara.id)
+				i = Math.floor(chara.posX() / myself.cell);
+				//console.log (i);
+				j = Math.floor(chara.posY() / myself.cell);
+				//	console.log( "actualizando " + i +" " + j)
+				if (chara.name === "Civilian") //CHECAR NOMBRE
+				{
+
+					//	console.log(" j " + j + " i " + i)
+					occupancy[0][j][i]++;
 
 
-					var statusUnit = new Object();
-					statusUnit.id = chara.id;
-					statusUnit.carryngResources = chara.carryingResources;
-					statusUnit.resources = chara.resources;
-					statusUnit.position = { x: i, y: j };
-					statusUnit.life = chara.life;
-					statusUnit.selected = chara.selected;
-					statusUnit.idle = chara.isIdle();
+					if ((tick) % 50 == 0) {
 
-					unitsXTick.push(statusUnit);
 
-				}
+						var statusUnit = new Object();
+						statusUnit.id = chara.id;
+						statusUnit.carryngResources = chara.carryingResources;
+						statusUnit.resources = chara.resources;
+						statusUnit.position = {x: i, y: j};
+						statusUnit.life = chara.life;
+						statusUnit.selected = chara.selected;
+						statusUnit.idle = chara.isIdle();
 
-			}
-			else
-				if (chara.name === "CompetitorA") //CHECAR NOMBRE
+						unitsXTick.push(statusUnit);
+
+					}
+
+				} else if (chara.name === "CompetitorA") //CHECAR NOMBRE
 				{
 
 
 					if ((tick) % 50 == 0) {
-				/*		console.log (i);
-						console.log (j);
-						console.log(" Competitor current tick "+ tick)*/
-                        occupancy[1][j][i]++;
-                    }
-				}
-				else if (chara.name === "Alien" && myself.recordPredator) {
+						/*		console.log (i);
+                                console.log (j);
+                                console.log(" Competitor current tick "+ tick)*/
+						occupancy[1][j][i]++;
+					}
+				} else if (chara.name === "Alien" && myself.recordPredator) {
 					//console.log(" Predator current tick "+ tick)
-
 
 
 					occupancyPredators[j][i]++;
@@ -131,22 +129,25 @@ var HeatMap = {
 				}
 
 
-			//	console.log("resources " +Game.resources);
-		});
+				//	console.log("resources " +Game.resources);
+			});
 
 
-		if ((tick) % 50 == 0) {//tiene que coincidir con el numero en Game.record
-			var clave = tick.toString()
-			//var unidadesPorTick = JSON.stringify(unitsXTick);
+			if ((tick) % 50 == 0) {//tiene que coincidir con el numero en Game.record
+				var clave = tick.toString()
+				//var unidadesPorTick = JSON.stringify(unitsXTick);
 
-			this.historialXunit[clave] = unitsXTick;
+				this.historialXunit[clave] = unitsXTick;
+
+			}
+		}else{
+			console.log("Training")
 
 		}
-
 	},
 
 	showInfo: function () {
-		//automatizar este proceso	
+		//automatizar este proceso
 		//	console.log( JSON.stringify(occupancy));
 	},
 
@@ -155,14 +156,14 @@ var HeatMap = {
 		//aqui conectar a DB
 		//console.log("recibiendo " + tick)
 		/* Map.allUnits.forEach(function(chara){
-           
+
 
 			if( chara.isMineral) return;// no hacer gran cosa
-		     
-			
+
+
 			occupancy[Math.floor(chara.posX())][Math.floor(chara.posY())] ++;
-			
-			
+
+
         });*/
 
 		//console.table(occupancy ) ;
