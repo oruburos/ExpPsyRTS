@@ -94,7 +94,7 @@ var HeatMap = {
 					occupancy[0][j][i]++;
 
 
-					if ((tick) % 50 == 0) {
+					if ((tick) % 30 == 0) {
 
 
 						var statusUnit = new Object();
@@ -114,7 +114,7 @@ var HeatMap = {
 				{
 
 
-					if ((tick) % 50 == 0) {
+					if ((tick) % 30 == 0) {
 						/*		console.log (i);
                                 console.log (j);
                                 console.log(" Competitor current tick "+ tick)*/
@@ -133,7 +133,7 @@ var HeatMap = {
 			});
 
 
-			if ((tick) % 50 == 0) {//tiene que coincidir con el numero en Game.record
+			if ((tick) % 30 == 0) {//tiene que coincidir con el numero en Game.record
 				var clave = tick.toString()
 				//var unidadesPorTick = JSON.stringify(unitsXTick);
 
