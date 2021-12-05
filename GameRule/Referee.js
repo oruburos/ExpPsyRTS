@@ -3,8 +3,7 @@ var Referee={
     enemyDetectedUnits:[],//Detected ours
     timerExperiment:0,
     _pos:[[-1,0],[1,0],[0,-1],[0,1]],//Collision avoid
-   /* tasks:['judgeArbiter','judgeDetect','judgeCollision','judgeRecover','judgeDying','judgeMan',
-        'addLarva','coverFog','alterSelectionMode','judgeBuildingInjury','judgeWinLose','saveReplaySnapshot'],*/
+
    tasks:['judgeArbiter','judgeDetect','judgeCollision','judgeRecover','judgeDying','judgeMan',
         ,'coverFog','alterSelectionMode','judgeWinLose','saveReplaySnapshot'],
     voice:(function(){
@@ -50,13 +49,13 @@ var Referee={
 
 
       // console.log("Game ideal: " + Game.totalResources + " Res Participant " + Game.resources + " Res Competitor " + Game.competitorResources );
-       
+
        return (Game.resources + Game.competitorResources  == Game.totalResources );
     },
     loseCondition:function(){
         //By default: All enemies and buildings are killed
        // return (Unit.allOurUnits().length==0 && Building.ourBuildings().length==0);
-		unidadesVivas = Unit.allOurUnits().length ; 
+		unidadesVivas = Unit.allOurUnits().length ;
 		//console.log("unidades vivas" + unidadesVivas );
 
         tiempoNegativo  = Game.timerExperiment < 0 ;
@@ -326,8 +325,8 @@ var Referee={
         var totalMan=Game.getPropArray(0);
       //  console.log( " judge man " + curMan[0] + " " + totalMan[0])
         Unit.allUnits.concat(Building.allBuildings).forEach(function(chara){
-			
-			
+
+
 			if(!chara.isMineral ){ //para que no cuente los minerales
 
             if ( chara.cost && chara.cost.man) {
@@ -376,15 +375,15 @@ var Referee={
              //   console.log("envando lose condition")
               //console.log("guardando gametik: " + Game.mainTick +  " -> participant "+ Game.resources,  "competitor:" + Game.competitorResources);
 
-              Game.historialResources[Game.mainTick] = {	
+              Game.historialResources[Game.mainTick] = {
                 "participant": Game.resources,  "competitor" : Game.competitorResources
                  }
                 Game.leaveEarly = true;
                 Game.lose();
             }
-            if (Referee.winCondition() && Game.leaveEarly === false ){//leaveEalry when you collect all the resources  
-                console.log("guardando gametik: " + Game.mainTick +  " -> participant "+ Game.resources,  "competitor:" + Game.competitorResources); 
-                Game.historialResources[Game.mainTick] = {	
+            if (Referee.winCondition() && Game.leaveEarly === false ){//leaveEalry when you collect all the resources
+                console.log("guardando gametik: " + Game.mainTick +  " -> participant "+ Game.resources,  "competitor:" + Game.competitorResources);
+                Game.historialResources[Game.mainTick] = {
                     "participant": Game.resources,  "competitor" : Game.competitorResources
                      }
                      console.log("envando win condition")

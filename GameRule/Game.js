@@ -1,4 +1,4 @@
-var Game = {	
+var Game = {
 	//Global variables
 	HBOUND: innerWidth,//$('body')[0].scrollWidth
 	VBOUND: innerHeight,//$('body')[0].scrollHeight
@@ -12,7 +12,8 @@ var Game = {
 
 	inGame: false,
 
-	trainingDuration:  300000,
+	//trainingDuration:  300000,
+	trainingDuration:  3000,
 	sessionDuration: 300000,
 
 
@@ -77,41 +78,16 @@ var Game = {
 			timer = timer/1000;
 			minutes = 0
 			 seconds = 0;
-/*
-			
-			Game.refreshIntervalId   = 	setInterval(function () {
-			    console.log("funcion reloj")
-				minutes = parseInt(timer / 60, 10)
-				seconds = parseInt(timer % 60, 10);
-
-				minutes = minutes < 10 ? "0" + minutes : minutes;
-				seconds = seconds < 10 ? "0" + seconds : seconds;
-
-				$('div.warning_Box').html(minutes + ":" + seconds);
-
-				Game.timerExperiment = timer ;
-
-			//	console.log("Gmaer timer experiment  " + Game.timerExperiment)
-                Referee.judgeWinLose( Game.timerExperiment );
-				if (--timer < 0) {
-			//		console.log(" Negative timer : " + timer);
-					Referee.judgeWinLose( timer );
-				}
-			}, 1000);
-
-			*/
-		
 
 		} else {
 			$('div.warning_Box').hide();
-
 		}
 
 	},
     updateClock: function(){
 
 	    	//Game.refreshIntervalId   = 	setInterval(function () {
-			    console.log("funcion reloj")
+//			    console.log("funcion reloj")
 				minutes = parseInt(timer / 60, 10)
 				seconds = parseInt(timer % 60, 10);
 
@@ -264,7 +240,7 @@ var Game = {
 
 
 		if (Game.modoTutorial) {
-			console.log("Modo tutorial")
+			console.log("Modo tutorial , Condition Exp: " + Game.conditionExperiment)
 
 			$('.levelSelectionBg').append("<div class='PsyRTSButton'><p>Online Mini gaming task (Training)</p><input type='button'  class='sv_next_btn' value='Start Task' name='levelSelect'></input></div>");
 		}
@@ -293,7 +269,7 @@ var Game = {
 		//Load level to initial when no error occurs
 		if (!(Levels[Game.level - 1].load())) {
 			//Need Game.playerNum before expansion
-			
+
 			if (Game.modoTutorial) {
 				Game.expandUnitProps();
 				//Resource.init();
@@ -317,6 +293,7 @@ var Game = {
 					console.log( "lmpiando datos de heatmap")
 				//	HeatMap.cleanData();
 				}*/
+
 			Game.inGame = true;
 			Game.animation();
 		}
@@ -331,46 +308,80 @@ var Game = {
 	//Do we need this because we only support Predator vs Human vs Competitor?
 	expandUnitProps: function () {
 		//Post-operation for all unit types, prepare basic properties for different team numbers, init in level.js
-		_$.traverse([Predator, Human, Competitor], function (unitType) {
-			['HP', 'SP', 'MP', 'damage', 'armor', 'speed', 'attackRange', 'attackInterval', 'plasma', 'sight'].forEach(function (prop) {
-				//Prop array, first one for us, second for enemy
-				if (unitType.prototype[prop] != undefined) {
 
-					//	console.log("traversion "+ prop + " unittype " + Game.getPropArray(unitType.prototype[prop]) )
-					unitType.prototype[prop] = Game.getPropArray(unitType.prototype[prop]);
+		if (!Game.modoTutorial ){
+			_$.traverse([Predator, Human, Competitor], function (unitType) {
+				['HP', 'SP', 'MP', 'damage', 'armor', 'speed', 'attackRange', 'attackInterval', 'plasma', 'sight'].forEach(function (prop) {
+					//Prop array, first one for us, second for enemy
+					if (unitType.prototype[prop] != undefined) {
+
+						//	console.log("traversion "+ prop + " unittype " + Game.getPropArray(unitType.prototype[prop]) )
+						unitType.prototype[prop] = Game.getPropArray(unitType.prototype[prop]);
+					}
+				});
+				if (unitType.prototype.isInvisible) {
+					for (var N = 0; N < Game.playerNum; N++) {
+						unitType.prototype['isInvisible' + N] = unitType.prototype.isInvisible;
+					}
+				}
+				delete unitType.prototype.isInvisible;//No need anymore
+				if (unitType.prototype.attackMode) {
+					['damage', 'attackRange', 'attackInterval'].forEach(function (prop) {
+						//Prop array, first one for us, second for enemy
+						unitType.prototype.attackMode.flying[prop] = Game.getPropArray(unitType.prototype.attackMode.flying[prop]);
+						unitType.prototype.attackMode.ground[prop] = Game.getPropArray(unitType.prototype.attackMode.ground[prop]);
+					});
+				}
+				unitType.upgrade = function (prop, value, team) {
+					switch (team) {
+						case 0: case 1: case 2: case 3: case 4: case 5: case 6: case 7:
+							eval('unitType.prototype.' + prop)[team] = value;
+							break;
+						default:
+							unitType.prototype[prop] = value;
+							break;
+					}
+				};
+			});
+			Referee.underArbiterUnits = Game.getPropArray([]);
+			Referee.detectedUnits = Game.getPropArray([]);
+			for (var N = 0; N < Game.playerNum; N++) {
+				//Initial detector buffer
+				var buffer = {};
+				buffer['isInvisible' + N] = false;
+				Gobj.detectorBuffer.push(buffer);
+
+
+			}
+
+		}else{
+
+			_$.traverse([ Human], function (unitType) {
+				['HP', 'SP', 'MP', 'damage', 'armor', 'speed', 'attackRange', 'attackInterval', 'plasma', 'sight'].forEach(function (prop) {
+					//Prop array, first one for us, second for enemy
+					if (unitType.prototype[prop] != undefined) {
+						unitType.prototype[prop] = Game.getPropArray(unitType.prototype[prop]);
+					}
+				});
+
+				delete unitType.prototype.isInvisible;//No need anymore
+				if (unitType.prototype.attackMode) {
+					['damage', 'attackRange', 'attackInterval'].forEach(function (prop) {
+						//Prop array, first one for us, second for enemy
+						unitType.prototype.attackMode.ground[prop] = Game.getPropArray(unitType.prototype.attackMode.ground[prop]);
+					});
 				}
 			});
-			if (unitType.prototype.isInvisible) {
-				for (var N = 0; N < Game.playerNum; N++) {
-					unitType.prototype['isInvisible' + N] = unitType.prototype.isInvisible;
-				}
+			Referee.underArbiterUnits = Game.getPropArray([]);
+			Referee.detectedUnits = Game.getPropArray([]);
+			for (var N = 0; N < Game.playerNum; N++) {
+				//Initial detector buffer
+				var buffer = {};
+				buffer['isInvisible' + N] = false;
+				Gobj.detectorBuffer.push(buffer);
+
+
 			}
-			delete unitType.prototype.isInvisible;//No need anymore
-			if (unitType.prototype.attackMode) {
-				['damage', 'attackRange', 'attackInterval'].forEach(function (prop) {
-					//Prop array, first one for us, second for enemy
-					unitType.prototype.attackMode.flying[prop] = Game.getPropArray(unitType.prototype.attackMode.flying[prop]);
-					unitType.prototype.attackMode.ground[prop] = Game.getPropArray(unitType.prototype.attackMode.ground[prop]);
-				});
-			}
-			unitType.upgrade = function (prop, value, team) {
-				switch (team) {
-					case 0: case 1: case 2: case 3: case 4: case 5: case 6: case 7:
-						eval('unitType.prototype.' + prop)[team] = value;
-						break;
-					default:
-						unitType.prototype[prop] = value;
-						break;
-				}
-			};
-		});
-		Referee.underArbiterUnits = Game.getPropArray([]);
-		Referee.detectedUnits = Game.getPropArray([]);
-		for (var N = 0; N < Game.playerNum; N++) {
-			//Initial detector buffer
-			var buffer = {};
-			buffer['isInvisible' + N] = false;
-			Gobj.detectorBuffer.push(buffer);
 
 
 		}
@@ -380,25 +391,7 @@ var Game = {
 		//Build a new team
 		Game.teams[teamNum] = _$.mixin([], Game.allSelected);
 	},
-	/*callTeam: function (teamNum) {
-		var team = _$.mixin([], Game.teams[teamNum]);
-		//When team already exist
-		if (team instanceof Array) {
-			Game.unselectAll();
-			//GC
-			$.extend([], team).forEach(function (chara) {
-				if (chara.status == 'dead') team.splice(team.indexOf(chara), 1);
-			});
-			Game.addIntoAllSelected(team, true);
-			if (team[0] instanceof Gobj) {
-				Game.changeSelectedTo(team[0]);
-				//Sound effect
-				team[0].sound.selected.play();
-				//Relocate map center
-				Map.relocateAt(team[0].posX(), team[0].posY());
-			}
-		}
-	},*/
+
 	unselectAll: function () {
 		//Unselect all
 		var units = Unit.allUnits.concat(Building.allBuildings);
@@ -423,7 +416,7 @@ var Game = {
 		{
 			 Game.changeSelectedTo(inRectUnits[0]);
 			 Multiplayer.cmds.push(JSON.stringify({
-                
+
                 type: 'multipleSelect',
                 pos1: startPoint,
 				pos2: endPoint,
@@ -1229,7 +1222,7 @@ var Game = {
 
 		for (var N = 0; N < Unit.allUnits.length; N++) {
 			var selectedOne = Unit.allUnits[N];
-			     
+
 			var pos = { x: selectedOne.posX(), y:selectedOne.posY() };
 			Multiplayer.cmds.push(
 				JSON.stringify(
@@ -1237,10 +1230,10 @@ var Game = {
 
 						type: 'snapshot',
 				uids: { name: selectedOne.name , id : selectedOne.id,life : selectedOne.life , foraging:selectedOne.foraging, carryingResources : selectedOne.carryingResources , resources:selectedOne.resources  },
-           
+
 				pos: pos	}
 			));
-			
+
 		}
 /*
 		Multiplayer.cmds.push(
@@ -1259,7 +1252,7 @@ var Game = {
 		}
 
 	}
-	
+
 	,
 	showWarning: function (msg, interval) {
 		//Default interval
@@ -1393,8 +1386,6 @@ var Game = {
 					Game.layerSwitchTo("GameStart");
 
 
-					/**Hack puerco *
-					 */
 					var json = {
 						title: "Online Mini Gaming Tasks",
 						showProgressBar: "top",
@@ -1595,27 +1586,7 @@ var Game = {
 	,
 	getCondition: function () {
 
-		/*
-		$.ajax({
-			type: "POST",
-			url: 'php/getcondition.php',
-			success: function (data) {
-
-				console.log(data);
-				var obj = jQuery.parseJSON(data);
-
-				//Game.conditionExperiment = (parseInt(obj) % 4) + 1;
-				Game.conditionExperiment = 2; //
-				console.log( "Condition" + Game.conditionExperiment )//hay 5 condiciones
-				//console.log("grabado");
-				Game.createParticipant();
-			}
-		});
-
-		*/
-
-
-			Game.conditionExperiment = 1; //
+			Game.conditionExperiment = 3; //
 			console.log( "Condition" + Game.conditionExperiment )//hay 4 condiciones Experimento 3
 			Game.createParticipant();
 

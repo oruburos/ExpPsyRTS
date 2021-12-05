@@ -4,205 +4,205 @@ var json = {
     pages:
 
         [
-
-            {
-                title: "Consent Form",
-                questions:
-                    [
+            /*
                         {
-
-                            type: "html",
-                            name: "Information sheet",
-                            html: "<div id='consentForm' align='left'><img src='img/qmul/qmulHeader.png' class='centerQMUL' /><br/><h3 align='center'>Research study “Competitive Online Minigaming Tasks” information for participants</h3>"
-                                + "<br/>We would like to invite you to be part of this research project, if you would like to.  You should only agree to take part if you want to, it is entirely up to you.<br/>If you choose not to take part there won’t be any disadvantages for you and you will hear no more about it.  [If appropriate: Choosing not to take part will not affect your access to treatment or services in any way "
-
-
-                                + "In this study you will be presented with a few questions, and then you will be playing a game that will be presented to you online.<br/>The aim of the study is to look at the ways in which people learn to interact with a simple competitive gaming scenario <b>against another participants</b>. "
-                                + "The study will be divided into three phases, first you will be presented with a short series of questions, then you are given a brief period of time (5 minutes) to familiarise yourself with the game, and then you will play the game for approximately 5 minutes. At the end of the study you will be presented with a brief summary of the aims of the study, and if you want further details the contact details of the lead researcher included.  "
-                                + "The whole study should take no more than between <b>12-15 minutes</b> in total.  "
-
-                                + "<br/>This study has been approved by Queen Mary University of London Research Ethics Committee <b>QMREC1761.</b> "
-
-                                + "All information given in the study will be completely confidential and anonymous, in accordance to the Data Protection Act 1998. To ensure full anonymity, you will not be asked your name. You have the right to request your data be destroyed after the completion of the study. "
-                                + "<br/>If you have any queries about the study or any concerns regarding the ethical conduct of this study, <b>please email   d.o.verdugapalencia at qmul.ac.uk </b>"
-                                + "If you have any questions or concerns about the manner in which the study was conducted please, in the first instance, contact the researcher responsible for the study. <br/> If this is unsuccessful, or not appropriate, please contact the Secretary at the Queen Mary Ethics of Research Committee, Room W104, Queen’s Building, Mile End Campus, Mile End Road, London or research-ethics@qmul.ac.uk"
-                                + "</div>"
-                        }, {
-                            "type": "boolean",
-                            "name": "bool",
-                            "title": "Do you want to take part?",
-                            "label": "Are you 18 or older?",
-                            "isRequired": true
-                        }
-                    ]
-            }
-
-
-            ,
-
-            {
-                title: "Demographics and  RTS expertise",
-                questions: [
-                    {
-                        "type": "panel",
-                        "innerIndent": 1,
-                        "name": "panel1",
-                        "title": "Demographics",
-
-                        "elements": [
-                            {
-                                type: "radiogroup",
-                                name: "gender",
-                                isRequired: true,
-                                title: "What is your gender?",
-                                choices: ["Male", "Female", "Other", "Prefer not to say"]
-                            },
-                            {
-                                type: "text",
-                                name: "age",
-                                title: "What is your age?",
-                                 isRequired: true,
-                                validators: [
+                            title: "Consent Form",
+                            questions:
+                                [
                                     {
-                                        type: "numeric",
-                                        minValue: 16,
-                                        maxValue: 100
+
+                                        type: "html",
+                                        name: "Information sheet",
+                                        html: "<div id='consentForm' align='left'><img src='img/qmul/qmulHeader.png' class='centerQMUL' /><br/><h3 align='center'>Research study “Competitive Online Minigaming Tasks” information for participants</h3>"
+                                            + "<br/>We would like to invite you to be part of this research project, if you would like to.  You should only agree to take part if you want to, it is entirely up to you.<br/>If you choose not to take part there won’t be any disadvantages for you and you will hear no more about it.  [If appropriate: Choosing not to take part will not affect your access to treatment or services in any way "
+
+
+                                            + "In this study you will be presented with a few questions, and then you will be playing a game that will be presented to you online.<br/>The aim of the study is to look at the ways in which people learn to interact with a simple competitive gaming scenario <b>against another participants</b>. "
+                                            + "The study will be divided into three phases, first you will be presented with a short series of questions, then you are given a brief period of time (5 minutes) to familiarise yourself with the game, and then you will play the game for approximately 5 minutes. At the end of the study you will be presented with a brief summary of the aims of the study, and if you want further details the contact details of the lead researcher included.  "
+                                            + "The whole study should take no more than between <b>12-15 minutes</b> in total.  "
+
+                                            + "<br/>This study has been approved by Queen Mary University of London Research Ethics Committee <b>QMREC1761.</b> "
+
+                                            + "All information given in the study will be completely confidential and anonymous, in accordance to the Data Protection Act 1998. To ensure full anonymity, you will not be asked your name. You have the right to request your data be destroyed after the completion of the study. "
+                                            + "<br/>If you have any queries about the study or any concerns regarding the ethical conduct of this study, <b>please email   d.o.verdugapalencia at qmul.ac.uk </b>"
+                                            + "If you have any questions or concerns about the manner in which the study was conducted please, in the first instance, contact the researcher responsible for the study. <br/> If this is unsuccessful, or not appropriate, please contact the Secretary at the Queen Mary Ethics of Research Committee, Room W104, Queen’s Building, Mile End Campus, Mile End Road, London or research-ethics@qmul.ac.uk"
+                                            + "</div>"
+                                    }, {
+                                        "type": "boolean",
+                                        "name": "bool",
+                                        "title": "Do you want to take part?",
+                                        "label": "Are you 18 or older?",
+                                        "isRequired": true
                                     }
                                 ]
-                            },
-                            {
-                                type: "dropdown",
-                                name: "education",
-                                isRequired: true,
-                                title: "What is the highest level of education you have completed?",
-                                choices: ["Other",
-                                    "some high school",
-                                    "high school graduate",
-                                    "some college",
-                                    "trade/technical/vocational training",
-                                    "college graduate",
-                                    "some posgraduate work",
-                                    "post graduate degree"]
-                            }
-                        ]
-                    },
-                    {
-                        "type": "panel",
-                        "innerIndent": 1,
-                        "name": "panel2",
-                        "title": "Real Time Strategy expertise",
+                        }
 
-                        "elements": [
-                            {
-                                type: "dropdown",
-                                name: "expertise",
-                                isRequired: true,
-                                title: "In case that you have you played Real Time Strategy Games (Games like StarCraft, Age of Empires, Halo Wars), which is your level of expertise? If you have not played any RTS Game, select novice.",
-                                choices: ["No, I’m novice.",
-                                    "Yes, I consider myself a casual player.",
-                                    "Yes, I consider myself a proficient player",
-                                    "Yes, I consider myself an expert player"
-                                ]
-                            }
-                        ]
-                    }
 
-                ]
-            }
-            ,
+                        ,
 
-            {
-                title: "Attitudes towards risk",
-                questions: [
-                    {
-                        "type": "panel",
-                        "innerIndent": 1,
-                        "name": "panel1",
-                        "title": "Risk",
+                        {
+                            title: "Demographics and  RTS expertise",
+                            questions: [
+                                {
+                                    "type": "panel",
+                                    "innerIndent": 1,
+                                    "name": "panel1",
+                                    "title": "Demographics",
 
-                        "elements": [
-                            {
-                                type: "matrix",
-                                name: "AttRisk",
-                                title: "Please indicate if you agree or disagree with the following statements",
+                                    "elements": [
+                                        {
+                                            type: "radiogroup",
+                                            name: "gender",
+                                            isRequired: true,
+                                            title: "What is your gender?",
+                                            choices: ["Male", "Female", "Other", "Prefer not to say"]
+                                        },
+                                        {
+                                            type: "text",
+                                            name: "age",
+                                            title: "What is your age?",
+                                             isRequired: true,
+                                            validators: [
+                                                {
+                                                    type: "numeric",
+                                                    minValue: 16,
+                                                    maxValue: 100
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            type: "dropdown",
+                                            name: "education",
+                                            isRequired: true,
+                                            title: "What is the highest level of education you have completed?",
+                                            choices: ["Other",
+                                                "some high school",
+                                                "high school graduate",
+                                                "some college",
+                                                "trade/technical/vocational training",
+                                                "college graduate",
+                                                "some posgraduate work",
+                                                "post graduate degree"]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "panel",
+                                    "innerIndent": 1,
+                                    "name": "panel2",
+                                    "title": "Real Time Strategy expertise",
 
-                                isAllRowRequired: true,
-                                columns: [{
-                                    value: 1,
-                                    text: "I am risk averse"
-                                }, {
-                                    value: 2,
-                                    text: "I am moderately risk averse"
-                                }, {
-                                    value: 3,
-                                    text: "I am neither risk averse or risk seeking"
-                                }, {
-                                    value: 4,
-                                    text: "I am moderately risk seeking"
-                                }, {
-                                    value: 5,
-                                    text: "I am risk seeking"
-                                }],
-                                rows: [{
-                                    value: "risklife", isRequired: true,
-                                    text: "Which from the following options would you consider best characterises you overall as a attitude you have towards taking risks in life?"
-                                }, {
-                                    value: "riskgames", isRequired: true,
-                                    text: "Which from the following options would you consider best characterises your approach to taking risks when you are playing games online?"
-                                }, {
-                                    value: "risksports", isRequired: true,
-                                    text: "Which from the following options would you consider best characterises your approach to taking risks when you are playing sports?"
-                                }]
-                            }
-                        ]
-                    }
-                    ,
-                    {
-                        type: "matrix",
-                        name: "AttRisk2",
-                        title: "Please indicate if you agree or disagree with the following statements",
-                        isAllRowRequired: true,
-                        columns: [{
-                            value: 1,
-                            text: "Strongly Disagree"
-                        }, {
-                            value: 2,
-                            text: "Disagree"
-                        }, {
-                            value: 3,
-                            text: "Neutral"
-                        }, {
-                            value: 4,
-                            text: "Agree"
-                        }, {
-                            value: 5,
-                            text: "Strongly Agree"
-                        }],
-                        rows: [{
-                            value: "risk1",
-                            text: "Compared to the average person, I would say I take more risks"
-                        }, {
-                            value: "risk2",
-                            text: "Before making a decision, I try to anticipate the factors that can influence the outcome."
-                        }, {
-                            value: "risk3",
-                            text: "I'm willing to take a risk in order to get the desired outcome."
-                        }, {
-                            value: "risk4",
-                            text: "I feel confident when I have to make a decision with an uncertain outcome."
-                        }, {
-                            value: "risk5",
-                            text: "I feel confident when I have to make a decision with limited information."
-                        }, {
-                            value: "risk6",
-                            text: "I can minimize the consequences of risk-taking by planning and preparing for each outcome."
-                        }]
-                    }
+                                    "elements": [
+                                        {
+                                            type: "dropdown",
+                                            name: "expertise",
+                                            isRequired: true,
+                                            title: "In case that you have you played Real Time Strategy Games (Games like StarCraft, Age of Empires, Halo Wars), which is your level of expertise? If you have not played any RTS Game, select novice.",
+                                            choices: ["No, I’m novice.",
+                                                "Yes, I consider myself a casual player.",
+                                                "Yes, I consider myself a proficient player",
+                                                "Yes, I consider myself an expert player"
+                                            ]
+                                        }
+                                    ]
+                                }
 
-                ]
-            }
-            ,
+                            ]
+                        }
+                        ,
 
+                        {
+                            title: "Attitudes towards risk",
+                            questions: [
+                                {
+                                    "type": "panel",
+                                    "innerIndent": 1,
+                                    "name": "panel1",
+                                    "title": "Risk",
+
+                                    "elements": [
+                                        {
+                                            type: "matrix",
+                                            name: "AttRisk",
+                                            title: "Please indicate if you agree or disagree with the following statements",
+
+                                            isAllRowRequired: true,
+                                            columns: [{
+                                                value: 1,
+                                                text: "I am risk averse"
+                                            }, {
+                                                value: 2,
+                                                text: "I am moderately risk averse"
+                                            }, {
+                                                value: 3,
+                                                text: "I am neither risk averse or risk seeking"
+                                            }, {
+                                                value: 4,
+                                                text: "I am moderately risk seeking"
+                                            }, {
+                                                value: 5,
+                                                text: "I am risk seeking"
+                                            }],
+                                            rows: [{
+                                                value: "risklife", isRequired: true,
+                                                text: "Which from the following options would you consider best characterises you overall as a attitude you have towards taking risks in life?"
+                                            }, {
+                                                value: "riskgames", isRequired: true,
+                                                text: "Which from the following options would you consider best characterises your approach to taking risks when you are playing games online?"
+                                            }, {
+                                                value: "risksports", isRequired: true,
+                                                text: "Which from the following options would you consider best characterises your approach to taking risks when you are playing sports?"
+                                            }]
+                                        }
+                                    ]
+                                }
+                                ,
+                                {
+                                    type: "matrix",
+                                    name: "AttRisk2",
+                                    title: "Please indicate if you agree or disagree with the following statements",
+                                    isAllRowRequired: true,
+                                    columns: [{
+                                        value: 1,
+                                        text: "Strongly Disagree"
+                                    }, {
+                                        value: 2,
+                                        text: "Disagree"
+                                    }, {
+                                        value: 3,
+                                        text: "Neutral"
+                                    }, {
+                                        value: 4,
+                                        text: "Agree"
+                                    }, {
+                                        value: 5,
+                                        text: "Strongly Agree"
+                                    }],
+                                    rows: [{
+                                        value: "risk1",
+                                        text: "Compared to the average person, I would say I take more risks"
+                                    }, {
+                                        value: "risk2",
+                                        text: "Before making a decision, I try to anticipate the factors that can influence the outcome."
+                                    }, {
+                                        value: "risk3",
+                                        text: "I'm willing to take a risk in order to get the desired outcome."
+                                    }, {
+                                        value: "risk4",
+                                        text: "I feel confident when I have to make a decision with an uncertain outcome."
+                                    }, {
+                                        value: "risk5",
+                                        text: "I feel confident when I have to make a decision with limited information."
+                                    }, {
+                                        value: "risk6",
+                                        text: "I can minimize the consequences of risk-taking by planning and preparing for each outcome."
+                                    }]
+                                }
+
+                            ]
+                        }
+                        ,
+            */
 
 
             {
@@ -265,7 +265,7 @@ survey.onComplete.add(function (result) {
      $(function () {
         Game.init();
         Game.surveyData = JSON.stringify(result.data);
-         console.log("enviando " + JSON.stringify(result.data ) );
+         console.log("sending " + JSON.stringify(result.data ) );
     });
 });
 
