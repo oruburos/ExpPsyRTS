@@ -18,7 +18,7 @@ var Levels = [
 			Map.offsetY = startPoint[Game.team].y;
 
 			Map.fogFlag = false;//niebla total
-			Game.showMessage('Gather resources.');
+			Game.showMessage('Gather resources. ');
 			Game.showWarning("Starting", 3000000)
 
 
@@ -251,7 +251,7 @@ var Levels = [
 			Map.offsetX = startPoint[Game.team].x;
 			Map.offsetY = startPoint[Game.team].y;
 
-			Map.fogFlag = false;//niebla total
+			Map.fogFlag = true;//niebla total
 			Game.showMessage('Gather resources.');
 			Game.showWarning("Starting", 3000000)
 
@@ -557,7 +557,7 @@ var Levels = [
 			min = new Mineral({ x: 1700, y: 1000 });
 			randomValue = Math.floor((Math.random() * 10) + 1);
 			min.resources = randomValue;
-			
+
 			min.HP = randomValue;
 			Game.totalResources = Game.totalResources + min.resources;
 
@@ -791,7 +791,7 @@ var Levels = [
 			min.HP = randomValue;
 			Game.totalResources = Game.totalResources + min.resources;
 
-	
+
 
 
 			m = new Competitor.CompetitorA({ x: 900, y: 1600, team: 2, });
