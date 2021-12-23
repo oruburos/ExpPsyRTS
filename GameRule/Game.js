@@ -211,9 +211,7 @@ var Game = {
 		//Start loading
 		Game.layerSwitchTo("GameLoading");
 		//Predator
-		//sourceLoader.load("img", Game.CDN + "img/Charas/Alien.png", "Alien");
-
-		sourceLoader.load("img", Game.CDN + "img/Charas/CompetitorA.png", "Alien");
+		sourceLoader.load("img", Game.CDN + "img/Charas/Alien.png", "Alien");
 		sourceLoader.load("img", Game.CDN + "img/Charas/CivilianGrey.png", "Civilian");
 		sourceLoader.load("img", Game.CDN + "img/Charas/CompetitorA.png", "CompetitorA");
 
@@ -226,7 +224,6 @@ var Game = {
 
 		sourceLoader.load("img", Game.CDN + "img/Maps/Map_Grass.jpg", "Map_Grass");
 		//Extra
-		//sourceLoader.load("img", Game.CDN + "img/Charas/BuildingBurst.png", "BuildingBurst");
 		sourceLoader.load("img", Game.CDN + "img/Charas/Portrait.png", "Portrait");
 		sourceLoader.load("img", Game.CDN + "img/Menu/ControlPanel.png", "ControlPanel");
 
@@ -885,7 +882,8 @@ var Game = {
 
 
 		$('div.resource_Box span.manNum>span')[0].innerHTML = Resource[Game.team].curMan;
-		$('div.resource_Box span.manNum>span')[1].innerHTML = Resource[Game.team].totalMan;
+		//$('div.resource_Box span.manNum>span')[1].innerHTML = Resource[Game.team].totalMan;
+		$('div.resource_Box span.manNum>span')[1].innerHTML = 1;
 
 		$('div.resource_Box span.manNum')[0].style.color = (Resource[Game.team].curMan > Resource[Game.team].totalMan) ? "red" : "'rgb(0, 22, 230)'";
 	},
@@ -1596,26 +1594,6 @@ var Game = {
 	,
 	getCondition: function () {
 
-		/*
-		$.ajax({
-			type: "POST",
-			url: 'php/getcondition.php',
-			success: function (data) {
-
-				console.log(data);
-				var obj = jQuery.parseJSON(data);
-
-				//Game.conditionExperiment = (parseInt(obj) % 4) + 1;
-				Game.conditionExperiment = 2; //
-				console.log( "Condition" + Game.conditionExperiment )//hay 5 condiciones
-				//console.log("grabado");
-				Game.createParticipant();
-			}
-		});
-
-		*/
-
-
 			Game.conditionExperiment = 1; //
 			console.log( "Condition" + Game.conditionExperiment )//hay 4 condiciones Experimento 3
 			Game.createParticipant();
@@ -1627,13 +1605,11 @@ var Game = {
 		console.log("reloading");
 		/* TO DO */
 
-
-
 	}
 	,
 
 	createParticipant: function () {
-		console.log("se usara la condicion " + Game.conditionExperiment +" prolid" + Game.prolificID + " sessid "+ Game.sessionID );
+		console.log("se usara la condicion " + Game.conditionExperiment +" prolificId" + Game.prolificID + " sessid "+ Game.sessionID );
 		$.ajax({
 			type: "POST",
 			url: 'php/createparticipant.php',
