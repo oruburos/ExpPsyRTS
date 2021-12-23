@@ -72,7 +72,7 @@ var HeatMap = {
 	update: function (tick) {
 
 		if (!Game.modoTutorial) {
-			console.log("Performance")
+			//console.log("Performance")
 			myself = this;
 			unitsXTick = [];
 
@@ -80,13 +80,13 @@ var HeatMap = {
 			Unit.allUnits.forEach(function (chara) {
 
 
-				//console.log("chara id " + chara.id + " x " + chara.posX() + " w " + chara.width + " name   " + chara.name)
+				console.log("chara id " + chara.id + " x " + chara.posX() + " w " + chara.width + " name   " + chara.name)
 
-				//   console.log( "actualizando " + chara.posX() +" " + chara.posY()  + " id:" + chara.id)
+				console.log( "actualizando " + chara.posX() +" " + chara.posY()  + " id:" + chara.id)
 				i = Math.floor(chara.posX() / myself.cell);
-				//console.log (i);
+				console.log (i);
 				j = Math.floor(chara.posY() / myself.cell);
-				//	console.log( "actualizando " + i +" " + j)
+					console.log( "actualizando " + i +" " + j)
 				if (chara.name === "Civilian") //CHECAR NOMBRE
 				{
 
@@ -140,9 +140,6 @@ var HeatMap = {
 				this.historialXunit[clave] = unitsXTick;
 
 			}
-		}else{
-			console.log("Training")
-
 		}
 	},
 

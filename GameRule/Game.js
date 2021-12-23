@@ -12,7 +12,7 @@ var Game = {
 
 	inGame: false,
 
-	trainingDuration:  300000,
+	trainingDuration:  1000,
 	sessionDuration: 300000,
 
 
@@ -111,7 +111,6 @@ var Game = {
     updateClock: function(){
 
 	    	//Game.refreshIntervalId   = 	setInterval(function () {
-			    console.log("funcion reloj")
 				minutes = parseInt(timer / 60, 10)
 				seconds = parseInt(timer % 60, 10);
 
@@ -212,7 +211,9 @@ var Game = {
 		//Start loading
 		Game.layerSwitchTo("GameLoading");
 		//Predator
-		sourceLoader.load("img", Game.CDN + "img/Charas/Alien.png", "Alien");
+		//sourceLoader.load("img", Game.CDN + "img/Charas/Alien.png", "Alien");
+
+		sourceLoader.load("img", Game.CDN + "img/Charas/CompetitorA.png", "Alien");
 		sourceLoader.load("img", Game.CDN + "img/Charas/CivilianGrey.png", "Civilian");
 		sourceLoader.load("img", Game.CDN + "img/Charas/CompetitorA.png", "CompetitorA");
 
@@ -260,7 +261,7 @@ var Game = {
 		//Game start
 		Game.layerSwitchTo("GameStart");
 
-		var level = Game.conditionExperiment;
+		let level = Game.conditionExperiment;
 
 
 		if (Game.modoTutorial) {
@@ -331,7 +332,7 @@ var Game = {
 	//Do we need this because we only support Predator vs Human vs Competitor?
 	expandUnitProps: function () {
 		//Post-operation for all unit types, prepare basic properties for different team numbers, init in level.js
-		_$.traverse([Predator, Human, Competitor], function (unitType) {
+		_$.traverse([Predator, Human, CompetitorA], function (unitType) {
 			['HP', 'SP', 'MP', 'damage', 'armor', 'speed', 'attackRange', 'attackInterval', 'plasma', 'sight'].forEach(function (prop) {
 				//Prop array, first one for us, second for enemy
 				if (unitType.prototype[prop] != undefined) {

@@ -19,7 +19,7 @@
 			this.sound.moving.volume = Game.volumenGlobal;
 			this.sound.death.volume = Game.volumenGlobal;
 */
-			
+
 			//Execute below after inherited class fully constructed, postpone
 			var myself=this;
 			Game.commandTimeout(function(){
@@ -114,7 +114,7 @@
 			navigateTo:function(clickX,clickY,range){
 				if (!range) range=Unit.moveRange;//Smallest limit by default
 				//Center position
-			//	console.log(" x, y : " + this.x + " " + this.y  );
+				console.log(" x, y : " + clickX + " " + clickY  + " range "+ range);
 				var charaX=this.posX();
 				var charaY=this.posY();
 
@@ -200,9 +200,9 @@
 
 			moveTo:function(clickX,clickY,range,callback){
 				if (!range){ range=Unit.moveRange;//Smallest limit by default
-				
+
 			//		console.log(" asignando rango");
-				
+
 				}
 				//Start new routing
 			//	console.log(" rango " + range )
@@ -214,7 +214,7 @@
 						return true;
 					}
 				};
-				
+
 				this.allFrames['routing']=routingFrame;
 				//Start moving
 				this.run();
@@ -226,7 +226,7 @@
 				var routingFrame=function(){
 					if (target.status!='dead'){
 						if (myself.navigateTo(target.posX(),target.posY(),range)) {
-							
+
 							//Run callback when reach target
 							if (typeof(callback)=='function') callback();
 							//Reach destination flag, fix twice callback issue
@@ -243,26 +243,26 @@
 				//Start moving
 				this.run();
 			},
-			
+
 			moveTowardPoint:function(pos,range,callback){
 				if (!range) range=Unit.moveRange;//Smallest limit by default
 				//Start new routing
 				var myself=this;
 				var routingFrame=function(){
 						if (myself.navigateTo(pos.x,pos.y ,range)) {
-							//console.log("navegando")
+							console.log("navegando")
 							//Run callback when reach target
 							if (typeof(callback)=='function') callback();
 							//Reach destination flag, fix twice callback issue
 							return true;
 						}
-					
+
 				};
 				this.allFrames['routing']=routingFrame;
 				//Start moving
 				this.run();
 			},
-			
+
 			//Override for sound effect
 			die:function(){
 				//Old behavior
@@ -310,8 +310,8 @@
 			getDamageBy:function(enemy,percent){
 				if (percent==undefined) percent=1;//100% by default
 
-				
-				var damage=0; 
+
+				var damage=0;
 				//If has SP and shield remain
 				if (this.shield>0) {
 					console.log( "agent with shield")
@@ -325,14 +325,14 @@
 					}
 				}
 				else {
-					
-					
+
+
 					damage=((this.calculateDamageBy(enemy)-this.get('armor'))*percent)>>0;
 					//if (damage<1) damage=0.5;
 					if (damage<1) damage=5;
 
 					//console.log( "agent "+ this.name +" getDamage by " + enemy.name +"armor  " + this.get('armor')+ " damage " + damage )
-					this.life-=damage; 
+					this.life-=damage;
 				}
 			},
 			//Attack ground action
@@ -825,7 +825,7 @@
 										})
 									}
 									else {
-										
+
 									//	console.log("Enewewemy " + enemy.name);
 										//Cause damage after finish whole melee attack action
 										Game.commandTimeout(function(){
@@ -885,20 +885,20 @@
 				targets.forEach(function(charas){
 					var myX=myself.posX();
 					var myY=myself.posY();
-					
-					
-					
+
+
+
 					var vision = myself.get('sight');
-					
-					
+
+
 					charas=charas.filter(function(chara){
 					//console.log(" vision " + myself.sight + " "+ myself.name)
-				 
+
 					//	console.log( "pos mia " + myX + " , " + myY + " posicion mineral " + chara.posX() + " , "+ chara.posY() + " puedo verlo " +myself.canSee(chara));
 				//	console.log( chara.name);
 						return !chara['isInvisible'+myself.team] && myself.canSee(chara) && myself.matchAttackLimit(chara)  && chara.name!=="CommandCenter";
 					}).sort(function(chara1,chara2){
-						
+
 						var X1=chara1.posX(),Y1=chara1.posY(),X2=chara2.posX(),Y2=chara2.posY();
 						return (X1-myX)*(X1-myX)+(Y1-myY)*(Y1-myY)-(X2-myX)*(X2-myX)-(Y2-myY)*(Y2-myY);
 					});
@@ -907,14 +907,14 @@
 				//Take attackable>>unattackable,unit>>building,near>>far as priority, will attracted if be attacked
 				return results;
 			},
-			
+
 			  findNearbyMinerals:function(){
 				//Initial
 				var myself=this;
 				var units=Unit.allUnits.filter(function(chara){
 				   return chara.isMineral;
 				});
-			   
+
 				var results=[];
 				var targets=[
 					units.filter(function(chara){
@@ -924,12 +924,12 @@
 				];
 				//console.log("ewrwerwe " + targets[0].length);
 				targets.forEach(function(charas){
-					
+
 					var myX=myself.posX();
 					var myY=myself.posY();
 					var vision = myself.get('sight');
-					
-					
+
+
 					charas=charas.filter(function(chara){
 					//console.log(" vision " + vision + " "+ myself.name)
 					//console.log( "pos mia " + myX + " , " + myY + " posicion mineral " + chara.posX() + " , "+ chara.posY() + " puedo verlo " +myself.canSee(chara));
@@ -941,11 +941,11 @@
 					results=results.concat(charas);
 				});
 				//Take attackable>>unattackable,unit>>building,near>>far as priority, will attracted if be attacked
-				
-				   //console.log("minerales par ami " + results.length);   
+
+				   //console.log("minerales par ami " + results.length);
 				return results;
 			},
-			
+
 			highestPriorityTarget:function(){
 				return this.findNearbyTargets()[0];
 			},
@@ -986,33 +986,33 @@
 					}
 				}
 			},
-			
-			
+
+
 			  findDepot:function(){
 				//Initial
 				var myself=this;
-		   
+
 				var buildings=Building.allBuildings;
 				var results=[];
 				var targets=
-					
+
 				   buildings.filter(function(build){
 					  // console.log(" tipo " + typeof (build.name)  + build.name )
 						return build.name === 'Nexus' });
 						//console.log("edificios " + targets.length)
 						return targets[0];
-			
+
 			},
-			
-			
+
+
 			collect:function(mineral){
-				
+
 		  	// console.log("cargando")
-			 if (this.carryingResources){ 
-			 
+			 if (this.carryingResources){
+
 			 return;}
 				if (mineral instanceof Gobj && mineral.status!="dead") {
-				  
+
 					this.stopAttack();
 					this.dock();
 					//New attack
@@ -1064,12 +1064,12 @@
 									myself.resources = Game.capacidadCarga;
 									mineral.resources = mineral.resources - Game.capacidadCarga;
 								}else{
-									
+
 									myself.resources = mineral.resources;
 								//	console.log("sonido de depletar")
 									mineral.die();
 									mineral = {};
-									
+
 								}
 
 
@@ -1077,7 +1077,7 @@
 
 
 								myself.carryingResources = true;
-								
+
 								Game.commandTimeout(function(){
 									myself.coolDown=true;
 								},myself.get('attackInterval'));
@@ -1086,7 +1086,7 @@
 								if (myself.AOE) {
 									//Get possible targets
 									switch(myself.attackLimit){
-									   
+
 										case "ground":
 											var mineralUnits=Unit.allUnits.filter(function(chara){
 												return chara.team!=myself.team && !(chara.isFlying);
@@ -1102,7 +1102,7 @@
 											});
 											break;
 									}
-								  
+
 								}
 								//First facing to mineral
 								myself.faceTo(mineral);
@@ -1120,12 +1120,12 @@
 										}
 									},myself.frame.attack*100);//attackAnimation < attackInterval
 								}
-							   
-							   
+
+
 
 							}
 							else{
-								
+
 								// console.log("else raro")
 							}
 						}
@@ -1134,45 +1134,44 @@
 				}
 			},
 			releaseLoad: function( id){
-			
-			
+
+
 			 var unit = Multiplayer.getUnitByID(id);
-				
+
 					Game.competitorResources++;//must be calculated
 					unit.carryingResources = false;
-					
+
 					//console.log("descarga  " + unit.id + " /* "+ unit.name + " " + unit.carryingResources );
-				
-				
-				
+
+
+
 			}
 			,
-			
+
 			walkRandomPosition: function(){
-		
+
 		//Add in new things
-		var myself=this;
-		var dockFrame=function(){
+		let myself=this;
+		let dockFrame=function(){
 			//Every 2 sec
 			//if ((Game.mainTick+myself.id)%50==0){
 			if ((Game.mainTick+myself.id)%20==0){//sospechoso
 				//console.log(" myself id" + myself.id )
 				var direction=Unit.randomDirection();
-				
 				//check this.
 			  var pos={
-				  
-				x : Math.random() * 2000, 
-				y : Math.random() * 2000 
+
+				x : Math.random() * 2000,
+				y : Math.random() * 2000
 				};
-				//console.log("move to point " + pos.x + " , " + pos.y )
-					myself.moveTowardPoint( pos , 40);
+				console.log("move to point " + pos.x + " , " + pos.y )
+				myself.moveTowardPoint( pos , 40);
 				/*
 				if (myself.isIdle()) {
 					console.log("move" + direction )
 					//myself.moveTo(myself.posX()+myself.get('speed')*(Unit.speedMatrix[direction].x)*16,
 					   // myself.posY()+myself.get('speed')*(Unit.speedMatrix[direction].y)*16);
-				
+
 				}
 				else delete myself.allFrames['dock'];*/
 				}
@@ -1180,18 +1179,18 @@
 		this.allFrames['dock']=dockFrame;
 	},
 			 AIForager:function(){
-				//console.log(" aiforager " +  this.status )
+				console.log(" aiforager " +  this.status  + " id " + this.id + " range " + this.range)
 				//Dead unit doesn't have following AI
 				if (this.status=='dead') {
-			//		console.log("DEAD")
+					console.log("DEAD")
 					return;
 				}
 				//If no mission, return it to scout status
 				if (this.isIdle()) {
-				//	console.log("IDLE")
+					console.log("IDLE")
 					this.targetLock=false;
 				}
-			 
+
 				if (this.targetLock) {
 					// target ran out of attack range
 					if (this.cannotReachTarget()) {
@@ -1201,47 +1200,47 @@
 				//If not lock target
 				else {
 					//Find in-range enemy by attack priority
-					 
-				   
-					
-					
+
+
+
+
 					//If not attacking but find in-range enemy
 					if (!this.carryingResources) {
 						 var mineral=this.highestPriorityMineral();
 						if( mineral ) {
 						if ( mineral.resources>0){
-						
-								//console.log("caminando a mineral");
+
+								console.log("caminando a mineral");
 								this.collect(mineral);
 							}
 						}else{
-						//	console.log("buscando mineral");
+							console.log("buscando mineral");
 							this.walkRandomPosition();
 						}
 					}else{
-						
+
 						if (!this.depot){
 
-										
+
 						 this.depot = this.findDepot();
-						 
+
 							console.log("depot en  " +  this.depot.posX() + " " +  this.depot.posY() ) ;
 						}else{
 							var myself = this;
 							myself.moveToward( myself.depot, 100, function() {
 		myself.releaseLoad (myself.id);
 	});
-							
-						
+
+
 						}
 					}
-				 
+
 				}
-				
-				
+
+
 			},
-			
-			
+
+
 			//Override
 			reactionWhenAttackedBy:function(enemy,onlyDamage){
 				//Resign and give reward to enemy if has no life before dead
@@ -1316,11 +1315,11 @@
 				this.stopAttack();
 				this.selected=false;
 			},
-			
+
 			 getCommandCenter:function(){
 				  //Initial
 				var myself=this;
-			  
+
 				var buildings=Building.allBuildings.filter(function(chara){
 					return chara.team==myself.team;
 				});

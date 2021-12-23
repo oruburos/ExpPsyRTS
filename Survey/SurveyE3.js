@@ -203,8 +203,8 @@ var json = {
                         }
                         ,
             */
-*/
-/*
+
+/**/
             {
                 title: "",
                 questions: [
@@ -253,7 +253,7 @@ var json = {
         ]
 };
 
-console.log(" experiment 3 , condition " + Game.conditionExperiment);
+console.log(" experiment 1 , condition " + Game.conditionExperiment);
 Survey
     .StylesManager
     .applyTheme("winterstone");

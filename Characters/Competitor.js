@@ -1,8 +1,9 @@
 /******* Define Competitor units *******/
-var Competitor={};
-Competitor.CompetitorA=AttackableUnit.extends({
+//Competitor={};
+CompetitorA=AttackableUnit.extends({
     constructorPlus:function(props){
         //Nothing
+
     },
     prototypePlus: {
         //Add basic unit info
@@ -84,9 +85,9 @@ Competitor.CompetitorA=AttackableUnit.extends({
             dock: 7,//7 or 8
             attack: 5
         },
-       
-		
-		
+
+
+
 		speed:5,//default
         HP: 10,
         damage: 0,
@@ -101,7 +102,7 @@ Competitor.CompetitorA=AttackableUnit.extends({
         unitType:Unit.SMALL,
         attackType:AttackableUnit.NORMAL_ATTACK,
 		depot: null,
-		
+
         cost:{
             mine:50,
         //    gas:150,
